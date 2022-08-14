@@ -1,0 +1,299 @@
+body {
+    /* Option #1: background image */
+    background-color: #e1e1e1;
+    background-position: center;
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
+    width: 100%;
+    height: 100%;
+    left:0px;
+    top:0px;
+    /* Option #2: dark grey background */
+    text-align: center;
+}
+
+h1, h2{
+ font-family: 'Oswald', sans-serif;
+ font-size: 60px;
+ text-transform: uppercase;
+ color: #ffce00;
+}
+
+h1{
+ font-size: 70px;
+}
+
+h2{
+ font-size: 30px;
+}
+
+p {
+    color: #c0ccd4;
+    font-size: 18px;
+    font-family: 'Source Sans Pro', sans-serif;
+    line-height: 0.7;
+}
+
+button{
+
+}
+
+button:hover {
+    color: white;
+}
+
+input{
+    border-radius: 8px;
+}
+
+#canvas-holder {
+  margin: 0;
+  display: flex;
+  /* This centers our sketch horizontally. */
+  justify-content: center;
+
+  /* This centers our sketch vertically. */
+  align-items: center;
+}
+
+ /* popup */
+
+.menuPopup {
+  position:absolute;
+  text-align: center;
+  z-index: 999;
+  left:0px;
+  top:0px;
+  display: block;
+  background-color: #e1e1e1;
+  width: 100%;
+  height: 100%;
+}
+
+.setting-popup-box{
+  margin-top: 20px;
+  width: 360px;
+  display:inline-block;
+  vertical-align: middle;
+  background-color: #e1e1e1; 
+  padding: 10px;
+
+  border-style: outset;
+}
+
+.setBtn{
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  border-style: outset;
+}
+
+.setBtn:active{
+  border-style: inset;
+}
+
+
+.middlebtn{
+  width: 40px;
+  height: 40px;
+}
+
+.diffibtn{
+  border-style: outset;
+  padding: 5px;
+  margin-bottom: 4px;
+  /*border-style: inset;*/
+}
+
+.underbtn{
+  border-style: outset;
+  padding: 5px;
+  margin-bottom: 4px;
+}
+
+.underbtn:active{
+  border-style: inset;
+}
+
+.themebtn{
+  border-style: outset;
+  display: inline-block;
+  padding: 5px;
+  margin-bottom: 4px;
+}
+
+.Subtitle{
+  padding: 3px;
+  margin-bottom: 10px;
+  background-color: #aaaaaa;
+}
+
+.box{
+  margin-bottom: 0px; 
+  margin-top: 10px;
+  border-style: inset;
+  padding: 10px;
+}
+
+ /* popup */
+ /* first popup */
+.startGamebtn{
+
+}
+
+.newGamebtn{
+  display: none;
+}
+
+.cancelbtn{
+  display: none;
+}
+
+
+ /* first popup */
+
+
+.content{
+  background-color: #e1e1e1; 
+  padding: 10px;
+  margin: 0 auto;
+  border-style: outset;
+  width: 360px;
+}
+
+.top{
+  width: 360px;
+  height: 40px;
+  margin: 0 auto;
+}
+
+.leftTop{
+  display: inline-block;
+  float: left;
+}
+
+.middleTop{
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.rightTop{
+  display: inline-block;
+  float: right;
+
+}
+
+.menuBtn{
+  width: 36px;
+  height: 36px;
+  border-style: outset;
+  background-image: url("../img/setbtn.png");
+  margin: 0 auto;
+}
+
+.menuBtn:active{
+  width: 36px;
+  height: 36px;
+  border-style: inset;
+  margin: 0 auto;
+
+}
+
+.startBtn{
+  width: 36px;
+  height: 36px;
+  border-style: outset;
+  background-image: url("../img/smile.png");
+  margin: 0 auto;
+
+}
+
+.startBtn_{
+  width: 36px;
+  height: 36px;
+  border-style: outset;
+  background-image: url("../img/dead.png");
+  margin: 0 auto;
+
+}
+
+.startBtn:active{
+  width: 36px;
+  height: 36px;
+  border-style: inset;
+  margin: 0 auto;
+
+}
+
+.flagBtn{
+  width: 36px;
+  height: 36px;
+  border-style: outset;
+  background-image: url("../img/flagbtn.png");
+  margin: 0 auto;
+
+}
+
+.flagBtn_{
+  width: 36px;
+  height: 36px;
+  border-style: inset;
+  background-image: url("../img/flagbtn_.png");
+  margin: 0 auto;
+
+}
+
+.middle{
+  margin: 20px;
+}
+
+.bottom{
+  border-style: inset;
+  width: 350px;
+  height: 32px;
+  margin: 0 auto;
+}
+
+.clock{
+  display: inline-block;
+  height: 24px;
+  bottom: 7px;
+  position: relative;
+}
+
+.timerIcon{
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url("../img/clock.png");
+  bottom: 1px;
+  position: relative;
+}
+
+.clockLb{
+  display: inline-block;
+  float: left;
+  margin: 5px;
+}
+
+.flagIcon{
+  display: inline-block;
+  width: 21px;
+  height: 24px;
+  background-image: url("../img/flag.png");
+  bottom: 1px;
+  position: relative;
+}
+
+.flags{
+  display: inline-block;
+  height: 24px;
+  bottom: 7px;
+  position: relative;
+}
+
+.flagLb{
+  display: inline-block;
+  float: right;
+  margin: 5px;
+}

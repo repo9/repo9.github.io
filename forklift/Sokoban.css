@@ -1,0 +1,602 @@
+#front, #back {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+body{
+    background-color: #F2EECA;
+}
+
+table#playfield, table#border {
+    border: 0;
+    margin: 0;
+    border-spacing: 0;
+}
+
+table#playfield thead td {
+    height: 0;
+}
+
+.title_loading{
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background:#FFE699;
+    z-index: 400;
+    padding: 0;
+    top:0px;
+    left:0px;
+    margin: 0px 0px;
+    animation: fadeOut 2s forwards;
+    -webkit-animation: fadeOut 2s forwards;
+    
+}
+
+.title_img{
+    position: absolute;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes fadeOut{
+    0%   { opacity: 1; }
+    40%   { opacity: 1; }
+    100%  { opacity: 0; visibility: hidden; }
+}
+
+@-webkit-keyframes fadeOut{
+    0%   { opacity: 1; }
+    40%   { opacity: 1; }
+    100%  { opacity: 0; visibility: hidden; }
+}
+
+
+.moveTap{
+    /*
+    position:absolute;
+    width: 100px;
+    height: 100px;
+    left:100px; 
+    top:100px;
+    cursor:pointer; 
+    cursor:hand;
+    background-color: red;
+    */
+    width: 32px;
+    height: 32px;
+    background: url(images/move.png);
+}
+
+.mainPanel{
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.scaletapdiv{
+    position: fixed;
+    top: 50%;
+    left: -70px;
+    z-index: 10;
+    margin: 2px 0px 2px 0px; 
+    padding: 0px;
+    height: 32px;
+    transform: translateX(-50%);
+    transform: rotate( -90deg );
+}
+
+.min{
+    width: 32px;
+    height: 32px;
+    margin: 0px;
+    padding: 0px;
+    background: url(images/min.png);
+}
+
+.max{
+    width: 32px;
+    height: 32px;
+    margin: 0px;
+    padding: 0px;
+    background: url(images/max.png);
+}
+
+.scale{
+    background: #fff;
+    height: 32px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.scaletap{
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+}
+
+#shroud{
+    transform: scale(1.5);
+}
+
+#playfieldContainer {
+    position: relative;
+    border: 0;
+    width: 0;
+    height: 0;
+    margin: auto;
+}
+
+table#playfield {
+    padding: 5px;
+    margin: auto;
+    z-index: 25;
+}
+
+td, tr {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.ul-corner, .ur-corner {
+    width: 15px;
+    height: 12px;
+}
+
+.bl-corner, .br-corner {
+    width: 15px;
+    height: 18px;
+}
+
+.l-side, .r-side {
+    width: 15px;
+}
+
+.u-side {
+    height: 12px;
+}
+
+.b-side {
+    height: 18px;
+}
+
+#center {
+    background-color: #eee;
+    text-align: center;
+    padding: 0;
+    margin: auto; 
+    border: 5px dashed #FFD966;
+    border-radius: 5px;
+}
+
+.centerpad {
+    background-color: #eee; 
+}
+
+.separator {
+    height: 6px;
+    background-color: #cf0;
+}
+
+
+
+table#playfield td {
+    /*width: 12px;
+    height: 12px;
+    */
+    width: 12px;
+    height: 12px;
+}
+
+#placeholder{
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    font-size: 14pt;
+    font-weight: bold;
+    width: 178px;
+    height: 129px;
+    vertical-align: middle;
+}
+
+#placeholder td {
+    vertical-align: middle;
+}
+
+div.player, div.playerR, div.playerL, div.playerT, div.playerB, div.player-won, div.boulder, div.boulder-in-hole {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 0;
+    padding: 0;
+    margin: 0px;
+    z-index: 50;
+}
+
+div.player {
+    background-image: url(images/player.png);
+    z-index: 52;
+}
+
+div.player-won {
+    background-image: url(images/player-won.png);
+    z-index: 52;
+}
+
+div.playerR {
+    background-image: url(images/playerR.png);
+    z-index: 52;
+}
+
+div.playerL {
+    background-image: url(images/playerL.png);
+    z-index: 52;
+}
+
+div.playerT {
+    background-image: url(images/playerT.png);
+    z-index: 52;
+}
+
+div.playerB {
+    background-image: url(images/playerB.png);
+    z-index: 52;
+}
+
+div.boulder {
+    background-image: url(images/boulder.png);
+}
+
+div.boulder-in-hole {
+    background-image: url(images/boulder-in-hole.png);
+    z-index: 51;
+}
+
+td.space {
+}
+
+td.wall {
+    background-image: url(images/wall.png);
+    
+}
+
+td.hole {
+    background-image: url(images/hole.png);
+}
+
+.func_div{
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    padding: 0px;
+}
+
+.next{
+    display: inline-block;
+    float: left;
+    width: 64px;
+    height: 64px;
+    background: url(images/next.png);
+    margin: 0px 0px 0px 5px;
+}
+
+.prev{
+    display: inline-block;
+    float: left;
+    width: 64px;
+    height: 64px;
+    background: url(images/prev.png);
+}
+
+.btn{
+}
+
+.menu_div{
+    position: fixed;
+    right: 10px;
+    top:10px;
+}
+
+.menubar{
+    display: inline-block;
+    float: left;
+}
+
+#menu{
+    background: url(images/menu.png);
+    width: 64px;
+    height: 64px;
+}
+
+#undo{
+    background: url(images/undo.png);
+    width: 64px;
+    height: 64px;
+}
+
+#reset{
+    background: url(images/reset.png);
+    width: 64px;
+    height: 64px;
+}
+
+.undo_div{
+    position: fixed;
+    right: 10px;
+    top: 158px;
+}
+
+.reset_div{
+    position: fixed;
+    right: 10px;
+    top: 84px;
+}
+
+.button {
+
+    cursor: pointer;
+}
+
+#statusbar {
+    font-size: 80%;
+    padding: 0 3px;
+}
+/*
+#buttonbar {
+    background-color: #666;
+    height: 19px;
+    font-family: Helvetica, sans-serif;
+    font-size: 9px;
+    font-weight: bold;
+    color: #fff;
+}
+*/
+#statusbar {
+    font-family: Helvetica, sans-serif;
+    height: 15px;
+    background-color: #ffc;
+    font-size: 11px;
+    font-weight: normal;
+    color: black;
+    vertical-align: middle;
+    padding-left: 5px;
+    padding-top: 1px;
+    margin: 0;
+}
+
+#statusbarText {
+    width: 150px;
+    height: 64px;
+    margin: 0px 5px 0px 0px;
+    padding: 0px;
+    text-align: center;
+    color: #fff;
+}
+
+.num{
+    height: 40px;
+    background:#BF9000;
+    border-radius: 10px;
+    line-height: 40px;
+    padding: 0px;
+    margin: 0px 0px 4px 0px;
+    font-size: 20px;
+}
+
+.mov{
+    height: 20px;
+    background:#BF9000;
+    border-radius: 10px;
+    line-height: 20px;
+    padding: 0px;
+    margin: 0px 0px 0px 0px;
+    font-size: 12px;
+}
+
+#statusbarButtons {
+    float: left;
+    margin-right: 5px;
+    margin-left: -5px;
+}
+
+#infoButton {
+    vertical-align: bottom;
+    cursor: pointer;
+    margin-left: 10px;
+    float: right;
+    -apple-dashboard-region: dashboard-region(control circle);
+    opacity: 0;
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 10pt;
+}
+
+/******************************/
+
+#back {
+    display: none;
+    position: absolute;
+    z-index: 99;
+    background-color: #222;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0px 0px;
+}
+
+.menu_tab{
+    top: 0px;
+    z-index: 200;
+    width: 100%;
+    height: 84px;
+    background-color: #D5CA59;
+}
+
+.menu_tit{
+    position: fixed;
+    right: 30px;
+    top: 10px;
+    height: 64px;
+    z-index: 200;
+    color:#fff;
+}
+
+.title_lab{
+    font-size: 30px;
+    line-height: 60px;
+    font-weight:bold;
+}
+
+.menu_panel {
+    z-index: 100;
+    position: relative;
+    width: 100%;
+    height: calc( 100% - 84px );
+    background: #F2EECA;
+    overflow:scroll;
+}
+
+.title_lab{
+    font-size: 25px;
+}
+
+.stage_list{
+    margin: 20px 30px 100px 30px;
+    text-align: center;
+}
+
+.slabel{
+    width: 100%;
+    height: 50px;
+    background: #D5CA59;
+    margin: 5px 0px 5px 0px;
+    padding: 0px;
+    border-radius: 10px;
+    /*border: 5px dotted #000;*/
+    text-align: center;
+}
+
+.stext{
+    font-size: 25px;
+    line-height: 50px;
+    font-weight: bold;
+    margin: 0px;
+    color: #000;
+}
+
+.pbox {
+    display: inline-block;
+    background: url(images/puzzlebox.png);
+    width: 64px;
+    height: 64px;
+    margin: 5px;
+    text-align: center;
+}
+
+.pbox_active{
+    display: inline-block;
+    background: url(images/puzzlebox_a.png);
+    width: 64px;
+    height: 64px;
+    margin: 5px;
+    text-align: center;
+    transform: scale(1.1);
+}
+
+.plabel{
+    margin: 0px;
+    font-size: 20px;
+    line-height: 64px;
+    width: 64px;
+    height: 64px;
+    color: #000;
+    cursor: pointer;
+}
+
+.controlLabel, .control {
+    position: absolute;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+    font-size: 8pt;
+}
+
+.controlLabel {
+    color: #fff;
+    font-weight: bold;
+}
+
+#puzzleSetLabel {
+    left: 8px;
+    top: 6px;
+}
+
+#puzzleSetControl {
+    left: 8px;
+    top: 20px;
+    width: 185px;
+}
+
+#puzzleSetMetadata {
+    left: 8px;
+    top: 48px;
+}
+
+#puzzleSetAuthor {
+    cursor: pointer;
+}
+
+#puzzleNumberLabel {
+    left: 8px;
+    top: 98px;
+}
+
+#puzzleNumberControl {
+    left: 100px;
+    top: 96px;
+    width: 30px;
+    text-align: right;
+}
+
+#help {
+    left: 8px;
+    top: 124px;
+    width: 184px;
+    font-weight: normal;
+    color: #eee;
+}
+
+#doneControl {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    width: 64px;
+    height: 64px;
+    background: url(images/done.png);
+    z-index: 200;
+}
+
+#versionTag {
+    left: 4px;
+    top: 184px;
+    cursor: pointer;
+    font-family: Lucida Grande;
+    font-size: 7pt;
+    font-weight: normal;
+    color: #999;
+    border-bottom: 1px solid #444;
+}
+
+.btn:active {
+  transform: translateY(4px);
+}

@@ -1,0 +1,102 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sokoban</title>
+    <style type="text/css">
+	@import "Sokoban.css";
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="SokobanObject.js"></script>
+    <script type="text/javascript" src="js/saveload.js"></script>
+    <script type="text/javascript" src="ui.js"></script>
+
+    <script type="text/javascript" src="stages/level1/stage1.js"></script>
+    <script type="text/javascript" src="stages/level1/stage2.js"></script>
+    <script type="text/javascript" src="stages/level2/stage3.js"></script>
+    <script type="text/javascript" src="stages/level2/stage4.js"></script>
+    <script type="text/javascript" src="stages/level2/stage5.js"></script>
+    <script type="text/javascript" src="stages/level3/stage6.js"></script>
+    <script type="text/javascript" src="stages/level3/stage7.js"></script>
+    <script type="text/javascript" src="stages/level3/stage8.js"></script>
+    <script type="text/javascript" src="stages/level3/stage9.js"></script>
+    <script type="text/javascript" src="stages/level3/stage10.js"></script>
+    <script type="text/javascript" src="stages/level3/stage11.js"></script>
+    <script type="text/javascript" src="stages/level3/stage12.js"></script>
+    <script type="text/javascript" src="stages/level3/stage13.js"></script>
+    <script type="text/javascript" src="stages/level4/stage14.js"></script>
+    <script type="text/javascript" src="stages/level4/stage15.js"></script>
+    <script type="text/javascript" src="stages/level4/stage16.js"></script>
+
+    <script type="text/javascript" src="SokobanEventHandlers.js"></script>
+    
+
+</head>
+
+
+<body onload="body_onload();" onkeydown="body_onkeydown(event);">
+
+    <div class="title_loading" id="title_loading">
+        <img class="title_img" src="images/title.png">
+    </div>
+
+	<div class="mainPanel" id="mainPanel">
+		<div id="shroud">
+            <div class="moveTap" style='position:absolute; left:50%; top:-40px; transform: translateX(-50%); cursor:pointer; cursor:hand;  margin:0px;' onmousedown='startDrag(event, this)'></div>
+			<div id="center" onmousemove="center_onmousemove();" onmouseout="center_onmouseout();">
+		    <div id="playfieldContainer"></div>
+		    
+		    <table id="playfield">
+			<tbody id="placeholder">
+			    <tr><td><div>Loading…</div></td></tr>
+			</tbody>
+		    </table>
+
+			</div>
+		</div>
+	</div>
+
+    <div id="front" onmousemove="front_onmousemove();" onmouseout="front_onmouseout();">
+    </div>
+
+    <div id="back">
+    	<div class="menu_tab">
+    		<div class="btn control" id="doneControl" type="button" onclick="doneControl_onclick();"></div>
+            <div class="menu_tit"><div class="title_lab">puzzles</div></div>
+    	</div>
+
+    	<div class="menu_panel">
+    		<div class="stage_list" id="stage_list">
+    		</div>
+		</div>
+    </div>
+
+    <div class="scaletapdiv">
+    	<div class="scaletap"><div class="min"></div></div>
+    		<input type="range" name="" class="scaletap scale" id="scale" value="50" min="0" max="100" required />
+    	<div class="scaletap"><div class="max"></div></div>
+	</div>
+
+	<div class="func_div">	
+    	<div class="btn prev" id="prevPuzzle" onclick="prevPuzzle_onclick();"></div>
+		<div class="btn next" id="nextPuzzle" onclick="nextPuzzle_onclick();"></div>
+	</div>
+
+    <div class="menu_div">
+    	<div class="menubar" id="statusbarText" >
+			<div id="numText" class="num"></div>
+			<div id="moveText" class="mov"></div>
+		</div>
+    	<div class="btn menubar" id="menu" onclick="infoButton_onclick();" /></div>
+    </div>
+
+    <div class="undo_div">
+    	<div class="btn" id="undo" onclick="undo_onclick();"></div>
+    </div>
+
+    <div class="reset_div">
+    	<div class="btn" id="reset" onclick="reset_onclick();"></div>
+    </div>
+
+</body>
+</html>
