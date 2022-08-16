@@ -4,9 +4,9 @@ window.onload = function(){
   var gameHeight = window.innerHeight;
   var ratio = 4/3;
 
-  if (gameHeight / gameWidth < ratio) {
-    gameWidth = Math.ceil(gameHeight / ratio);
-  }
+  //if (gameHeight / gameWidth < ratio) {
+  //  gameWidth = Math.ceil(gameHeight / ratio);
+  //}
 
   var game = new Phaser.Game(gameWidth, gameHeight, Phaser.CANVAS, 'game');
   game.state.add("menu",menuState,true);
@@ -18,6 +18,8 @@ var menuState = function(game){
 
   var enterKey, leftKey, rightKey;
   var wh=0;  //select player
+
+  var y = -230;
 
   this.init = function(){
     if(!this.game.device.desktop){
@@ -36,6 +38,7 @@ var menuState = function(game){
     this.load.spritesheet("item", "./assets/items.png",24,24);
     this.load.spritesheet("icon", "./assets/icons.png",20,20);
     //this.load.spritesheet("guide", "./assets/guide.png",200,126);
+    this.load.spritesheet("title", "./assets/title.png",200,126);
     //this.game.add.text(this.world.centerX, this.world.centerY, "Loading...", {fontSize:"24px", fill:"#fff"}).anchor.set(0.5);
   };
   this.create = function(){
@@ -55,19 +58,19 @@ var menuState = function(game){
     },this);
 
     for (var i=0; i<3; i++){
-      this.playerArr[i] = this.game.add.sprite(this.world.centerX, 240, "player", i);
+      this.playerArr[i] = this.game.add.sprite(this.world.centerX, this.world.centerY+240+y, "player", i);
       this.playerArr[i].anchor.set(0.5);
       this.playerArr[i].alpha = 0;
     }
     this.playerArr[this.game.playerStyle].alpha = 1;
 
-    var btn1 = this.game.add.sprite(this.world.centerX-100, 245, "button", 4);
+    var btn1 = this.game.add.sprite(this.world.centerX-100, this.world.centerY+245+y, "button", 4);
     btn1.anchor.set(0.5);
     btn1.inputEnabled = true;
     btn1.events.onInputDown.add(function(){
       this._setPlayer(-1);
     },this);
-    var btn2 = this.game.add.sprite(this.world.centerX+100, 250, "button", 5);
+    var btn2 = this.game.add.sprite(this.world.centerX+100, this.world.centerY+250+y, "button", 5);
     btn2.anchor.set(0.5);
     btn2.inputEnabled = true;
     btn2.events.onInputDown.add(function(){
@@ -77,6 +80,10 @@ var menuState = function(game){
     //var guide = this.game.add.sprite(this.world.centerX,80,"guide",6);
     //guide.anchor.set(0.5);
     //guide.scale.set(1.0);
+
+    var title = this.game.add.sprite(this.world.centerX,200,"title",6);
+    title.anchor.set(0.5);
+    title.scale.set(1.4);
 
     enterKey = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
     leftKey = game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
@@ -135,7 +142,7 @@ var mainState = function(game){
   var holding;
   var holdTime;
 
-  var enterKey, leftKey, rightKey;
+  var spaceKey, leftKey, rightKey;
   var kj=1;
 
   var gameState = true;
@@ -234,7 +241,7 @@ var mainState = function(game){
 
     //this.game.input.keyboard.addCallbacks(this, null, null, this._jump);
 
-    enterKey = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+    spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     leftKey = game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
     rightKey = game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
 
@@ -255,7 +262,7 @@ var mainState = function(game){
     }
 
 
-    if (enterKey.isDown && kj){
+    if (spaceKey.isDown && kj){
       console.log("down");
 
         if(gameState){
@@ -272,7 +279,7 @@ var mainState = function(game){
         }else{
           //this.game.state.start("main");
         }
-    }else if (enterKey.isUp&& kj==-1){
+    }else if (spaceKey.isUp&& kj==-1){
       if(gameState){
         kj = 1;
         this._jump();
