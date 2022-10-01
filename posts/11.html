@@ -1,0 +1,115 @@
+<html>
+<head>
+
+<h2>클라이언트-인증자 프로토콜(CTAP)</h2>
+
+</head>
+<body>
+<h4>7-3. CTAP1/U2F 인증자와 함께 CTAP2 인증자GetAssertion 명령 사용</h4>
+플랫폼은 다음 절차를 따릅니다 (그림: 매핑: CTAP1/U2F 인증 메시지와 WebAuthn 인증자 GetAssertion 사이) .
+
+플랫폼은 CTAP2 프로토콜 개요 에 지정된 대로 인증자GetInfo 명령을 전송하여 인증자에 대한 정보를 얻으려고 시도합니다 .
+
+CTAP1/U2F 인증자가 명령 오류 또는 형식이 잘못된 CBOR 응답을 반환합니다. 실패 시 플랫폼이 CTAP1/U2F 프로토콜로 대체될 수 있습니다.
+
+CTAP2 인증자 GetAssertion 요청을 U2F_AUTHENTICATE 요청에 매핑:
+
+플랫폼은 CTAP2 요청에 CTAP1/U2F 인증자가 수행할 수 없는 매개변수가 없는지 확인합니다.
+
+플랫폼이 다음 단계로 진행하려면 아래의 모든 조건이 충족되어야 합니다. 아래 조건 중 하나라도 해당되지 않으면 CTAP2_ERR_UNSUPPORTED_OPTION과 함께 플랫폼 오류가 발생합니다.
+
+옵션은 true로 설정된 "uv"를 포함하지 않아야 합니다.
+
+allowList에는 최소한 하나의 자격 증명이 있어야 합니다.
+
+allowList에 둘 이상의 자격 증명이 있는 경우 플랫폼은 목록을 반복하고 개별 다른 U2F_AUTHENTICATE 명령을 인증자에게 보내야 합니다. 자격 증명 목록의 각 자격 증명에 대해 아래와 같이 CTAP2 인증자 GetAssertion 요청을 U2F_AUTHENTICATE 에 매핑 합니다.
+
+controlByte다음과 같이 초기화된 바이트를 하자 :
+
+"up"이 false로 설정된 경우 0x08(dont-enforce-user-presence-and-sign)로 설정합니다.
+
+USB의 경우 0x07(체크 전용)으로 설정합니다. 이렇게 하면 사용자 입력을 기다리는 동안 통화가 차단되는 것을 방지할 수 있습니다. 응답이 성공을 반환하면 강제 사용자 존재 및 서명을 설정하여 다시 호출하십시오.
+
+NFC의 경우 0x03(enforce-user-presence-and-sign)으로 설정합니다. 탭은 이미 존재를 제공했으며 차단하지 않습니다.
+
+CTAP2 요청의 clientDataHash 매개변수를 CTAP1/U2F 챌린지 매개변수(32바이트)로 사용합니다.
+
+CTAP1 /U2F 응용 매개변수(32바이트)로 매개변수 rpIdHash의 SHA-256 해시로 초기화된 크기 32의 바이트 배열이라고 합니다 .rp.id
+
+Let credentialId은 이 PublicKeyCredentialDescriptor의 ID로 초기화된 바이트 배열입니다.
+
+바이트 배열 keyHandleLength의 길이로 초기화된 바이트라고 하자 .credentialId
+
+u2fAuthenticateRequest다음과 같은 구조의 바이트 배열 이라고 하자 .
+
+길이(바이트)	설명	값
+32	도전 매개변수	clientDataHash 매개변수 바이트로 초기화됩니다.
+32	응용 매개변수	rpIdHash바이트 로 초기화 됩니다.
+1	키 핸들 길이	keyHandleLength의 값 으로 초기화됩니다 .
+keyHandleLength	키 핸들	credentialId바이트 로 초기화 됩니다.
+Control Byte그리고 프레임의 P1 이라고 하자 .
+
+인증 자에게 보냅니다 u2fAuthenticateRequest.
+
+U2F 인증 응답 메시지( [U2FRawMsgs] 의 "인증 응답 메시지: 성공" 섹션 참조 )를 CTAP2 인증자 GetAssertion 응답 메시지에 매핑합니다.
+
+authenticatorData인증자 로부터 받은 U2F 인증 응답 메시지 에서 생성 :
+
+CTAP2/U2F 응답 사용자 존재 바이트의 비트 0(UP 비트)과 비트 1을 각각 CTAP2 플래그의 비트 0과 1로 복사합니다. 플래그의 다른 모든 비트를 0으로 설정합니다. 참고: 비트 0은 최하위 비트입니다. [WebAuthn] 의 인증자 데이터 섹션도 참조하십시오 .
+
+signCountCTAP1/U2F 응답 카운터 필드로 초기화된 4바이트 무부호 정수라 하자 .
+
+Let authenticatorData은 다음 구조의 바이트 배열입니다.
+
+길이(바이트)	설명	값
+32	의 SHA-256 해시입니다 rp.id.	rpIdHash바이트 로 초기화 됩니다.
+1	깃발	flags' 값 으로 초기화됩니다 .
+4	서명 카운터(signCount)	signCount바이트 로 초기화 됩니다.
+authenticatorGetAssertionResponse값이 다음과 같은 다음 키가 있는 CBOR 맵을 가정 합니다.
+
+응답이 성공한 allowList의 자격 증명으로 0x01을 설정합니다.
+
+0x02를 authenticatorData바이트로 설정합니다.
+
+CTAP1/U2F 인증 응답 메시지의 서명 필드로 0x03을 설정합니다.
+
+샘플 CTAP2 인증자GetAssertion 요청(CBOR):
+{1: "example.com",
+ 2: h'687134968222EC17202E42505F8ED2B16AE22F16BB05B88C25DB9E602645F141',
+ 3: [{"유형": "공개 키",
+      "id": h'3EBD89BF77EC509755EE9C2635EFAAAC7B2B9C5CEF1736C3717DA48534C8C6B6
+              54D7FF945F50B5CC4E78055BDD396B64F78DA2C5F96200CCD415CD08FE420038'}],
+ 5: {"위": 참}}
+위의 CTAP2 인증자에서 CTAP1/U2F 요청 GetAssertion 요청
+
+687134968222EC17202E42505F8ED2B16AE22F16BB05B88C25DB9E602645F141 # 클라이언트 데이터 해시
+1194228DA8FDBDEEFD261BD7B6595CFD70A50D70C6407BCF013DE96D4EFB17DE # rpIdHash
+40 # 키 핸들 길이(1바이트)
+3EBD89BF77EC509755EE9C2635EFAAAC7B2B9C5CEF1736C3717DA48534C8C6B6 # 키 핸들(키 핸들 길이 바이트)
+54D7FF945F50B5CC4E78055BDD396B64F78DA2C5F96200CCD415CD08FE420038 # ...
+장치의 샘플 CTAP1/U2F 응답
+
+01 # 사용자 존재(1 Byte)
+0000003B # 부호 수(4바이트)
+304402207BDE0A52AC1F4C8B27E003A370CD66A4C7118DD22D5447835F45B99C # 서명(가변 길이)
+68423FF702203C517B47877F85782DE10086A783D1E7DF4E3639E771F5F6AFA3 # ...
+5AAD5373858E # ...
+CTAP1/U2F 응답의 인증자 데이터
+
+1194228DA8FDBDEEFD261BD7B6595CFD70A50D70C6407BCF013DE96D4EFB17DE # rpIdHash
+01 # 사용자 존재(1 Byte)
+0000003B # 부호 수(4바이트)
+매핑된 CTAP2 인증자GetAssertion 응답(CBOR)
+
+{1: {"유형": "공개 키",
+     "id": h'3EBD89BF77EC509755EE9C2635EFAAAC7B2B9C5CEF1736C3717DA48534C8C6B6
+             54D7FF945F50B5CC4E78055BDD396B64F78DA2C5F96200CCD415CD08FE420038'},
+ 2: h'1194228DA8FDBDEEFD261BD7B6595CFD70A50D70C6407BCF013DE96D4EFB17DE
+      010000003B',
+ 3: h'304402207BDE0A52AC1F4C8B27E003A370CD66A4C7118DD22D5447835F45B99C
+      68423FF702203C517B47877F85782DE10086A783D1E7DF4E3639E771F5F6AFA3
+      5AAD5373858E'}
+CTAP1/U2F 인증 - 인증자GetAssertion Compat.
+매핑: CTAP1/U2F 인증 메시지와 WebAuthn 인증자 GetAssertion 사이.
+</body>
+</html>

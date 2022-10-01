@@ -1,0 +1,219 @@
+<html>
+<head>
+
+<h2>클라이언트-인증자 프로토콜(CTAP)</h2>
+
+</head>
+<body>
+<h4>7. CTAP1/U2F 인증자와 연동</h4>
+이 섹션에서는 플랫폼이 CTAP2를 통해 CTAP1/U2F 인증자를 지원하기 위해 CTAP2 요청을 CTAP1/U2F 요청에 매핑하고 CTAP1/U2F 응답을 CTAP2 응답에 매핑하는 방법을 정의합니다. CTAP2 요청에 CTAP2 인증자만 수행할 수 있는 매개변수가 없는 경우 CTAP2 요청을 CTAP1/U2F 요청에 매핑할 수 있습니다. RP가 CTAP1/U2F 기반 인증자MakeCredential 및 인증자GetAssertion 응답을 확인하는 데 사용할 프로세스도 아래에 정의되어 있습니다. 플랫폼은 이 기능을 건너뛰고 CTAP 장치에서만 작동하도록 선택할 수 있습니다.
+
+<h4>7-1. U2F 명령의 프레이밍</h4>
+U2F 프로토콜은 요청자가 U2F 장치에 요청 메시지를 보내는 요청-응답 메커니즘을 기반으로 하며, 그 결과 항상 U2F 장치에서 요청자에게 응답 메시지가 다시 전송됩니다.
+
+요청 메시지는 하위 계층으로 보내기 위해 "프레임화"되어야 합니다. 서명 요청을 예로 들면 "프레이밍"은 FIDO 클라이언트가 하위 전송 계층에 서명 요청을 보낸 다음 원시 메시지 내용을 보내는 방법입니다. 프레이밍은 또한 명령이 실패한 경우 전송이 응답 원시 메시지와 오류 코드와 같은 메타 정보를 반송하는 방법을 지정합니다.
+
+현재 버전의 U2F에서 프레임은 ISO7816-4:2005 확장 APDU 형식을 기반으로 정의됩니다. 장치는 일반적으로 이미 이 형식을 이해하는 보안 요소를 중심으로 구축되기 때문에 이것은 USB 전송에 매우 적합합니다. 이 동일한 주장은 블루투스 기반 장치와 같은 미래에도 적용될 수 있습니다. 모바일 장치 TEE에 내장된 u2f 토큰과 같은 다른 전송을 기반으로 하는 다른 선물의 경우 이 프레이밍이 적절하지 않을 수 있으며 다른 프레이밍을 정의해야 할 수 있습니다.
+
+7.1.1. U2F 요청 메시지 프레이밍
+원시 요청 메시지는 명령 APDU로 구성됩니다.
+
+CLA	INS	P1	P2	LC1	LC2	LC3	
+어디에:
+
+CLA : 기본 전송 프로토콜(해당되는 경우)에서 사용하도록 예약되어 있습니다. 호스트 응용 프로그램은 이 바이트를 0으로 설정해야 합니다.
+
+INS : 다음 섹션에서 정의되는 U2F 명령 코드입니다.
+
+P1, P2 : 각 명령에 의해 정의되는 파라미터 1과 2.
+
+LC1-LC3 : 요청 데이터의 길이, 빅 엔디안 코딩, 즉 LC1은 MSB 및 LC3 LSB
+
+7.1.2. U2F 응답 메시지 프레이밍
+원시 응답 데이터는 응답 APDU로 구성됩니다.
+
+SW1	SW2
+어디에:
+
+SW1, SW2 : 상태 워드 바이트 1 및 2, 아래에 정의된 16비트 상태 워드를 형성합니다. SW1은 MSB이고 SW2는 LSB입니다. 상태 코드
+
+다음 ISO7816-4 정의 상태 단어는 U2F에서 특별한 의미를 갖습니다.
+
+SW_NO_ERROR : 명령이 오류 없이 성공적으로 완료되었습니다.
+
+SW_CONDITIONS_NOT_SATISFIED : 사용자 존재 테스트가 필요하기 때문에 요청이 거부되었습니다.
+
+SW_WRONG_DATA : 유효하지 않은 키 핸들로 인해 요청이 거부되었습니다.
+
+각 구현은 다른 공급업체별 상태 코드를 정의하여 오류 조건에 대한 추가 정보를 제공할 수 있습니다. 위에 나열된 오류 코드만 U2F FIDO 클라이언트에서 처리되는 반면 다른 오류 코드는 일반 오류로 간주되며 이러한 코드의 로깅은 선택 사항입니다.
+
+<h4>7-2. CTAP1/U2F 인증자와 함께 CTAP2 인증자MakeCredential 명령 사용</h4>
+플랫폼은 다음 절차를 따릅니다 (그림: 매핑: CTAP1/U2F 등록 메시지와 WebAuthn 인증자MakeCredential 사이) .
+
+플랫폼은 CTAP2 프로토콜 개요 에 지정된 대로 인증자GetInfo 명령을 전송하여 인증자에 대한 정보를 얻으려고 시도합니다 .
+
+CTAP1/U2F 인증자가 명령 오류 또는 형식이 잘못된 CBOR 응답을 반환합니다. 실패 시 플랫폼이 CTAP1/U2F 프로토콜로 대체될 수 있습니다.
+
+CTAP2 인증자MakeCredential 요청을 U2F_REGISTER 요청에 매핑합니다.
+
+플랫폼은 CTAP2 요청에 CTAP1/U2F 인증자가 수행할 수 없는 매개변수가 없는지 확인합니다.
+
+플랫폼이 다음 단계로 진행하려면 아래의 모든 조건이 충족되어야 합니다. 아래 조건 중 하나라도 해당되지 않으면 CTAP2_ERR_UNSUPPORTED_OPTION과 함께 플랫폼 오류가 발생합니다.
+
+pubKeyCredParams는 ES256 알고리즘(-7)을 사용해야 합니다.
+
+옵션은 true로 설정된 "rk"를 포함하지 않아야 합니다.
+
+옵션은 true로 설정된 "uv"를 포함하지 않아야 합니다.
+
+excludeList가 비어 있지 않은 경우:
+
+excludeList가 비어 있지 않으면 플랫폼은 excludeList의 각 자격 증명 ID(키 핸들)를 사용하여 CTAP1/U2F 인증자에게 검사 전용 제어 바이트가 있는 서명 요청을 보내야 합니다. 그 중 하나라도 오류가 발생하지 않으면 이것이 알려진 장치임을 의미합니다. 그 후에도 플랫폼은 여전히 ​​제외된 것으로 판단되는 CTAP1/U2F 인증자에게 더미 등록 요청(더미 appid 및 유효하지 않은 챌린지 포함)을 보내야 합니다. 이렇게 하면 RP가 토큰이 이미 등록되었다는 메시지를 받기 전에 사용자가 CTAP1/U2F 인증자를 계속 터치해야 합니다.
+
+CTAP2 요청의 clientDataHash 매개변수를 CTAP1/U2F 챌린지 매개변수(32바이트)로 사용합니다.
+
+CTAP1 /U2F 응용 매개변수(32바이트)로 매개변수 rpIdHash의 SHA-256 해시로 초기화된 크기 32의 바이트 배열이라고 합니다 .rp.id
+
+[U2FrawMsgs] 사양 에 지정된 대로 인증자에게 U2F_REGISTER 요청을 보냅니다 .
+
+U2F 등록 응답 메시지( FIDO U2F 원시 메시지 형식 v1.0 §registration-response-message-success 참조)를 CTAP2 인증자MakeCredential 응답 메시지에 매핑합니다.
+
+authenticatorData인증자 로부터 받은 U2F 등록 응답 메시지( FIDO U2F Raw Message Formats v1.0 §registration-response-message-success ) 에서 생성 :
+
+초기화 attestedCredData:
+
+CTAP1 credentialIdLength/U2F 응답 키 핸들 길이로 초기화된 Credential ID의 길이를 나타내는 2바이트의 부호 없는 빅엔디안 정수라 하자.
+
+credentialIdCTAP1/U2F 응답 키 핸들 바이트로 초기화 된 credentialIdLength바이트 배열 이라고 하자 .
+
+U2F 등록 응답 메시지 [U2FRawMsgs]x9encodedUserPublicKey 에서 반환된 것으로 가정 합니다 . 의 값을 ANS X9.62 / Sec-1 v2 비압축 곡선 점 표현 [SEC1V2] 에서 COSE_Key 표현( [RFC8152] Section 7) 으로 변환한 결과라고 하자 .user public keycoseEncodedCredentialPublicKeyx9encodedUserPublicKey
+
+attestedCredData다음과 같은 구조의 바이트 배열 이라고 하자 :
+
+길이(바이트)	설명	값
+16	인증자의 AAGUID입니다.	모두 0으로 초기화됩니다.
+2	자격 증명 ID의 바이트 길이 L	credentialIdLength바이트 로 초기화 됩니다.
+credentialIdLength	자격 증명 ID.	credentialId바이트 로 초기화 됩니다.
+77	자격 증명 공개 키입니다.	coseEncodedCredentialPublicKey바이트 로 초기화 됩니다.
+초기화 authenticatorData:
+
+0 flags번째 비트(비트 0, UP)가 설정되고 6번째 비트(비트 6, AT)가 설정되고 다른 모든 비트는 0(비트 0이 최하위 비트)인 바이트라고 합니다. [WebAuthn] 의 인증자 데이터 섹션도 참조하십시오 .
+
+signCount0으로 초기화된 4바이트 무부호 정수라 하자 .
+
+authenticatorData다음과 같은 구조의 바이트 배열 이라고 하자 .
+
+길이(바이트)	설명	값
+32	의 SHA-256 해시입니다 rp.id.	rpIdHash바이트 로 초기화 됩니다.
+1	깃발	flags' 값 으로 초기화됩니다 .
+4	서명 카운터(signCount).	signCount바이트 로 초기화 됩니다.
+가변 길이	증명된 자격 증명 데이터 .	attestedCredData의 값 으로 초기화됩니다 .
+값이 다음과 같은 다음 키를 사용하여 CBOR 맵(증명 개체 생성 [WebAuthn]의 "attStmtTemplate" 참조) 이라고 가정 합니다attestationStatement .
+
+CTAP1/U2F 응답에서 추출한 하나의 증명 인증서의 배열로 "x5c"를 설정합니다.
+
+"sig"를 U2F 등록 응답 메시지 [U2FRawMsgs] 의 "서명" 바이트로 설정합니다 .
+
+값이 다음과 같은 다음 키를 사용하여 CBOR 맵(Attestation 객체 [WebAuthn]의 "attObj" 참조) 이라고 attestationObject가정 합니다 .
+
+"authData"를 로 설정합니다 authenticatorData.
+
+"fmt"를 "fido-u2f"로 설정하십시오.
+
+"attStmt"를 로 설정합니다 attestationStatement.
+
+attestationObject발신자에게 돌아 갑니다.
+
+샘플 CTAP2 인증자MakeCredential 요청(CBOR):
+{1: h'687134968222EC17202E42505F8ED2B16AE22F16BB05B88C25DB9E602645F141',
+ 2: {"아이디": "example.com",
+     "이름": "example.com"},
+ 3: {"아이디": "1098237235409872",
+     "이름": "johnpsmith@example.com",
+     "아이콘": "https://pics.example.com/00/p/aBjjjpqPb.png",
+     "displayName": "John P. Smith"},
+ 4: [{"유형": "공개 키", "alg": -7},
+     {"유형": "공개 키", "alg": -257}]}
+위의 CTAP1/U2F 요청 CTAP2 인증자MakeCredential 요청
+
+687134968222EC17202E42505F8ED2B16AE22F16BB05B88C25DB9E602645F141 # 클라이언트 데이터 해시
+1194228DA8FDBDEEFD261BD7B6595CFD70A50D70C6407BCF013DE96D4EFB17DE # rpIdHash
+장치의 샘플 CTAP1/U2F 응답
+
+05 # 예약된 바이트(1바이트)
+04E87625896EE4E46DC032766E8087962F36DF9DFE8B567F3763015B1990A60E # 사용자 공개 키(65바이트)
+1427DE612D66418BDA1950581EBC5C8C1DAD710CB14C22F8C97045F4612FB20C # ...
+91 # ...
+40 # 키 핸들 길이(1바이트)
+3EBD89BF77EC509755EE9C2635EFAAAC7B2B9C5CEF1736C3717DA48534C8C6B6 # 키 핸들(키 핸들 길이 바이트)
+54D7FF945F50B5CC4E78055BDD396B64F78DA2C5F96200CCD415CD08FE420038 # ...
+3082024A30820132A0030201020204046C8822300D06092A864886F70D01010B # X.509 인증서(가변 길이 인증서)
+0500302E312C302A0603550403132359756269636F2055324620526F6F742043 # ...
+412053657269616C203435373230303633313020170D31343038303130303030 # ...
+30305A180F32303530303930343030303030305A302C312A302806035504030C # ...
+2159756269636F205532462045452053657269616C2032343931383233323437 # ...
+37303059301306072A8648CE3D020106082A8648CE3D030107034200043CCAB9 # ...
+2CCB97287EE8E639437E21FCD6B6F165B2D5A3F3DB131D31C16B742BB476D8D1 # ...
+E99080EB546C9BBDF556E6210FD42785899E78CC589EBE310F6CDB9FF4A33B30 # ...
+39302206092B0601040182C40A020415312E332E362E312E342E312E34313438 # ...
+322E312E323013060B2B0601040182E51C020101040403020430300D06092A86 # ...
+4886F70D01010B050003820101009F9B052248BC4CF42CC5991FCAABAC9B651B # ...
+BE5BDCDC8EF0AD2C1C1FFB36D18715D42E78B249224F92C7E6E7A05C49F0E7E4 # ...
+C881BF2E94F45E4A21833D7456851D0F6C145A29540C874F3092C934B43D222B # ...
+8962C0F410CEF1DB75892AF116B44A96F5D35ADEA3822FC7146F6004385BCB69 # ...
+B65C99E7EB6919786703C0D8CD41E8F75CCA44AA8AB725AD8E799FF3A8696A6F # ...
+1B2656E631B1E40183C08FDA53FA4A8F85A05693944AE179A1339D002D15CABD # ...
+810090EC722EF5DEF9965A371D415D624B68A2707CAD97BCDD1785AF97E258F3 # ...
+3DF56A031AA0356D8E8D5EBCADC74E071636C6B110ACE5CC9B90DFEACAE640FF # ...
+1BB0F1FE5DB4EFF7A95F060733F5 # ...
+30450220324779C68F3380288A1197B6095F7A6EB9B1B1C127F66AE12A99FE85 # 서명(가변 길이)
+32EC23B9022100E39516AC4D61EE64044D50B415A6A4D4D84BA6D895CB5AB7A1 # ...
+AA7D081DE341FA # ...
+CTAP1/U2F 응답의 인증자 데이터
+
+1194228DA8FDBDEEFD261BD7B6595CFD70A50D70C6407BCF013DE96D4EFB17DE # rpIdHash
+41 # 플래그
+00000000 # 서명 수
+0000000000000000000000000000000 # AAGUID
+0040 # 키 핸들 길이(1바이트)
+3EBD89BF77EC509755EE9C2635EFAAAC7B2B9C5CEF1736C3717DA48534C8C6B6 # 키 핸들(키 핸들 길이 바이트)
+54D7FF945F50B5CC4E78055BDD396B64F78DA2C5F96200CCD415CD08FE420038 # ...
+A5010203262001215820E87625896EE4E46DC032766E8087962F36DF9DFE8B56 # 공개 키
+7F3763015B1990A60E1422582027DE612D66418BDA1950581EBC5C8C1DAD710C # ...
+B14C22F8C97045F4612FB20C91 # ...
+매핑된 CTAP2 인증자MakeCredential 응답(CBOR)
+
+{1: "fido-u2f",
+ 2: h'1194228DA8FDBDEEFD261BD7B6595CFD70A50D70C6407BCF013DE96D4EFB17DE
+      410000000000000000000000000000000000000000403EBD89BF77EC509755
+      EE9C2635EFAAAC7B2B9C5CEF1736C3717DA48534C8C6B654D7FF945F50B5CC4E
+      78055BDD396B64F78DA2C5F96200CCD415CD08FE420038A50102032620012158
+      20E87625896EE4E46DC032766E8087962F36DF9DFE8B567F3763015B1990A60E
+      1422582027DE612D66418BDA1950581EBC5C8C1DAD710CB14C22F8C97045F461
+      2FB20C91',
+ 3: {"시그": h'30450220324779C68F3380288A1197B6095F7A6EB9B1B1C127F66AE12A99FE85
+              32EC23B9022100E39516AC4D61EE64044D50B415A6A4D4D84BA6D895CB5AB7A1
+              AA7D081DE341FA',
+             "x5c": [h'3082024A30820132A0030201020204046C8822300D06092A864886F70D01010B
+                       0500302E312C302A0603550403132359756269636F2055324620526F6F742043
+                       412053657269616C203435373230303633313020170D31343038303130303030
+                       30305A180F32303530303930343030303030305A302C312A302806035504030C
+                       2159756269636F205532462045452053657269616C2032343931383233323437
+                       37303059301306072A8648CE3D020106082A8648CE3D030107034200043CCAB9
+                       2CCB97287EE8E639437E21FCD6B6F165B2D5A3F3DB131D31C16B742BB476D8D1
+                       E99080EB546C9BBDF556E6210FD42785899E78CC589EBE310F6CDB9FF4A33B30
+                       39302206092B0601040182C40A020415312E332E362E312E342E312E34313438
+                       322E312E323013060B2B0601040182E51C020101040403020430300D06092A86
+                       4886F70D01010B050003820101009F9B052248BC4CF42CC5991FCAABAC9B651B
+                       BE5BDCDC8EF0AD2C1C1FFB36D18715D42E78B249224F92C7E6E7A05C49F0E7E4
+                       C881BF2E94F45E4A21833D7456851D0F6C145A29540C874F3092C934B43D222B
+                       8962C0F410CEF1DB75892AF116B44A96F5D35ADEA3822FC7146F6004385BCB69
+                       B65C99E7EB6919786703C0D8CD41E8F75CCA44AA8AB725AD8E799FF3A8696A6F
+                       1B2656E631B1E40183C08FDA53FA4A8F85A05693944AE179A1339D002D15CABD
+                       810090EC722EF5DEF9965A371D415D624B68A2707CAD97BCDD1785AF97E258F3
+                       3DF56A031AA0356D8E8D5EBCADC74E071636C6B110ACE5CC9B90DFEACAE640FF
+                       1BB0F1FE5DB4EFF7A95F060733F5']}}
+CTAP1/U2F 레지스터 - 인증자MakeCredential Compat.
+매핑: WebAuthn 인증자MakeCredential과 CTAP1/U2F 등록 메시지 사이.
+</body>
+</html>
