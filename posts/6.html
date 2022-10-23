@@ -1,13 +1,46 @@
-<html>
-<head>
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2170323107556217"
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2170323107556217"
      crossorigin="anonymous"></script>
+    <!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
+    <title></title>
 
-<h2>클라이언트-인증자 프로토콜(CTAP)</h2>
+    <!-- Custom styles for this template -->
+    <link href="../asset/css/offcanvas.css" rel="stylesheet">
 
-</head>
-<body>
+    <!--  -->
+    <link href="../asset/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+  	<nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">repo9 playground!</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+          	<!--
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        	-->
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+
+    <div class="container">
 <h4>5-5. 인증자 클라이언트 핀(0x06)</h4>
 이 명령의 설계 목표 중 하나는 인증자에 대한 부담을 최소화하고 일반 인증자 사용 시나리오에서 실제 암호화된 PIN을 인증자에게 보내지 않도록 하여 보안을 강화하는 것입니다. 따라서 아래 디자인은 PIN을 설정하거나 변경할 때 암호화된 형식으로만 PIN을 전송합니다. 일반적인 PIN 사용 시나리오에서 설계는 전원 주기마다 생성되는 무작위 pinToken 을 사용합니다.
 
@@ -306,5 +339,20 @@ ECDH 키 계약 프로토콜에 대한 자세한 내용은 [RFC6090] 섹션 4.1 
 인증자는 "sharedSecret": 를 사용하여 암호화된 pinToken을 반환합니다 AES256-CBC(sharedSecret, IV=0, pinToken).
 
 pinToken은 패딩이나 IV가 없는 16바이트(AES 블록 길이)의 배수여야 합니다. 이 체계에는 PKCS #7 패딩이 사용되지 않습니다.
-</body>
+</div>
+      <hr>
+
+      <footer>
+        <p>
+          © 2022 GitHub, Inc.  tel : 000-0000-0000  e-mail : fffffff@fffffff.io
+        </p>
+      </footer>
+
+    </div><!--/.container-->
+
+    <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+    <script src="../asset/js/bootstrap.min.js"></script>
+  </body>
 </html>

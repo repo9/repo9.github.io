@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2170323107556217"
+     crossorigin="anonymous"></script>
+    <!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
+    <title></title>
+
+    <!-- Custom styles for this template -->
+    <link href="../asset/css/offcanvas.css" rel="stylesheet">
+
+    <!--  -->
+    <link href="../asset/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+  	<nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">repo9 playground!</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+          	<!--
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        	-->
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+
+    <div class="container">
+    <h4>1. 소개</h4>
+2.1 동기
+FIDO는 개념적으로 등록된 키의 범위를 (사용자 이름, 인증자, 신뢰 당사자) 튜플에 설정합니다. 그러나 신뢰당을 구성하는 것은 무엇입니까? 사용자가 동일한 장치, 하나 이상의 웹 브라우저 및 하나 이상의 전용 앱에서 신뢰 당사자의 동일한 서비스 집합에 액세스하는 것은 매우 일반적입니다. 신뢰 당사자는 사용자가 자신의 신원을 증명하고 새 FIDO 키를 등록하기 위해 값비싼 의식을 수행하도록 요구할 수 있으므로 사용자가 각 브라우저에 대해 한 번씩 동일한 장치에서 이 의식을 여러 번 반복해야 하는 것은 바람직하지 않습니다. 앱.
+
+2.2 앱 피싱 방지
+FIDO는 간단한 PIN 코드를 입력하고 디바이스를 터치하거나 손가락을 스캔하는 등 등록된 키에 액세스할 수 있도록 사용자 친화적인 인증 행사를 제공합니다. 사용자가 신뢰 당사자 간에 동일한 확인 입력을 재사용하는 경우 보안상의 이유로 문제가 되지 않으며 생체 인식의 경우 선택의 여지가 없을 수 있습니다.
+
+"앱 스토어" 배포 모델을 사용하는 최신 운영 체제는 종종 사용자에게 모든 앱을 "사용하는 것이 안전"하다고 약속합니다. 애플리케이션 간에 강력한 격리를 제공하여 서로의 데이터를 읽거나 상호 간섭하지 않도록 하고 공유 시스템 리소스에 액세스하기 위해 명시적인 사용자 권한을 요구함으로써 이를 수행합니다.
+
+사용자가 "진행 상황을 저장"하기 위해 FIDO 인증자를 활성화하도록 지시하지만 실제로는 은행 자격 증명을 잠금 해제하고 계정을 인계하는 악의적으로 제작된 게임을 다운로드하는 경우 피싱의 위험이 지금까지 계속되었기 때문에 FIDO는 실패했습니다. 비밀번호에서 앱 다운로드로 이동했습니다. FIDO는 등록된 키가 나타내는 고가치 공유 상태를 잘 보관함으로써 모든 앱이 "사용하기에 안전"하다는 플랫폼의 약속을 위반해서는 안 됩니다.
+
+2.3 OAuth 및 OAuth2 비교
+프로토콜의 OAuth 및 OAuth2는 각 애플리케이션 인스턴스가 발행될 수 있고 "애플리케이션 비밀"을 유지할 수 있다는 가정하에 서버 간 보안 모델을 위해 설계되었습니다. 이 접근 방식은 "앱 스토어" 보안 모델에 적합하지 않습니다. 서비스가 승인된/공식 앱만 연결하도록 허용하기 위해 OAuth 스타일의 애플리케이션 비밀을 앱에 프로비저닝하는 것이 일반적이지만 이러한 "비밀"은 실제로 앱 스토어에 대한 액세스 권한이 있는 모든 사람과 공유되며 기본적인 리버스 엔지니어링을 철저히 복구했습니다.
+
+대조적으로, FIDO의 패싯 개념은 처음부터 "앱 스토어" 모델을 위해 설계되었습니다. 클라이언트 측 플랫폼 격리 기능에 의존하여 사용자가 나중에 악성 앱을 설치하더라도 선의로 행동하는 "신뢰할 수 있는 클럽"의 회원이 등록한 키가 신뢰할 수 있는 클럽 내에 유지되도록 합니다. 그렇게 하려면 공유 패키지에 하드 코딩된 모든 비밀이 필요합니다. 그러나 사용자는 여전히 등록 의식을 수행할 앱과 브라우저에 대해 올바른 결정을 내려야 합니다. 앱 스토어 경찰은 사용자가 신뢰 당사자를 위해 FIDO 키를 불법적이거나 사기적으로 사용하도록 요청하는 응용 프로그램을 제거하여 여기에서 도움을 줄 수 있습니다.
+
+2.4 비목표
+애플리케이션 패싯 개념 은 네트워크를 통해 서비스에 대한 호출 애플리케이션을 강력하게 식별하려고 시도하지 않습니다. 애플리케이션 ID의 원격 증명은 명시적인 목표가 아닙니다.
+
+승인되지 않은 앱이 사용자에게 새 FIDO 키를 등록하는 데 필요한 모든 정보를 제공하도록 설득할 수 있는 경우 신뢰 당사자는 FIDO 프로토콜 또는 패싯 개념을 사용하여 승인되지 않은 것으로 인식하거나 해당 애플리케이션이 FIDO 작업을 수행하는 것을 거부할 수 없습니다. 사용자가 이러한 방식으로 신뢰하기로 선택한 응용 프로그램은 이 문서에 설명된 메커니즘 외부의 키에 대한 액세스를 공유할 수도 있습니다.
+
+패싯 메커니즘은 등록된 키가 Trusted Computing Base 에서 생성되고 액세스될 때 적절한 범위를 유지하는 방법을 제공합니다.(TCB) 악성 앱의 격리를 제공합니다. 사용자는 사용자 친화적인 TCB를 사용하여 여러 장치 간에 자격 증명을 로밍할 수도 있으며 이 메커니즘이 각각에 의해 올바르게 구현되면 자격 증명은 적절한 범위를 유지합니다. 그러나 "루트" 수준 권한으로 작동하는 악성 코드가 있는 장치와 같이 TCB가 사용자에게 적대적인 환경에서는 보장할 수 없습니다. 응용 프로그램 격리를 제공하지 않지만 사용자 권한으로 모든 코드를 실행하는 환경(예: 기존 데스크톱 운영 체제)에서 웹 브라우저를 포함한 온전한 TCB는 웹 원본에 대해서만 자격 증명 범위를 성공적으로 적용할 수 있지만 의미 있는 응용 프로그램을 적용할 수는 없습니다. 범위 지정.
+
+3. AppID 및 FacetID 어설션
+사용자가 등록 작업[ UAFArchOverview ]을 수행하면 인증자가 새 개인 키를 만들고 공개 키를 신뢰 당사자에게 보냅니다. 이 프로세스의 일부로 각 키는 AppID. 서버에서 보낸 프로토콜 메시지 의 AppID일부로 전달되는 URL이며 이 자격 증명의 대상을 나타냅니다. 기본적으로 자격 증명의 대상은 의 동일한 출처 로 제한됩니다 AppID. 어떤 상황에서는 신뢰 당사자가 키에 더 큰 범위를 적용하기를 원할 수 있습니다. 해당 AppIDURL에 https스키마가 있는 경우 FIDO 클라이언트는 이를 역참조 및 처리할 수 있습니다.TrustedFacetListAppID 오리진의 동일한 DNS 제어 영역 내의 다른 웹 오리진 또는 모바일 앱과 같은 다른 유형의 신뢰할 수 있는 패싯의 ID를 나타내는 URL과 같은 여러 패싯을 포함하는 범위 또는 대상 제한을 지정합니다.
+
+메모
+AppID사용자는 계정이 여러 개인 경우와 같이 에 대한 단일 인증자에 여러 키를 등록할 수도 있습니다. 이러한 등록에는 사용자가 식별할 수 있도록 연결된 신뢰 당사자 할당 사용자 이름 또는 로컬 닉네임이 있을 수 있으며 그렇지 않을 수도 있습니다(예: 2차 요소 사용 사례의 경우 키와 연결된 사용자 계정이 대역 외 통신될 수 있음) FIDO 프로토콜에 의해 지정된 것). 를 공유하는 모든 등록은 AppID이러한 동일한 대상 제한도 공유합니다.
+
+3.1 AppID 및 FacetID 어설션에 대한 처리 규칙
+3.1.1 호출 애플리케이션의 FacetID 결정
+웹의 경우 FacetID 는 FIDO 작업을 트리거하는 웹 페이지 의 웹 오리진[ RFC6454 ] 이어야 하며 빈 경로가 있는 URI로 작성되어야 합니다. 기본 포트는 생략되고 모든 경로 구성 요소는 무시됩니다.
+
+다음은 FacetID의 예입니다.
+
+https://login.mycorp.com/
+Android [ ANDROID ]의 경우 FacetID 는 다음과 같이 apk 서명 인증서 [ APK-Signing ] 의 SHA-1 해시에서 파생된 URI 여야 합니다.
+
+android:apk-key-hash:<sha1_hash-of-apk-signing-cert>
+SHA-1 해시는 다음과 같이 계산할 수 있습니다.
+
+예 1 : APK 서명 인증서 해시 계산
+# 서명 인증서를 DER 형식, 해시, base64 인코딩 및 트리밍 '='로 내보냅니다.
+
+keytool -exportcert -alias androiddebugkey -keystore \
+  <apk-signing-keystore 경로> &>2 /dev/null | openssl sha1 \
+  -바이너리 | openssl base64 | sed 's/=//g'
+iOS [ iOS ]의 경우 FacetID 는 애플리케이션 의 BundleID [ bundleid ] URI 여야 합니다.
+
+ios:bundle-id:<ios-bundle-id-of-app>
+3.1.2 호출자의 FacetID가 AppID에 대해 승인되었는지 확인
+AppID가 HTTPS URL이 아니고 호출자의 FacetID와 일치하는 경우 추가 처리가 필요하지 않으며 작업을 진행할 수 있습니다.
+AppID가 null이거나 비어 있는 경우 클라이언트 는 AppID를 호출자의 FacetID로 설정 해야 하며 추가 처리 없이 작업을 진행할 수 있습니다.
+호출자의 FacetID가 https://AppID와 동일한 호스트를 공유하는 Origin인 경우(예: https://fido.example.com/myAppAppID가 로 설정된 애플리케이션에서 호스팅되는 경우 https://fido.example.com/myAppId) 추가 처리가 필요하지 않으며 작업이 계속될 수 있습니다. 이 알고리즘 은 원하는 경우 신뢰할 수 있는 패싯 목록을 캐싱할 목적으로 비동기식으로 계속될 수 있습니다( may ).
+HTTP GET 메서드를 사용하여 신뢰할 수 있는 패싯 목록을 가져오기 시작합니다. 위치 는 HTTPS URL로 식별되어야 합니다 ( must ).
+URL 은 익명 가져오기 로 역참조되어야 합니다 ( must ) . 즉, HTTP GET 에는 쿠키, 인증, Origin 또는 Referer 헤더가 포함되지 않아야 하며 TLS 인증서 또는 다른 형식의 자격 증명이 없어야 합니다.
+응답 은 "application/fido.trusted-apps+json"의 MIME 콘텐츠 유형을 설정 해야 합니다( must ).
+HTTP 응답의 캐싱 관련 HTTP 헤더 필드(예: "만료") 는 신뢰할 수 있는 패싯 목록을 가져올 때 존중 되어야 합니다( should ).
+Trusted Facets List를 호스팅하는 서버는 모든 클라이언트에 균일하게 응답 해야 합니다( must ). 즉, 요청과 함께 제공된 발신 IP 주소와 같은 주변 권한을 포함하여 자격 증명 자료를 기반으로 응답 본문의 내용을 변경 해서는 안 됩니다( must not ).
+서버가 HTTP 리디렉션(상태 코드 3xx)을 반환하는 경우 서버는 HTTP 헤더도 보내야 하고 클라이언트 는 리디렉션을 따르기 전에 그러한 헤더의 존재를 확인 해야 합니다(must ) . 이는 승인되지 않은 당사자가 대상 도메인 내에서 열린 리디렉터를 남용하는 것을 방지합니다. 이 검사를 통과한 경우 4단계부터 이 알고리즘을 다시 시작합니다.FIDO-AppID-Redirect-Authorized: true
+신뢰할 수 있는 패싯 목록 에는 무제한 항목이 포함될 수 있지만 클라이언트는 큰 응답 처리를 자르 거나 거부할 수 있습니다.
+trustedFacet배열 의 객체 중 version프로토콜 메시지 버전과 일치하는 객체를 선택합니다.
+의 URL 체계 는 애플리케이션 ID(예: , 또는 유사한 체계 사용) 또는 웹 출처[ RFC6454 ] 를 식별해야 합니다( ids must ).apk:ios:https:
+체계 를 ids사용하는 항목 은 선택적인 후행 /와 함께 체계, 호스트 및 포트 구성 요소만 포함 해야 합니다( must ). 모든 경로, 쿼리 문자열, 사용자 이름/비밀번호 또는 단편 정보 는 폐기해야 합니다 ( must ).https://
+나열된 모든 웹 오리진 에는 다음 알고리즘을 사용하여 DNS에서 동일한 최소 특정 개인 레이블 범위 아래에 호스트 이름이 있어야 합니다( must ).
+https://publicsuffix.org/list/effective_tld_names.dat (클라이언트가 이러한 데이터를 캐시 할 수 있음) 에서 공개 DNS 접미사 목록을 얻 거나 플랫폼에서 사용할 수 있는 동등한 기능을 얻습니다.
+리디렉션을 따르기 전에 원래 AppID URL의 호스트 부분을 추출합니다.
+최소 특정 개인 레이블은 AppID URL의 호스트 부분에서 공용 접미사와 왼쪽에 하나의 추가 레이블과 일치하는 부분입니다.
+TrustedFacets 목록의 각 웹 오리진에 대해 DNS의 최소 특정 개인 레이블 계산은 AppID URL 자체의 대소문자를 구분하지 않고 일치 해야 합니다. 일치하지 않는 항목 은 버려야 합니다 (must ).
+TrustedFacets 목록을 검색할 수 없고 이러한 규칙에 따라 성공적으로 구문 분석될 수 없는 경우 클라이언트 는 요청된 FIDO 작업의 처리를 중단 해야 합니다( must ).
+trustedFacets올바른 항목을 처리하고 version잘못된 항목을 제거한 후 호출자의 FacetID가 에 나열된 것과 일치 ids하면 작업이 허용됩니다.
+</div>
+      <hr>
+
+      <footer>
+        <p>
+          © 2022 GitHub, Inc.  tel : 000-0000-0000  e-mail : fffffff@fffffff.io
+        </p>
+      </footer>
+
+    </div><!--/.container-->
+
+    <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+    <script src="../asset/js/bootstrap.min.js"></script>
+  </body>
+</html>

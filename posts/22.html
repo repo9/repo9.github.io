@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2170323107556217"
+     crossorigin="anonymous"></script>
+    <!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
+    <title></title>
+
+    <!-- Custom styles for this template -->
+    <link href="../asset/css/offcanvas.css" rel="stylesheet">
+
+    <!--  -->
+    <link href="../asset/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+  	<nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">repo9 playground!</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+          	<!--
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        	-->
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+
+    <div class="container">
+    <h4>1. 소개</h4>
+3.1.3 TrustedFacets 구조
+trustedFacetsAppID URL에서 호스팅되는 JSON 리소스는 사전 배열인 단일 구성원을 포함하는 사전으로 구성됩니다 TrustedFacets.
+
+사전 TrustedFacets {
+ 버전 버전 ; DOMString[] ID ; 
+};         
+     
+3.1.3.1 사전 TrustedFacets구성원
+version버전 유형
+이 신뢰할 수 있는 패싯 집합이 적용되는 프로토콜 버전입니다. 구조 정의는 [ UAFProtocol ]을 참조하십시오.version
+idsDOMString 의 유형 배열
+이 AppID에 대해 승인된 패싯을 식별하는 URL 배열입니다.
+3.1.4 AppID 예 1:
+".com"은 공개 접미사입니다. "https://www.example.com/appID"는 AppID로 제공됩니다. 이 위치의 리소스 본문에는 다음이 포함됩니다.
+실시예 2
+{
+  "trustedFacets": [{
+    "버전": { "주": 1, "부": 0 },
+    "아이디": [
+     "https://register.example.com", // VALID, "example.com" 레이블 공유
+     "https://fido.example.com", // 유효, "example.com" 라벨 공유
+     "http://www.example.com", // DISCARD, 스키마가 https가 아님:
+     "http://www.example-test.com", // DISCARD, "example-test.com"이 일치하지 않습니다.
+     "https://www.example.com:444" // VALID, 포트가 중요하지 않음
+    ]
+  }]
+}
+이 정책의 경우 "https://www.example.com" 및 "https://register.example.com"은 이 AppID 및 "https://user1.example.com"에 대해 등록된 키에 액세스할 수 있습니다. 하지 않을 것입니다.
+3.1.5 AppID 예제 2:
+"hosting.example.com"은 "example.com"에서 운영되는 공개 접미사이며 많은 회사에 호스팅 클라우드 서비스를 제공하는 데 사용됩니다. "https://companyA.hosting.example.com/appID"가 AppID로 제공됩니다. 이 위치의 리소스 본문에는 다음이 포함됩니다.
+실시예 3
+{
+  "trustedFacets": [{
+    "버전": { "주": 1, "부": 0 },
+    "아이디": [
+        "https://register.example.com", // DISCARD, "companyA.hosting.example.com" 레이블을 공유하지 않음
+        "https://fido.companyA.hosting.example.com", // VALID, "companyA.hosting.example.com" 라벨 공유
+        "https://xyz.companyA.hosting.example.com", // VALID, "companyA.hosting.example.com" 레이블 공유
+        "https://companyB.hosting.example.com" // DISCARD, "companyB.hosting.example.com"이 일치하지 않음
+     ]
+  }]
+}
+이 정책의 경우 "https://fido.companyA.hosting.example.com"은 이 AppID에 대해 등록된 키와 "https://register.example.com" 및 "https://companyB. Hosting.example.com"은 이러한 DNS 이름과 AppID 사이에 공개 접미사가 존재하지 않기 때문입니다.
+3.1.6 안드로이드 네이티브 앱의 FacetID 얻기
+이 섹션은 비표준입니다.
+
+다음 코드는 FIDO 클라이언트가 호출하는 Android 네이티브 애플리케이션의 FacetID를 얻고 구성하는 방법을 보여줍니다.
+                
+
+개인 문자열 getFacetID(컨텍스트 aContext, int callUid) {
+
+    문자열 packageNames[] = aContext.getPackageManager().getPackagesForUid(callingUid);
+
+    if (패키지 이름 == null) {
+        널 반환;
+    }
+
+    노력하다 {
+        PackageInfo 정보 = aContext.getPackageManager().getPackageInfo(packageNames[0], PackageManager.GET_SIGNATURES);
+
+        바이트[] 인증서 = 정보.서명[0].toByteArray();
+        InputStream 입력 = 새로운 ByteArrayInputStream(cert);
+
+        CertificateFactory cf = CertificateFactory.getInstance("X509");
+        X509Certificate c = (X509Certificate) cf.generateCertificate(입력);
+
+        MessageDigest md = MessageDigest.getInstance("SHA1");
+
+        반환 "android:apk-key-hash:" +
+                  Base64.encodeToString(md.digest(c.getEncoded()), Base64.DEFAULT | Base64.NO_WRAP | Base64.NO_PADDING);
+    }
+    캐치(패키지매니저.이름NotFoundException e) {
+        e.printStackTrace();
+    }
+    catch (CertificateException e) {
+        e.printStackTrace();
+    }
+    잡기 (NoSuchAlgorithmException e) {
+        e.printStackTrace();
+    }
+    catch (CertificateEncodingException e) {
+        e.printStackTrace();
+    }
+
+    널 반환;
+}
+              
+
+            
+3.1.7 추가 보안 고려 사항
+UAF 프로토콜은 FacetID를 FIDO 서버에 전달하고 인증 응답 계산에 FacetID를 포함하는 것을 지원합니다.
+
+웹 원본 패싯을 신뢰하면 웹 사용자 에이전트가 해당 원본 간에 보안 장벽을 제공하지 않기 때문에 명명된 엔터티 아래의 모든 하위 도메인을 암시적으로 신뢰합니다. 따라서 AppID 예 1에서 명시적으로 나열되지는 않았지만 "https://foobar.register.example.com"은 여전히 ​​AppID "https://www.example.com/appID"에 대해 등록된 자격 증명에 유효한 액세스 권한을 가집니다. 효과적으로 "https://register.example.com"으로 작동할 수 있습니다.
+
+여기에 설명된 컨트롤을 구현하는 구성 요소는 메커니즘을 안전하게 적용하기 위해 호출자를 안정적으로 식별해야 합니다. 이러한 식별을 허용하는 플랫폼 간 프로세스 통신 메커니즘은 가능한 경우 사용해야 합니다 ( should ).
+
+여기에 설명된 제어를 구현하는 구성 요소가 에 있는 항목의 무결성과 의도를 확인할 수 있을 것 같지 않습니다 TrustedFacetList. 신뢰할 수 있는 패싯이 악의적인 당사자에 의해 손상되거나 혼란스러운 대리인 [ FIDOGlossary ]으로 등록될 수 있는 경우 사용자를 속여 해당 악의적인 당사자의 제어 하에 인증 절차를 완료하도록 할 수 있습니다.
+
+3.1.7.1 TrustedFacet 식별자의 와일드카드
+이 섹션은 비표준입니다.
+
+와일드카드는 TrustedFacet 식별자에서 지원되지 않습니다. 이것은 RFC6125 [ RFC6125 ], 섹션 7.2의 조언을 따릅니다.
+
+FacetID는 등록된 지정된 자격 증명과 상호 작용하도록 신뢰할 수 있는 특정 보안 주체를 고유하게 식별하는 URI입니다. 와일드카드는 와일드카드가 무엇을 의미하는지, 어떻게 확장되는지, 공통적으로 사용되는 다양한 애플리케이션 및 프로토콜에서 발생할 수 있는 위치에 대한 합의 구문이 없기 때문에 보안 주체를 정의할 때 바람직하지 않은 모호성을 유발합니다. 응용 프로그램 ID를 나타내는 체계의 경우 와일드카드가 어떤 방식으로든 적절한지 명확하지 않습니다. Web Origins의 경우 잠재적으로 불량 또는 버그가 있는 호스트를 포함하도록 자격 증명의 범위를 광범위하게 확장합니다.
+
+종합하면 이러한 모호성으로 인해 클라이언트 구현 간의 신원 확인 동작에 악용 가능한 차이가 발생할 수 있으며 지나치게 복잡하고 비효율적인 신원 확인 알고리즘이 필요합니다.
+
+가. 참고문헌
+A.1 규범적 참조
+[FIDO용어집]
+R. Lindemann, D. Baghdasaryan, B. Hill, J. Hodges, FIDO 기술 용어집 . FIDO Alliance 제안 표준. URL:
+HTML: fido-glossary-v1.0-ps-20141208.html
+PDF: fido-glossary-v1.0-ps-20141208.pdf
+[RFC2119]
+S. 브래드너. 요구 사항 수준을 나타내기 위해 RFC에서 사용하는 키워드 . 1997년 3월. 모범 사례. URL: https://tools.ietf.org/html/rfc2119
+[RFC6125]
+P. Saint-Andre, J. Hodges, TLS(전송 계층 보안)(RFC 6125) 컨텍스트에서 X.509(PKIX) 인증서를 사용하는 인터넷 공개 키 인프라 내 도메인 기반 애플리케이션 서비스 ID 표현 및 검증 , IETF, 2011년 3월, URL: http://www.ietf.org/rfc/rfc6125.txt
+[RFC6454]
+A. 바르트. 웹 오리진 개념 . 2011년 12월. 제안된 표준. URL: https://tools.ietf.org/html/rfc6454
+[UAF프로토콜]
+R. Lindemann, D. Baghdasaryan, E. Tiffany, D. Balfanz, B. Hill, J. Hodges, FIDO UAF 프로토콜 사양 v1.0 . FIDO Alliance 제안 표준. URL:
+HTML: fido-uaf-protocol-v1.0-ps-20141208.html
+PDF: fido-uaf-protocol-v1.0-ps-20141208.pdf
+A.2 참고 자료
+[기계적 인조 인간]
+Android™ 운영 체제 . Google, Inc., Open Handset Alliance 및 Android 오픈 소스 프로젝트(진행 중인 작업) URL: http://developer.android.com/
+[APK-서명]
+애플리케이션 서명 .Android™ 운영 체제. Google, Inc., Open Handset Alliance 및 Android 오픈 소스 프로젝트(2014년 3월 11일 액세스) URL: http://developer.android.com/tools/publishing/app-signing.html
+[번들ID]
+"배포용 Xcode 프로젝트 구성", "번들 ID 정보" 섹션, . 2014년 3월 11일에 액세스한 Apple, Inc. URL: https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html
+[UAFAarch개요]
+S. Machani, R. Philpott, S. Srinivas, J. Kemp, J. Hodges, FIDO UAF 아키텍처 개요 . FIDO Alliance 제안 표준. URL:
+HTML: fido-uaf-overview-v1.0-ps-20141208.html
+PDF: fido-uaf-overview-v1.0-ps-20141208.pdf
+[iOS]
+iOS 개발자 센터 Apple, Inc.(2014년 3월 11일 액세스) URL: https://developer.apple.com/devcenter/ios/index.action
+
+</div>
+      <hr>
+
+      <footer>
+        <p>
+          © 2022 GitHub, Inc.  tel : 000-0000-0000  e-mail : fffffff@fffffff.io
+        </p>
+      </footer>
+
+    </div><!--/.container-->
+
+    <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+    <script src="../asset/js/bootstrap.min.js"></script>
+  </body>
+</html>
