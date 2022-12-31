@@ -74,12 +74,12 @@ function announceWinner() {
 
 	if (gameWinner === "player") {
 		$("#game-outcome").text("You won");
-		$("#game-ex").text("Winner winner chicken dinner!");
+		//$("#game-ex").text("Winner winner chicken dinner!");
 	} else if (gameWinner === "dealer") {
 		$("#game-outcome").text("Dealer won");
-		$("#game-ex").text("try again!");
+		//$("#game-ex").text("try again!");
 	} else if (gameWinner === "tie") {
 		$("#game-outcome").text("You tied");
-		$("#game-ex").text("");
+		//$("#game-ex").text("");
 	}
 }
