@@ -6,9 +6,11 @@ html {
 }
 body {
   color: #444;
+  width: 100%;
   background-color: #ffffff;
   margin: 0;
   padding: 0;
+  /*background-image: url('../assets/rule3.png');*/
 }
 h1 {
   font-size: 1.8rem;

@@ -27,6 +27,8 @@
         <p>The game is over if future moves are not possible and tiles are left on the board, or the player successfully removes all the tiles.
         </p>
 
+        <div class="wall"></div>
+
         <center>
         <table border="0">
           <tr>
@@ -73,19 +75,28 @@
           rule
         </button>
         <button id="reset-btn" onclick="reset()">
-          board reset
+          game reset
         </button>
       </div>
     </div>
     <iframe id="content" class="content"  name="content" src="main.html"></iframe>
 
-    <div class="ad"></div>
+    <div class="ad">
+      <ins class="kakao_ad_area" style="display:none;"
+      data-ad-unit = "DAN-MM9cez3sf0RxW64i"
+      data-ad-width = "320"
+      data-ad-height = "50"></ins>
+      <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+    </div>
 
   </body>
 
       <script>
       function reset(){
         //document.getElementById('content').contentDocument.location.reload(true);
+
+
+        localStorage.removeItem('qyx1d6sd24_sg_tile');
 
         content.location.href="main.html"; 
       }

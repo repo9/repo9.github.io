@@ -14,6 +14,8 @@ var GRID_SIZE_X = SCREEN_WIDTH / GRID_NUM_X; // size
 var GRID_SIZE_Y = SCREEN_HEIGHT / GRID_NUM_Y;
 */
 
+var save_data_name = 'qyx1d6sd24_sg_tile';
+
 var SCREEN_WIDTH = 640;
 var SCREEN_HEIGHT = 960;
 var GRID_NUM_X = 12;
@@ -22,7 +24,14 @@ var GRID_SIZE_X = SCREEN_WIDTH / GRID_NUM_X; // size
 var GRID_SIZE_Y = SCREEN_HEIGHT / GRID_NUM_Y;
 var DEBUG = false;
 
+var w = 8;
+var h = 17;
+
+var error_count = 0;
+
 var lineColor = "#f06951"; 
+
+var tileTempSave =[];
 
 phina.define('MainScene', {
   superClass: 'DisplayScene',
@@ -30,7 +39,8 @@ phina.define('MainScene', {
     // init
     this.superInit(options);
     // background
-    this.backgroundColor = '';
+    this.backgroundColor = 'rgba(0, 0, 0, 0.0)';
+    //this.backgroundImage = 'url("assets/rule3.png")';
     this.gx = Grid(SCREEN_WIDTH, GRID_NUM_X);
     this.gy = Grid(SCREEN_HEIGHT, GRID_NUM_Y);
     this.elem = PlainElement({
@@ -70,6 +80,9 @@ phina.define('MainScene', {
     this.connectTileData();
     this.redrawTiles();
     if (!this.canClear()) {
+      console.log("initGame");
+      localStorage.removeItem(save_data_name);
+      tileTempSave =[];
       this.initGame();
     }
     else {
@@ -77,6 +90,39 @@ phina.define('MainScene', {
       this.connectTileData();
       this.redrawTiles();
     }
+
+/*
+    console.log("*******************************************");
+    var d= "";
+      for(var i=0; i<136;i++){
+       
+        d=d+","+ this.tileGroup.children[i].index;
+        if((i+1)%17==0){
+          console.log(d);
+          d="";
+        }
+      }
+    console.log("*******************************************");
+*/
+    for(var i = 0; i < this.tileGroup.children.length; i++){ 
+      if (this.tileGroup.children[i].index < 0 ) { 
+        this.tileGroup.children.splice(i, 1); 
+        console.log("remove");
+        i--; 
+      }
+    }
+
+/*
+    console.log("******************************************22");
+    var d= "";
+      for(var i=0; i<this.tileGroup.children.length;i++){
+       
+        d=d+","+ this.tileGroup.children[i].index;
+      }
+      console.log(d);
+    console.log("*****************************************22");
+*/
+    console.log(this.tileGroup.children.length);
   },
   /**
    * @method locateTiles
@@ -91,9 +137,11 @@ phina.define('MainScene', {
         var x = self.gx.span(i) + halfX;
         var y = self.gy.span(j) + halfY;
         var tile = MahjongTile().addChildTo(self.tileGroup);
+
         tile.setPosition(x, y);
         tile.indexI = i;
         tile.indexJ = j;
+
         tile.onpointend = function() {
           // pair selection processing
           self.selectPair(tile);
@@ -107,7 +155,7 @@ phina.define('MainScene', {
    */
   canClear: function() {
     // repeat for a few minutes
-    (120).times(function(i) {
+    (136).times(function(i) {
       if (this.canRemove()) {
         this.deletePair();
       }
@@ -155,6 +203,7 @@ phina.define('MainScene', {
         self.tileData.push(index);
       });    
     });
+    //console.log(this.tileData);
     this.tileData.shuffle();
   },
   /**
@@ -162,17 +211,54 @@ phina.define('MainScene', {
    */
   connectTileData: function() {
     var self = this;
-    (this.tileData.length).times(function(i) {
-      self.tileGroup.children[i].index = self.tileData[i];
-    });
+
+
+    //var save_data_str = getCookie(save_data_name);
+    var save_data_str = localStorage.getItem(save_data_name);
+    //console.log(save_data_str);
+
+    if(save_data_str==null){//데이터가 없다면 새로생김
+        (this.tileData.length).times(function(i) {
+        self.tileGroup.children[i].index = self.tileData[i];
+        });
+
+        tileTempSave = self.tileData;
+    }else{   //저장된 데이터가 있다면
+
+      if(save_data_str.length<=0){
+
+        (this.tileData.length).times(function(i) {
+          self.tileGroup.children[i].index = self.tileData[i];
+        });
+
+        tileTempSave = self.tileData;
+      }else{
+
+
+        console.log("----------------------------------------------------------");
+        tileTempSave = JSON.parse(save_data_str);
+        var d= "";
+        for(var i=0; i<tileTempSave.length;i++){
+          self.tileGroup.children[i].index = tileTempSave[i];
+          d=d+","+tileTempSave[i];
+          if((i+1)%17==0){
+            console.log(d);
+            d="";
+          }
+        }
+      }
+
+    }
+
   },
   /**
    * @method redrawTiles
    */
   redrawTiles: function() {
     this.tileGroup.children.each(function(tile) {
-      tile.frameIndex = tile.index;
-      tile.setSize(GRID_SIZE_X * 0.95, GRID_SIZE_Y * 0.95);
+        tile.frameIndex = tile.index;
+        tile.setSize(GRID_SIZE_X * 0.95, GRID_SIZE_Y * 0.95);
+
     });
   },
   /**
@@ -180,34 +266,39 @@ phina.define('MainScene', {
    * @param {Object} tile mahjong tile class object
    */
   selectPair: function(tile) {
-    var pair = this.pair;
-    if (pair.length === 0) {
-      pair.push(tile);
-      tile.drawFrame();
-      tile.setInteractive(false);
-      return;
-    }
-    if (pair.length === 1) {
-      pair.push(tile);
-      tile.drawFrame();
-      tile.setInteractive(false);
-      if (pair.first.index !== pair.last.index) {
-        this.clearPair();
+    if(tile.index>=0){
+      var pair = this.pair;
+
+      if (pair.length === 0) {
+          pair.push(tile);
+          tile.drawFrame();
+          tile.setInteractive(false);
         return;
       }
-      if (!this.checkPair()) {
-        this.clearPair();
-        return;
+      if (pair.length === 1) {
+          pair.push(tile);
+          tile.drawFrame();
+          tile.setInteractive(false);
+          if (pair.first.index !== pair.last.index) {
+            this.clearPair();
+            return;
+          }
+
+          if (!this.checkPair()) {
+            this.clearPair();
+            return;
+          }
+          this.drawPiarLine();
+          this.elem.alpha = 0;
+          this.elem.tweener.clear()
+                   .fadeIn(800)
+                   .call(function() {
+                     this.elem.alpha = 0;
+                     //this.deletePair();
+                     this.deletePair_();
+                     this.checkmate();
+                   }, this);
       }
-      this.drawPiarLine();
-      this.elem.alpha = 0;
-      this.elem.tweener.clear()
-               .fadeIn(800)
-               .call(function() {
-                 this.elem.alpha = 0;
-                 this.deletePair();
-                 this.checkmate();
-               }, this);
     }
   },
   /**
@@ -229,6 +320,41 @@ phina.define('MainScene', {
     this.pair.last.remove();
     this.pair.clear();
   },
+
+
+  deletePair_: function() {
+     console.log("("+this.pair.first.indexI+","+this.pair.first.indexJ+")"+"("+this.pair.last.indexI+","+this.pair.last.indexJ+")");
+    
+    var I1=this.pair.first.indexI;
+    var J1=this.pair.first.indexJ;
+
+    t1 = J1 +(I1-2)*h;
+
+    var I2=this.pair.last.indexI;
+    var J2=this.pair.last.indexJ;
+
+    t2 = J2 +(I2-2)*h;
+
+    tileTempSave[t1-1] = -1;
+    tileTempSave[t2-1] = -1;
+
+    this.pair.first.remove();
+    this.pair.last.remove();
+    this.pair.clear();
+    var save_data = JSON.stringify(tileTempSave);
+    //setCookie(save_data_name, save_data, 3600);
+    localStorage.setItem(save_data_name, save_data); 
+
+    console.log(this.tileGroup.children.length);
+
+    //console.log( save_data );
+
+    //var save_data_str = getCookie(save_data_name);
+
+    var save_data_str = localStorage.getItem(save_data_name);
+    //console.log(save_data_str);
+  },
+
   /**
    * @method checkmate
    */
@@ -510,6 +636,7 @@ phina.main(function() {
 //control
 
 function reset_game() {
+  localStorage.removeItem(save_data_name);
   location.reload();
 }
 
