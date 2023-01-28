@@ -6,6 +6,7 @@ body {
   background-color: #ffffff;
   margin: 0;
   padding: 0;
+  top: 0px;
 }
 
 button{
@@ -38,7 +39,7 @@ button{
 .ad{
   position: absolute;
   width: 100%;
-  height: 50px;
+  height: 54px;
   background-color: #333;
   bottom: 0px;
 }
@@ -125,5 +126,6 @@ button{
 
 .content{
   position: absolute;
+  margin: 0px;
   top:50px; height: calc(100% - 100px); width:100%; border: 0;
 }

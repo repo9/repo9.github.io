@@ -1,0 +1,114 @@
+<!doctype html>
+ 
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+  <body>
+
+    <div class="flash">
+    </div>
+
+    <div id="rule-popup" class="rule-popup">
+      <button id="rule-close-btn" onclick="rule_close()">
+          close
+      </button>
+      <div id="rule-content">
+        <p>Player choose a pair of identical tiles to connect, and the connection path must not exceed two turns. If the requirements are met, two tiles will be eliminated.</p>
+
+        <p>The player's task is to eliminate all the tiles on the board.
+        </p>
+
+        <p>The game is over if future moves are not possible and tiles are left on the board, or the player successfully removes all the tiles.
+        </p>
+
+        <div class="wall"></div>
+
+        <center>
+        <table border="0">
+          <tr>
+            <td>
+              <center>
+                <img src="assets/rule1.png" width="100">
+                <p>Connected by one line segment</p>
+              </center>
+            </td>
+            <td>
+              <center>
+                <img src="assets/rule2.png" width="200">
+                <p>Connected by three line segments</p>
+              </center>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <center>
+                <img src="assets/rule3.png" width="200">
+                <p>Connected by two line segments</p>
+              </center>
+            </td>
+            <td>
+              <center>
+                <img src="assets/rule4.png" width="200">
+                <p>Connected by three line segments</p>
+              </center>
+            </td>
+          </tr>
+        </table>
+        </center>
+       
+
+      </div>
+    </div>
+
+    <div class="top">
+      <div id="title">
+        Shanghai Puzzle
+      </div>
+      <div id="reset">
+        <button id="rule-btn" onclick="rule()">
+          rule
+        </button>
+        <button id="reset-btn" onclick="reset()">
+          game reset
+        </button>
+      </div>
+    </div>
+    <iframe id="content" class="content"  name="content" src="main2.html"></iframe>
+
+    <div class="ad">
+      <ins class="kakao_ad_area" style="display:none;"
+      data-ad-unit = "DAN-MM9cez3sf0RxW64i"
+      data-ad-width = "320"
+      data-ad-height = "50"></ins>
+      <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+    </div>
+
+  </body>
+
+      <script>
+      function reset(){
+        //document.getElementById('content').contentDocument.location.reload(true);
+
+
+        localStorage.removeItem('qyx1d6sd24_sg_tile_2');
+
+        content.location.href="main2.html"; 
+      }
+
+
+      function rule(){
+        document.getElementById("rule-popup").style.display = "block";
+      }
+
+      function rule_close(){
+        document.getElementById("rule-popup").style.display = "none";
+      }
+    </script>
+</html>
+
