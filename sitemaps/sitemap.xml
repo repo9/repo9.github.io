@@ -18,6 +18,11 @@
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>https://repo9.github.io/7//</loc>
+  <lastmod>2023-01-31T13:11:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>https://repo9.github.io/6/</loc>
   <lastmod>2023-01-31T13:11:54+00:00</lastmod>
   <priority>0.80</priority>
@@ -47,6 +52,28 @@
   <lastmod>2023-01-31T13:11:54+00:00</lastmod>
   <priority>0.80</priority>
 </url>
+
+<url>
+  <loc>https://repo9.github.io/games/baccarat/</loc>
+  <lastmod>2023-01-31T13:11:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://repo9.github.io/games/blackjack/</loc>
+  <lastmod>2023-01-31T13:11:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://repo9.github.io/games/pushjump/</loc>
+  <lastmod>2023-01-31T13:11:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://repo9.github.io/games/shanghai/</loc>
+  <lastmod>2023-01-31T13:11:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
 
 
 </urlset>
