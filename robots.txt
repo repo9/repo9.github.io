@@ -1,1 +1,13 @@
-Sitemap: https://repo9.github.io/sitemaps/sitemap.xml
+User-agent: *
+Disallow: /games/*
+Disallow: /doodlebuilding/*
+Disallow: /forklift/*
+Disallow: /pushjump/*
+Disallow: /minesearch/*
+Disallow: /slotmachine/*
+Disallow: /snowcraft/*
+Disallow: /solitaireklondike/*
+Disallow: /sudukku/*
+Disallow: /images/*
+Allow: /
+Sitemap: https://repo6.github.io/sitemaps/sitemap.xml
