@@ -10,4 +10,4 @@ Disallow: /solitaireklondike/*
 Disallow: /sudukku/*
 Disallow: /images/*
 Allow: /
-Sitemap: https://repo6.github.io/sitemaps/sitemap.xml
+Sitemap: https://repo9.github.io/sitemaps/sitemap.xml
