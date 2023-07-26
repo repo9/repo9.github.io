@@ -1,4 +1,5 @@
 User-agent: *
+Allow:/
 Disallow: /games/*
 Disallow: /doodlebuilding/*
 Disallow: /forklift/*
@@ -9,5 +10,7 @@ Disallow: /snowcraft/*
 Disallow: /solitaireklondike/*
 Disallow: /sudukku/*
 Disallow: /images/*
-Allow: /
+Disallow: /about/
+
+
 Sitemap: https://repo9.github.io/sitemaps/sitemap.xml
