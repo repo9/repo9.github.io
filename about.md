@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+기술, 사회, 과학, 뻘글이 있는 블로그
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+
+기술, 사회, 과학, 그리고 뻘글을 주로 다룹니다.
+
 
 ### Contact me
-
-[email@domain.com](mailto:email@domain.com)
