@@ -13,9 +13,13 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
 
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2170323107556217"
-     crossorigin="anonymous"></script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-2170323107556217",
+              enable_page_level_ads: true
+         });
+    </script>
      
   </head>
 
@@ -23,7 +27,6 @@
     <div class="wrapper-masthead">
       <div class="container">
         <header class="masthead clearfix">
-          <a href="{{ site.baseurl }}/" class="site-avatar"></a>
 
           <div class="site-info">
             <h2 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h2>
@@ -45,11 +48,8 @@
     <div class="wrapper-footer">
       <div class="container">
         <footer class="footer">
-          <!--{% include svg-icons.html %}-->
         </footer>
       </div>
     </div>
-
-    {% include analytics.html %}
   </body>
 </html>
