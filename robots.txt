@@ -1,5 +1,4 @@
 User-agent: *
-Allow:/
 Disallow: /games/*
 Disallow: /doodlebuilding/*
 Disallow: /forklift/*
