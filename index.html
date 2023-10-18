@@ -2,16 +2,15 @@
 layout: default
 ---
 
-<article  class="post">
+<article  id="content">
 {% for post in site.posts %}
-  <div class="post">
-
-    <span><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></span>
-
-    <div class="entry">
-      {{ post.excerpt }}
-    </div>
-
+  <div class="post-item">
+  	<a href="{{ site.baseurl }}{{ post.url }}">
+	    <span class="title" style="font-size: 1.125em; color: #555;">{{ post.title }}</span>
+	    <span class="excerpt">
+	      {{ post.excerpt }}
+	    </spna>
+    </a>
   </div>
 {% endfor %}
 </article>
