@@ -1,14 +1,14 @@
 User-agent: *
-Disallow: /games/*
-Disallow: /doodlebuilding/*
-Disallow: /forklift/*
-Disallow: /pushjump/*
-Disallow: /minesearch/*
-Disallow: /slotmachine/*
-Disallow: /snowcraft/*
-Disallow: /solitaireklondike/*
-Disallow: /sudukku/*
-Disallow: /images/*
+Disallow: /games*
+Disallow: /doodlebuilding*
+Disallow: /forklift*
+Disallow: /pushjump*
+Disallow: /minesearch*
+Disallow: /slotmachine*
+Disallow: /snowcraft*
+Disallow: /solitaireklondike*
+Disallow: /sudukku*
+Disallow: /images*
 Disallow: /about/
 
 
