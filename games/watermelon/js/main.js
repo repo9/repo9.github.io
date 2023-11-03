@@ -236,7 +236,7 @@
 
           score += bodies[0].size;
 
-          audio.play();
+          //audio.play();
         }
       }
     });
