@@ -11,4 +11,4 @@ Disallow: /sudukku/
 Disallow: /images/
 Disallow: /about/
 
-Sitemap: https://repo9.github.io/sitemaps/sitemap.xml
+Sitemap: https://repo9.github.io/sitemap.xml
