@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/pretendard-dynamic-subset.css" rel="stylesheet" />
+
+
+    <script src="js/matter.min.js"></script>
+    <script src="js/saveload.js"></script>
+
+    <title>수박게임</title>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="item"></div>
+
+      <div class="item" id="game">
+        <div id="overlay">
+          <button id="playAgainButton" onclick="location.reload()">
+            Play Again
+          </button>
+        </div>
+        <canvas id="canvas"></canvas>
+        <div id="floor">
+        </div>
+      </div>
+
+
+      <div class="empty"></div>
+      <div class="empty"></div>
+      <div class="item" id="footer">
+      </div>
+    </div>
+
+  </body>
+
+  <script src="js/main.js"></script>
+</html>
