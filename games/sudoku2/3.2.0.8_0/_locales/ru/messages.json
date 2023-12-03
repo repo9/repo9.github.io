@@ -1,0 +1,95 @@
+{
+   "appActNewGame": {
+      "message": "Новая игра"
+   },
+   "appActRevealNumbers": {
+      "message": "Ответ"
+   },
+   "appActShowHint": {
+      "message": "Подсказка"
+   },
+   "appButtonDesc": {
+      "message": "Судоку игра"
+   },
+   "appDesc": {
+      "message": "Играйте в Судоку в любое время, головоломка всегда в вашем браузере!"
+   },
+   "appDifficultBeginner": {
+      "message": "Легкий"
+   },
+   "appDifficultExpert": {
+      "message": "Экспертный"
+   },
+   "appDifficultHard": {
+      "message": "Тяжелый"
+   },
+   "appDifficultModerate": {
+      "message": "Нормальный"
+   },
+   "appLabelConfirm": {
+      "message": "Нажмите Да, чтобы закончить текущую игру."
+   },
+   "appLabelCongrats": {
+      "message": "Поздравляем! Вы победили!"
+   },
+   "appLabelControls": {
+      "message": "Для ввода чисел используйте клавиатуру."
+   },
+   "appLabelGoal": {
+      "message": "Правила игры:"
+   },
+   "appLabelHTU1": {
+      "message": "Нажав на кнопку, Вы можете поставить в клетку цифру, которая не будет считаться в результате, а использовать ее как заметку."
+   },
+   "appLabelHTU2": {
+      "message": "Одновременно можно поставить до 4 цифр в одну клетку."
+   },
+   "appLabelHTU3": {
+      "message": "Как убрать заметку:"
+   },
+   "appLabelHTU4": {
+      "message": "- поставив цифру в обычном режиме"
+   },
+   "appLabelHTU5": {
+      "message": "- нажав Delete - удалить все цифры"
+   },
+   "appLabelHTU6": {
+      "message": "- нажав Backspace - удалить по одной"
+   },
+   "appLabelHTU7": {
+      "message": "- повторно нажав на цифру"
+   },
+   "appLabelHint": {
+      "message": "?"
+   },
+   "appLabelNo": {
+      "message": "Нет"
+   },
+   "appLabelRules": {
+      "message": "Заполните, избегая повторов, числами от 1 до 9:\u003Cbr>- каждую строку\u003Cbr>- каждый столбец\u003Cbr>- каждую секцию ячеек 3х3."
+   },
+   "appLabelTheme": {
+      "message": "Тема оформления:"
+   },
+   "appLabelThemeDark": {
+      "message": "Темная"
+   },
+   "appLabelThemeWhite": {
+      "message": "Светлая"
+   },
+   "appLabelYes": {
+      "message": "Да"
+   },
+   "appLabelmodeNote": {
+      "message": "Заметки. Как использовать"
+   },
+   "appName": {
+      "message": "Судоку игра"
+   },
+   "record": {
+      "message": "Рекорд:"
+   },
+   "time": {
+      "message": "Время:"
+   }
+}

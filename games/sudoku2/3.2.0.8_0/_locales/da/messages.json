@@ -1,0 +1,95 @@
+{
+   "appActNewGame": {
+      "message": "Nye spil"
+   },
+   "appActRevealNumbers": {
+      "message": "Svar"
+   },
+   "appActShowHint": {
+      "message": "Vis vink"
+   },
+   "appButtonDesc": {
+      "message": "Sudoku Spil"
+   },
+   "appDesc": {
+      "message": "Spille Sudoku, puslespil er altid i din browser!"
+   },
+   "appDifficultBeginner": {
+      "message": "Begyndere"
+   },
+   "appDifficultExpert": {
+      "message": "Ekspert"
+   },
+   "appDifficultHard": {
+      "message": "Hårdt"
+   },
+   "appDifficultModerate": {
+      "message": "Moderat"
+   },
+   "appLabelConfirm": {
+      "message": "Klik på Ja for at afslutte det aktuelle spil."
+   },
+   "appLabelCongrats": {
+      "message": "Tillykke! Du gjorde det"
+   },
+   "appLabelControls": {
+      "message": "Klik på cellen, og brug dit tastatur til at indtaste numre."
+   },
+   "appLabelGoal": {
+      "message": "Målet med spillet:"
+   },
+   "appLabelHTU1": {
+      "message": "Ved at klikke på knappen kan du indsætte et tal i cellen, som ikke bliver beregnet som et resultat, men bruge det som en note"
+   },
+   "appLabelHTU2": {
+      "message": "Du kan sætte 4 tal i én celle på samme tid."
+   },
+   "appLabelHTU3": {
+      "message": "Sådan fjerner du en note:"
+   },
+   "appLabelHTU4": {
+      "message": "- ved at sætte nummeret i normal tilstand"
+   },
+   "appLabelHTU5": {
+      "message": "- tryk på Delete - slet alle cifre"
+   },
+   "appLabelHTU6": {
+      "message": "- tryk på Backspace - slet en efter en"
+   },
+   "appLabelHTU7": {
+      "message": "- ved at klikke på nummeret igen"
+   },
+   "appLabelHint": {
+      "message": "Prøv\u003Cbr>\u003Cbr>en"
+   },
+   "appLabelNo": {
+      "message": "Ingen"
+   },
+   "appLabelRules": {
+      "message": "Sætte tal fra 1 til 9 uden at duplikere:\u003Cbr>- hver række\u003Cbr> - hver kolonne\u003Cbr> - hver 3×3 afsnit."
+   },
+   "appLabelTheme": {
+      "message": "Stil spil:"
+   },
+   "appLabelThemeDark": {
+      "message": "Mørk"
+   },
+   "appLabelThemeWhite": {
+      "message": "Hvid"
+   },
+   "appLabelYes": {
+      "message": "Ja"
+   },
+   "appLabelmodeNote": {
+      "message": "Noter. Sådan bruges"
+   },
+   "appName": {
+      "message": "Sudoku Spil"
+   },
+   "record": {
+      "message": "Rekord:"
+   },
+   "time": {
+      "message": "Tid:"
+   }
+}

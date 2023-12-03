@@ -1,0 +1,95 @@
+{
+   "appActNewGame": {
+      "message": "Új játék"
+   },
+   "appActRevealNumbers": {
+      "message": "Válasz"
+   },
+   "appActShowHint": {
+      "message": "Show tipp"
+   },
+   "appButtonDesc": {
+      "message": "Sudoku Játék"
+   },
+   "appDesc": {
+      "message": "A játék Sudoku bármikor, a puzzle játék mindig a böngészőben!"
+   },
+   "appDifficultBeginner": {
+      "message": "Kezdő"
+   },
+   "appDifficultExpert": {
+      "message": "Szakértő"
+   },
+   "appDifficultHard": {
+      "message": "Nehéz"
+   },
+   "appDifficultModerate": {
+      "message": "Közepes"
+   },
+   "appLabelConfirm": {
+      "message": "Kattintson az Igen gombra, hogy befejezze az aktuális játék."
+   },
+   "appLabelCongrats": {
+      "message": "Gratulálok! Sikerült"
+   },
+   "appLabelControls": {
+      "message": "Kattintson a cellára, majd a billentyűzet segítségével írja be a számokat."
+   },
+   "appLabelGoal": {
+      "message": "A cél a játék:"
+   },
+   "appLabelHTU1": {
+      "message": "A gombra kattintva a cellába olyan számot helyezhet el, amely nem számít ki eredményként, hanem megjegyzésként használja"
+   },
+   "appLabelHTU2": {
+      "message": "Egy cellába 4 számot helyezhet el egyszerre."
+   },
+   "appLabelHTU3": {
+      "message": "Jegyzet eltávolítása:"
+   },
+   "appLabelHTU4": {
+      "message": "- a szám normál módba helyezésével"
+   },
+   "appLabelHTU5": {
+      "message": "- a Delete megnyomása - az összes számjegy törlése"
+   },
+   "appLabelHTU6": {
+      "message": "- a Backspace megnyomása - egyenkénti törlés"
+   },
+   "appLabelHTU7": {
+      "message": "- ismételten a számra kattintva"
+   },
+   "appLabelHint": {
+      "message": "Próbáld meg a\u003Cbr>\u003Cbr>egy"
+   },
+   "appLabelNo": {
+      "message": "Nem"
+   },
+   "appLabelRules": {
+      "message": "Tedd számok 1-től 9-ig, anélkül, hogy duplikált elemek:\u003Cbr> - minden sor\u003Cbr>- minden oszlop\u003Cbr>- minden 3×3-as szakasz."
+   },
+   "appLabelTheme": {
+      "message": "Stílus játék:"
+   },
+   "appLabelThemeDark": {
+      "message": "Sötét"
+   },
+   "appLabelThemeWhite": {
+      "message": "Fehér"
+   },
+   "appLabelYes": {
+      "message": "Igen"
+   },
+   "appLabelmodeNote": {
+      "message": "Megjegyzések. Hogyan kell használni"
+   },
+   "appName": {
+      "message": "Sudoku Játék"
+   },
+   "record": {
+      "message": "Bejegyzés:"
+   },
+   "time": {
+      "message": "Idő:"
+   }
+}

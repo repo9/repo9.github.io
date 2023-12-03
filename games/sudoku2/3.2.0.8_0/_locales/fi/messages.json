@@ -1,0 +1,95 @@
+{
+   "appActNewGame": {
+      "message": "Uusi peli"
+   },
+   "appActRevealNumbers": {
+      "message": "Vastaus"
+   },
+   "appActShowHint": {
+      "message": "Näytä vihje"
+   },
+   "appButtonDesc": {
+      "message": "Sudoku Peli"
+   },
+   "appDesc": {
+      "message": "Pelaa Sudoku milloin tahansa, peli on aina selaimessasi!"
+   },
+   "appDifficultBeginner": {
+      "message": "Aloittelija"
+   },
+   "appDifficultExpert": {
+      "message": "Asiantuntija"
+   },
+   "appDifficultHard": {
+      "message": "Kova"
+   },
+   "appDifficultModerate": {
+      "message": "Kohtalainen"
+   },
+   "appLabelConfirm": {
+      "message": "Valitse Kyllä, jos haluat lopettaa nykyisen pelin."
+   },
+   "appLabelCongrats": {
+      "message": "Kanssa onnittelumme! Teit sen"
+   },
+   "appLabelControls": {
+      "message": "Klikkaa solu ja käyttää näppäimistöä kirjoittaa numeroita."
+   },
+   "appLabelGoal": {
+      "message": "Pelin tavoitteena:"
+   },
+   "appLabelHTU1": {
+      "message": "Napsauttamalla painiketta voit laittaa soluun numeron, jota ei lasketa tuloksena, mutta käyttää sitä huomautuksena"
+   },
+   "appLabelHTU2": {
+      "message": "Voit laittaa 4 numeroa yhteen soluun samanaikaisesti."
+   },
+   "appLabelHTU3": {
+      "message": "Huomautuksen poistaminen:"
+   },
+   "appLabelHTU4": {
+      "message": "- laittamalla numero normaalitilaan"
+   },
+   "appLabelHTU5": {
+      "message": "- paina Delete - poista kaikki numerot"
+   },
+   "appLabelHTU6": {
+      "message": "- paina Backspace - poista yksitellen"
+   },
+   "appLabelHTU7": {
+      "message": "- napsauttamalla numeroa uudelleen"
+   },
+   "appLabelHint": {
+      "message": "Yritä\u003Cbr>\u003Cbr>yksi"
+   },
+   "appLabelNo": {
+      "message": "Ei"
+   },
+   "appLabelRules": {
+      "message": "Laittaa numeroita 1-9 ilman päällekkäisiä:\u003Cbr>- jokainen rivi\u003Cbr>- jokainen sarake\u003Cbr>- jokainen 3×3 osio."
+   },
+   "appLabelTheme": {
+      "message": "Tyylinen peli:"
+   },
+   "appLabelThemeDark": {
+      "message": "Tumma"
+   },
+   "appLabelThemeWhite": {
+      "message": "Valkoinen"
+   },
+   "appLabelYes": {
+      "message": "Kyllä"
+   },
+   "appLabelmodeNote": {
+      "message": "Huomautuksia. Käyttöohjeet"
+   },
+   "appName": {
+      "message": "Sudoku Peli"
+   },
+   "record": {
+      "message": "Record:"
+   },
+   "time": {
+      "message": "Aika:"
+   }
+}

@@ -1,0 +1,95 @@
+{
+   "appActNewGame": {
+      "message": "Uus mäng"
+   },
+   "appActRevealNumbers": {
+      "message": "Vastus"
+   },
+   "appActShowHint": {
+      "message": "Vihje näitamine"
+   },
+   "appButtonDesc": {
+      "message": "Sudoku Mäng"
+   },
+   "appDesc": {
+      "message": "Mängida Sudoku igal ajal, puzzle mäng, mis on alati su brauser!"
+   },
+   "appDifficultBeginner": {
+      "message": "Algaja"
+   },
+   "appDifficultExpert": {
+      "message": "Ekspert"
+   },
+   "appDifficultHard": {
+      "message": "Raske"
+   },
+   "appDifficultModerate": {
+      "message": "Mõõdukas"
+   },
+   "appLabelConfirm": {
+      "message": "Klõpsake nuppu Jah, et lõpetada praegune mäng."
+   },
+   "appLabelCongrats": {
+      "message": "Palju õnne! Sa tegid seda"
+   },
+   "appLabelControls": {
+      "message": "Kliki mobiiltelefoni ja kasuta oma klaviatuuri tüüp numbrid."
+   },
+   "appLabelGoal": {
+      "message": "Mängu eesmärk:"
+   },
+   "appLabelHTU1": {
+      "message": "Nupul klõpsates saate lahtrisse panna arvu, mida tulemuseks ei arvutata, vaid kasutada seda märkmena"
+   },
+   "appLabelHTU2": {
+      "message": "Sa võid ühte lahtrisse panna korraga 4 numbrit."
+   },
+   "appLabelHTU3": {
+      "message": "Kuidas eemaldada märge:"
+   },
+   "appLabelHTU4": {
+      "message": "- pannes numbri tavarežiimi"
+   },
+   "appLabelHTU5": {
+      "message": "- vajutades Delete - kustutage kõik numbrid"
+   },
+   "appLabelHTU6": {
+      "message": "- Backspace vajutamine - kustuta ükshaaval"
+   },
+   "appLabelHTU7": {
+      "message": "- numbril uuesti klõpsates"
+   },
+   "appLabelHint": {
+      "message": "Proovige\u003Cbr>\u003Cbr>üks"
+   },
+   "appLabelNo": {
+      "message": "Nr"
+   },
+   "appLabelRules": {
+      "message": "Pane numbritega 1 to 9, ilma eksemplaris:\u003Cbr>- iga rida\u003Cbr>- iga veerg\u003Cbr>- iga 3×3 punkti."
+   },
+   "appLabelTheme": {
+      "message": "Stiilis mäng:"
+   },
+   "appLabelThemeDark": {
+      "message": "Tume"
+   },
+   "appLabelThemeWhite": {
+      "message": "Valge"
+   },
+   "appLabelYes": {
+      "message": "Jah"
+   },
+   "appLabelmodeNote": {
+      "message": "Märkused. Kuidas kasutada"
+   },
+   "appName": {
+      "message": "Sudoku Mäng"
+   },
+   "record": {
+      "message": "Rekord:"
+   },
+   "time": {
+      "message": "Aeg:"
+   }
+}

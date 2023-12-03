@@ -1,0 +1,95 @@
+{
+   "appActNewGame": {
+      "message": "Neues Spiel"
+   },
+   "appActRevealNumbers": {
+      "message": "Antwort"
+   },
+   "appActShowHint": {
+      "message": "Show-Tipp"
+   },
+   "appButtonDesc": {
+      "message": "Sudoku-Spiel"
+   },
+   "appDesc": {
+      "message": "Sudoku spielen zu jeder Zeit, die puzzle-Spiel ist es immer in Ihrem browser!"
+   },
+   "appDifficultBeginner": {
+      "message": "Anfänger"
+   },
+   "appDifficultExpert": {
+      "message": "Experte"
+   },
+   "appDifficultHard": {
+      "message": "Schwer"
+   },
+   "appDifficultModerate": {
+      "message": "Moderate"
+   },
+   "appLabelConfirm": {
+      "message": "Klicken Sie auf Yes, um die aktuelle Spiel."
+   },
+   "appLabelCongrats": {
+      "message": "Herzlichen Glückwunsch! Du hast es geschafft"
+   },
+   "appLabelControls": {
+      "message": "Klicken Sie auf die Zelle und verwenden Sie Ihre Tastatur, geben die zahlen."
+   },
+   "appLabelGoal": {
+      "message": "Das Ziel des Spiels:"
+   },
+   "appLabelHTU1": {
+      "message": "Durch Klicken auf die Schaltfläche können Sie eine Zahl in die Zelle eingeben, die als Ergebnis nicht berechnet wird, sondern als Notiz verwendet wird."
+   },
+   "appLabelHTU2": {
+      "message": "Sie können 4 Zahlen gleichzeitig in eine Zelle eingeben."
+   },
+   "appLabelHTU3": {
+      "message": "So entfernen Sie eine Notiz:"
+   },
+   "appLabelHTU4": {
+      "message": "- indem Sie die Nummer in den normalen Modus versetzen"
+   },
+   "appLabelHTU5": {
+      "message": "- Drücken von Delete - alle Ziffern löschen"
+   },
+   "appLabelHTU6": {
+      "message": "- Backspace drücken - einzeln löschen"
+   },
+   "appLabelHTU7": {
+      "message": "- durch erneutes Klicken auf die Nummer"
+   },
+   "appLabelHint": {
+      "message": "Versuchen Sie\u003Cbr>\u003Cbr>ein"
+   },
+   "appLabelNo": {
+      "message": "Keine"
+   },
+   "appLabelRules": {
+      "message": "Zahlen von 1 bis 9 ohne doppelte:\u003Cbr>- jede Zeile mit\u003Cbr>- jede Spalte\u003Cbr>- jede 3×3-Abschnitt."
+   },
+   "appLabelTheme": {
+      "message": "Spiel-Stil:"
+   },
+   "appLabelThemeDark": {
+      "message": "Dunkel"
+   },
+   "appLabelThemeWhite": {
+      "message": "Weiß"
+   },
+   "appLabelYes": {
+      "message": "Ja"
+   },
+   "appLabelmodeNote": {
+      "message": "Notizen. Verwendung"
+   },
+   "appName": {
+      "message": "Sudoku-Spiel"
+   },
+   "record": {
+      "message": "Rekord:"
+   },
+   "time": {
+      "message": "Zeit:"
+   }
+}

@@ -1,0 +1,95 @@
+{
+   "appActNewGame": {
+      "message": "New game"
+   },
+   "appActRevealNumbers": {
+      "message": "Answer"
+   },
+   "appActShowHint": {
+      "message": "Show hint"
+   },
+   "appButtonDesc": {
+      "message": "เกมซูโดกุ"
+   },
+   "appDesc": {
+      "message": "เล่น Sudoku ได้ตลอดเวลา เกมไขปริศนาจะอยู่ในเบราว์เซอร์ของคุณเสมอ!"
+   },
+   "appDifficultBeginner": {
+      "message": "Beginner"
+   },
+   "appDifficultExpert": {
+      "message": "Expert"
+   },
+   "appDifficultHard": {
+      "message": "Hard"
+   },
+   "appDifficultModerate": {
+      "message": "Moderate"
+   },
+   "appLabelConfirm": {
+      "message": "Click Yes to finish the current game."
+   },
+   "appLabelCongrats": {
+      "message": "Congratulations! You did it"
+   },
+   "appLabelControls": {
+      "message": "Click on the cell and use your keyboard to type in the numbers."
+   },
+   "appLabelGoal": {
+      "message": "The goal of the game:"
+   },
+   "appLabelHTU1": {
+      "message": "By clicking on the button, you can put a number in the cell that will not be calculated as a result, but use it as a note"
+   },
+   "appLabelHTU2": {
+      "message": "You can put 4 numbers in one cell at the same time."
+   },
+   "appLabelHTU3": {
+      "message": "How to remove a note:"
+   },
+   "appLabelHTU4": {
+      "message": "- by putting the number in the normal mode"
+   },
+   "appLabelHTU5": {
+      "message": "- pressing Delete - delete all digits"
+   },
+   "appLabelHTU6": {
+      "message": "- pressing Backspace - delete one by one"
+   },
+   "appLabelHTU7": {
+      "message": "- by clicking on the number again"
+   },
+   "appLabelHint": {
+      "message": "Try\u003Cbr>this\u003Cbr>one"
+   },
+   "appLabelNo": {
+      "message": "No"
+   },
+   "appLabelRules": {
+      "message": "Put numbers from 1 to 9 without duplicate:\u003Cbr>- each row\u003Cbr>- each column\u003Cbr>- each 3×3 section."
+   },
+   "appLabelTheme": {
+      "message": "Style game:"
+   },
+   "appLabelThemeDark": {
+      "message": "Dark"
+   },
+   "appLabelThemeWhite": {
+      "message": "White"
+   },
+   "appLabelYes": {
+      "message": "Yes"
+   },
+   "appLabelmodeNote": {
+      "message": "Notes. How to use"
+   },
+   "appName": {
+      "message": "เกมซูโดกุ"
+   },
+   "record": {
+      "message": "Record:"
+   },
+   "time": {
+      "message": "Time:"
+   }
+}

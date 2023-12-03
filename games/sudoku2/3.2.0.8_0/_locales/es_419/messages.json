@@ -1,0 +1,95 @@
+{
+   "appActNewGame": {
+      "message": "Nuevo juego"
+   },
+   "appActRevealNumbers": {
+      "message": "Respuesta"
+   },
+   "appActShowHint": {
+      "message": "Mostrar una pista"
+   },
+   "appButtonDesc": {
+      "message": "Juego De Sudoku"
+   },
+   "appDesc": {
+      "message": "Jugar Sudoku en cualquier momento, el juego de puzzle es siempre en su navegador!"
+   },
+   "appDifficultBeginner": {
+      "message": "Principiante"
+   },
+   "appDifficultExpert": {
+      "message": "Experto"
+   },
+   "appDifficultHard": {
+      "message": "Duro"
+   },
+   "appDifficultModerate": {
+      "message": "Moderado"
+   },
+   "appLabelConfirm": {
+      "message": "Haga clic en Sí para terminar el juego actual."
+   },
+   "appLabelCongrats": {
+      "message": "Felicitaciones! Usted lo hizo"
+   },
+   "appLabelControls": {
+      "message": "Haga clic en la celda y utilice el teclado para escribir los números."
+   },
+   "appLabelGoal": {
+      "message": "El objetivo del juego:"
+   },
+   "appLabelHTU1": {
+      "message": "Al hacer clic en el botón, puede poner un número en la celda que no se calculará como resultado, pero lo usará como una nota"
+   },
+   "appLabelHTU2": {
+      "message": "Puedes poner 4 números en una celda al mismo tiempo"
+   },
+   "appLabelHTU3": {
+      "message": "Cómo eliminar una nota:"
+   },
+   "appLabelHTU4": {
+      "message": "- poniendo el número en el modo normal"
+   },
+   "appLabelHTU5": {
+      "message": "- presionando Borrar - borrar todos los dígitos"
+   },
+   "appLabelHTU6": {
+      "message": "- presionando Retroceso - eliminar uno por uno"
+   },
+   "appLabelHTU7": {
+      "message": "- haciendo clic en el número de nuevo"
+   },
+   "appLabelHint": {
+      "message": "Pruebe\u003Cbr>\u003Cbr>un"
+   },
+   "appLabelNo": {
+      "message": "No"
+   },
+   "appLabelRules": {
+      "message": "Colocar los números del 1 al 9 sin duplicados:\u003Cbr> - cada fila\u003Cbr> - cada columna\u003Cbr> - cada 3×3 de la sección."
+   },
+   "appLabelTheme": {
+      "message": "Estilo de juego:"
+   },
+   "appLabelThemeDark": {
+      "message": "Oscuro"
+   },
+   "appLabelThemeWhite": {
+      "message": "Blanco"
+   },
+   "appLabelYes": {
+      "message": "Sí"
+   },
+   "appLabelmodeNote": {
+      "message": "Notas. Cómo usar"
+   },
+   "appName": {
+      "message": "Juego De Sudoku"
+   },
+   "record": {
+      "message": "Registro:"
+   },
+   "time": {
+      "message": "Tiempo:"
+   }
+}

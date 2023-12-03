@@ -1,0 +1,95 @@
+{
+   "appActNewGame": {
+      "message": "Yeni oyun"
+   },
+   "appActRevealNumbers": {
+      "message": "Cevap"
+   },
+   "appActShowHint": {
+      "message": "İpucu göster "
+   },
+   "appButtonDesc": {
+      "message": "Sudoku Oyunu"
+   },
+   "appDesc": {
+      "message": "Herhangi bir zamanda, Sudoku oyna, bulmaca oyunu her zaman tarayıcınızda!"
+   },
+   "appDifficultBeginner": {
+      "message": "Acemi"
+   },
+   "appDifficultExpert": {
+      "message": "Uzman"
+   },
+   "appDifficultHard": {
+      "message": "Zor"
+   },
+   "appDifficultModerate": {
+      "message": "Orta"
+   },
+   "appLabelConfirm": {
+      "message": "Mevcut oyunu bitirmek için Evet ' i tıklatın."
+   },
+   "appLabelCongrats": {
+      "message": "Tebrikler! Yaptın "
+   },
+   "appLabelControls": {
+      "message": "Hücre sayıları yazmak için klavyenizi kullanın."
+   },
+   "appLabelGoal": {
+      "message": "Oyunun amacı:"
+   },
+   "appLabelHTU1": {
+      "message": "Butonuna tıklayarak hücreye sonuç olarak hesaplanmayacak bir sayı koyabilir, ancak bunu not olarak kullanabilirsiniz"
+   },
+   "appLabelHTU2": {
+      "message": "Aynı anda bir hücreye 4 sayı girebilirsiniz."
+   },
+   "appLabelHTU3": {
+      "message": "Bir not nasıl kaldırılır:"
+   },
+   "appLabelHTU4": {
+      "message": "- numarayı normal moda getirerek"
+   },
+   "appLabelHTU5": {
+      "message": "- Delete'e basmak - tüm rakamları silmek"
+   },
+   "appLabelHTU6": {
+      "message": "- Backspace'e basarak - tek tek sil"
+   },
+   "appLabelHTU7": {
+      "message": "- numaraya tekrar tıklayarak"
+   },
+   "appLabelHint": {
+      "message": "Bir deneyin\u003Cbr>\u003Cbr>"
+   },
+   "appLabelNo": {
+      "message": "Hayır"
+   },
+   "appLabelRules": {
+      "message": "Yinelenen:\u003Cbr>- her satır\u003Cbr>- her sütun\u003Cbr>- her 3×3 Bölüm olmadan 1'den 9'a kadar rakamlar yerleştirin."
+   },
+   "appLabelTheme": {
+      "message": "Oyun stili:"
+   },
+   "appLabelThemeDark": {
+      "message": "Karanlık"
+   },
+   "appLabelThemeWhite": {
+      "message": "Beyaz"
+   },
+   "appLabelYes": {
+      "message": "Evet"
+   },
+   "appLabelmodeNot": {
+      "message": "Notlar. Nasıl kullanılır"
+   },
+   "appName": {
+      "message": "Sudoku Oyunu"
+   },
+   "record": {
+      "message": "Kayıt:"
+   },
+   "time": {
+      "message": "Zaman:"
+   }
+}

@@ -1,0 +1,95 @@
+﻿{
+    "appActShowHint": {
+        "message": "Падказка"
+    },
+    "appLabelConfirm": {
+        "message": "Націсніце кнопку Ды, каб скончыць бягучую гульню."
+    },
+    "appName": {
+        "message": "Гульня Судоку"
+    },
+    "appLabelmodeNote": {
+    	"message": "Нататкі. Як карыстацца"
+	},
+	"appLabelHTU1": {
+	    "message": "Пстрыкнуўшы па кнопцы, вы можаце паставіць лік у ячэйку, які не будзе вылічвацца ў выніку, а выкарыстоўваць яго як нататку"
+	},
+	"appLabelHTU2": {
+	    "message": "Вы можаце змясціць 4 лічбы ў адну ячэйку адначасова."
+	},
+	"appLabelHTU3": {
+	    "message": "Як выдаліць нататку:"
+	},
+	"appLabelHTU4": {
+	    "message": "- перавёўшы нумар у звычайны рэжым"
+	},
+	"appLabelHTU5": {
+	    "message": "- націск Delete - выдаліць усе лічбы"
+	},
+	"appLabelHTU6": {
+	    "message": "- націсканне Backspace - выдаленне па адным"
+	},
+	"appLabelHTU7": {
+	    "message": "- націснуўшы на нумар яшчэ раз"
+	},
+    "appLabelNo": {
+        "message": "Няма"
+    },
+    "appLabelHint": {
+        "message": "Паспрабаваць<br><br>адзін"
+    },
+    "appDifficultBeginner": {
+        "message": "Пачатковец"
+    },
+    "appDifficultHard": {
+        "message": "Жорсткі"
+    },
+    "appButtonDesc": {
+        "message": "Гульня Судоку"
+    },
+    "appLabelRules": {
+        "message": "Паставіць лічбы ад 1 да 9 без дублявання:<br>- а кожнай радкі на<br>- кожную калонку<br>- у кожным 3×3 раздзел."
+    },
+    "appLabelGoal": {
+        "message": "Мэта гульні:"
+    },
+    "appDesc": {
+        "message": "Гуляць у судоку ў любы час, гульня-галаваломкі заўсёды ў вашым браўзэры!"
+    },
+    "record": {
+        "message": "Запіс:"
+    },
+    "appDifficultExpert": {
+        "message": "Эксперт"
+    },
+    "appLabelCongrats": {
+        "message": "Віншуем! Вы гэта зрабілі"
+    },
+    "appLabelYes": {
+        "message": "Ды"
+    },
+    "appDifficultModerate": {
+        "message": "Ўмераны"
+    },
+    "appLabelThemeDark": {
+        "message": "Цёмны"
+    },
+    "appLabelTheme": {
+        "message": "Стыль гульні:"
+    },
+    "appLabelThemeWhite": {
+        "message": "Белы"
+    },
+    "time": {
+        "message": "Час:"
+    },
+    "appActRevealNumbers": {
+        "message": "Адказ"
+    },
+    "appLabelControls": {
+        "message": "Націсніце на клетку і выкарыстоўвайце клавіятуру для ўводу лікаў."
+    },
+    "appActNewGame": {
+        "message": "Новая гульня"
+    }
+}

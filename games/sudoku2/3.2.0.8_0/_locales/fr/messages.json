@@ -1,0 +1,95 @@
+{
+   "appActNewGame": {
+      "message": "Nouveau jeu"
+   },
+   "appActRevealNumbers": {
+      "message": "Réponse"
+   },
+   "appActShowHint": {
+      "message": "Afficher l'indice"
+   },
+   "appButtonDesc": {
+      "message": "Jeu De Sudoku"
+   },
+   "appDesc": {
+      "message": "Jouer au Sudoku en tout temps, le jeu de puzzle est toujours dans votre navigateur!"
+   },
+   "appDifficultBeginner": {
+      "message": "Débutant"
+   },
+   "appDifficultExpert": {
+      "message": "Expert"
+   },
+   "appDifficultHard": {
+      "message": "Dur"
+   },
+   "appDifficultModerate": {
+      "message": "Modéré"
+   },
+   "appLabelConfirm": {
+      "message": "Cliquez sur Oui pour terminer le jeu en cours."
+   },
+   "appLabelCongrats": {
+      "message": "Félicitations! Vous l'avez fait"
+   },
+   "appLabelControls": {
+      "message": "Cliquez sur la cellule et utilisez votre clavier pour saisir les chiffres."
+   },
+   "appLabelGoal": {
+      "message": "Le but du jeu:"
+   },
+   "appLabelHTU1": {
+      "message": "En cliquant sur le bouton, vous pouvez mettre un nombre dans la cellule qui ne sera pas calculé en conséquence, mais l'utiliser comme note"
+   },
+   "appLabelHTU2": {
+      "message": "Vous pouvez mettre 4 chiffres dans une cellule en même temps."
+   },
+   "appLabelHTU3": {
+      "message": "Comment supprimer une note:"
+   },
+   "appLabelHTU4": {
+      "message": "- en mettant le numéro en mode normal"
+   },
+   "appLabelHTU5": {
+      "message": "- appuyez sur Supprimer - supprimez tous les chiffres"
+   },
+   "appLabelHTU6": {
+      "message": "- en appuyant sur Retour arrière - supprimer un par un"
+   },
+   "appLabelHTU7": {
+      "message": "- en cliquant à nouveau sur le numéro"
+   },
+   "appLabelHint": {
+      "message": "Essayer\u003Cbr>\u003Cbr>un"
+   },
+   "appLabelNo": {
+      "message": "Pas de"
+   },
+   "appLabelRules": {
+      "message": "Mettre des nombres de 1 à 9 sans les doublons:\u003Cbr>- chaque ligne\u003Cbr>- chaque colonne\u003Cbr>- chaque 3×3 de la section."
+   },
+   "appLabelTheme": {
+      "message": "Style de jeu:"
+   },
+   "appLabelThemeDark": {
+      "message": "Sombre"
+   },
+   "appLabelThemeWhite": {
+      "message": "Blanc"
+   },
+   "appLabelYes": {
+      "message": "Oui"
+   },
+   "appLabelmodeNote": {
+      "message": "Notes. Comment utiliser"
+   },
+   "appName": {
+      "message": "Jeu De Sudoku"
+   },
+   "record": {
+      "message": "Enregistrement:"
+   },
+   "time": {
+      "message": "Temps:"
+   }
+}

@@ -1,0 +1,95 @@
+{
+   "appActNewGame": {
+      "message": "Jaunas spēles"
+   },
+   "appActRevealNumbers": {
+      "message": "Atbildēt"
+   },
+   "appActShowHint": {
+      "message": "Rādīt padoms"
+   },
+   "appButtonDesc": {
+      "message": "Sudoku Spēle"
+   },
+   "appDesc": {
+      "message": "Spēlēt Sudoku jebkurā laikā, puzzle spēle, kas ir vienmēr jūsu pārlūkprogrammā!"
+   },
+   "appDifficultBeginner": {
+      "message": "Iesācējs"
+   },
+   "appDifficultExpert": {
+      "message": "Eksperts"
+   },
+   "appDifficultHard": {
+      "message": "Grūti"
+   },
+   "appDifficultModerate": {
+      "message": "Vidēji"
+   },
+   "appLabelConfirm": {
+      "message": "Noklikšķiniet uz Jā, lai pabeigtu pašreizējo spēli."
+   },
+   "appLabelCongrats": {
+      "message": "Apsveicu! Tu to izdarīji"
+   },
+   "appLabelControls": {
+      "message": "Noklikšķiniet uz šūnas un izmantojiet tastatūru, lai ievadītu ciparus."
+   },
+   "appLabelGoal": {
+      "message": "Spēles mērķis:"
+   },
+   "appLabelHTU1": {
+      "message": "Noklikšķinot uz pogas, šūnā var ievietot skaitli, kas netiks aprēķināts kā rezultāts, bet izmantot to kā piezīmi"
+   },
+   "appLabelHTU2": {
+      "message": "Vienā šūnā varat ievietot 4 ciparus vienlaikus."
+   },
+   "appLabelHTU3": {
+      "message": "Kā noņemt piezīmi:"
+   },
+   "appLabelHTU4": {
+      "message": "- ievietojot numuru parastajā režīmā"
+   },
+   "appLabelHTU5": {
+      "message": "- nospiežot Delete - dzēst visus ciparus"
+   },
+   "appLabelHTU6": {
+      "message": "- nospiežot Backspace - dzēst pa vienam"
+   },
+   "appLabelHTU7": {
+      "message": "- vēlreiz noklikšķinot uz numura"
+   },
+   "appLabelHint": {
+      "message": "Mēģiniet\u003Cbr>\u003Cbr>viens"
+   },
+   "appLabelNo": {
+      "message": "Nē"
+   },
+   "appLabelRules": {
+      "message": "Ielieciet ciparus no 1 līdz 9 bez eksemplāros:\u003Cbr>- katrā rindā\u003Cbr>- katrā kolonnā\u003Cbr>- katrā 3×3. iedaļa."
+   },
+   "appLabelTheme": {
+      "message": "Stils spēle:"
+   },
+   "appLabelThemeDark": {
+      "message": "Tumšs"
+   },
+   "appLabelThemeWhite": {
+      "message": "Balts"
+   },
+   "appLabelYes": {
+      "message": "Jā"
+   },
+   "appLabelmodeNote": {
+      "message": "Piezīmes. Kā lietot"
+   },
+   "appName": {
+      "message": "Sudoku Spēle"
+   },
+   "record": {
+      "message": "Ieraksts:"
+   },
+   "time": {
+      "message": "Laiks:"
+   }
+}

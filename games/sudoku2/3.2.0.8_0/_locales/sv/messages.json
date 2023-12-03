@@ -1,0 +1,95 @@
+{
+   "appActNewGame": {
+      "message": "Nya spel"
+   },
+   "appActRevealNumbers": {
+      "message": "Svara"
+   },
+   "appActShowHint": {
+      "message": "Visa tips"
+   },
+   "appButtonDesc": {
+      "message": "Sudoku Spel"
+   },
+   "appDesc": {
+      "message": "Spela Sudoku som helst, pusselspel är alltid i din webbläsare!"
+   },
+   "appDifficultBeginner": {
+      "message": "Nybörjare"
+   },
+   "appDifficultExpert": {
+      "message": "Expert"
+   },
+   "appDifficultHard": {
+      "message": "Hårt"
+   },
+   "appDifficultModerate": {
+      "message": "Måttlig"
+   },
+   "appLabelConfirm": {
+      "message": "Klicka på Ja för att avsluta det aktuella spelet."
+   },
+   "appLabelCongrats": {
+      "message": "Grattis! Du gjorde det"
+   },
+   "appLabelControls": {
+      "message": "Klicka på den cell och använda tangentbordet för att skriva in siffror."
+   },
+   "appLabelGoal": {
+      "message": "Spelets mål:"
+   },
+   "appLabelHTU1": {
+      "message": "Genom att klicka på knappen kan du lägga in en siffra i cellen som inte kommer att beräknas som ett resultat, utan använda den som en anteckning"
+   },
+   "appLabelHTU2": {
+      "message": "Du kan lägga 4 nummer i en cell samtidigt."
+   },
+   "appLabelHTU3": {
+      "message": "Så här tar du bort en anteckning:"
+   },
+   "appLabelHTU4": {
+      "message": "- genom att sätta numret i normalt läge"
+   },
+   "appLabelHTU5": {
+      "message": "- trycka på Delete - radera alla siffror"
+   },
+   "appLabelHTU6": {
+      "message": "- trycker på Backsteg - radera en efter en"
+   },
+   "appLabelHTU7": {
+      "message": "- genom att klicka på numret igen"
+   },
+   "appLabelHint": {
+      "message": "Försök med\u003Cbr>\u003Cbr>"
+   },
+   "appLabelNo": {
+      "message": "Inga"
+   },
+   "appLabelRules": {
+      "message": "Sätta siffror från 1 till 9 utan att duplicera:\u003Cbr>- varje rad\u003Cbr>- varje kolumn\u003Cbr>- varje 3×3 avsnitt."
+   },
+   "appLabelTheme": {
+      "message": "Stil spelet:"
+   },
+   "appLabelThemeDark": {
+      "message": "Mörk"
+   },
+   "appLabelThemeWhite": {
+      "message": "Vit"
+   },
+   "appLabelYes": {
+      "message": "Ja"
+   },
+   "appLabelmodeNote": {
+      "message": "Anteckningar. Hur man använder"
+   },
+   "appName": {
+      "message": "Sudoku Spel"
+   },
+   "record": {
+      "message": "Rekord:"
+   },
+   "time": {
+      "message": "Tid:"
+   }
+}

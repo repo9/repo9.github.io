@@ -1,0 +1,95 @@
+{
+   "appActNewGame": {
+      "message": "Nova igra"
+   },
+   "appActRevealNumbers": {
+      "message": "Odgovor"
+   },
+   "appActShowHint": {
+      "message": "Pokaži namig"
+   },
+   "appButtonDesc": {
+      "message": "Sudoku Igre,"
+   },
+   "appDesc": {
+      "message": "Igrate Sudoku na vsakem času puzzle igra je vedno v vašem brskalniku!"
+   },
+   "appDifficultBeginner": {
+      "message": "Začetnik"
+   },
+   "appDifficultExpert": {
+      "message": "Strokovnjak"
+   },
+   "appDifficultHard": {
+      "message": "Težko"
+   },
+   "appDifficultModerate": {
+      "message": "Zmerno"
+   },
+   "appLabelConfirm": {
+      "message": "Kliknite da, če želite končati trenutno igro."
+   },
+   "appLabelCongrats": {
+      "message": "Čestitke! Ti je uspelo"
+   },
+   "appLabelControls": {
+      "message": "Kliknite na celice ter raba vaš tipke vnesite številke."
+   },
+   "appLabelGoal": {
+      "message": "Cilj igre:"
+   },
+   "appLabelHTU1": {
+      "message": "S klikom na gumb lahko v celico vnesete številko, ki ne bo izračunana kot rezultat, ampak jo uporabite kot opombo"
+   },
+   "appLabelHTU2": {
+      "message": "V eno celico lahko postavite 4 številke hkrati."
+   },
+   "appLabelHTU3": {
+      "message": "Kako odstraniti opombo:"
+   },
+   "appLabelHTU4": {
+      "message": "- s postavitvijo številke v običajni način"
+   },
+   "appLabelHTU5": {
+      "message": "- pritisnete Delete - izbrišete vse števke"
+   },
+   "appLabelHTU6": {
+      "message": "- pritisnite Backspace - izbrišite enega za drugim"
+   },
+   "appLabelHTU7": {
+      "message": "- s ponovnim klikom na številko"
+   },
+   "appLabelHint": {
+      "message": "Poskusite\u003Cbr>to\u003Cbr>en"
+   },
+   "appLabelNo": {
+      "message": "Št."
+   },
+   "appLabelRules": {
+      "message": "Dal številke od 1 do 9 brez podvojenih:\u003Cbr>- vsako vrstico\u003Cbr>- vsak stolpec\u003Cbr>- vsak 3 x 3 oddelek."
+   },
+   "appLabelTheme": {
+      "message": "Slog igre:"
+   },
+   "appLabelThemeDark": {
+      "message": "Temno"
+   },
+   "appLabelThemeWhite": {
+      "message": "Bela"
+   },
+   "appLabelYes": {
+      "message": "Da,"
+   },
+   "appLabelmodeNote": {
+      "message": "Opombe. Kako uporabljati"
+   },
+   "appName": {
+      "message": "Sudoku Igre,"
+   },
+   "record": {
+      "message": "Snemanje:"
+   },
+   "time": {
+      "message": "Čas:"
+   }
+}

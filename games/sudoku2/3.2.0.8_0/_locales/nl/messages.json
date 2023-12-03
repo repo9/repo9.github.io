@@ -1,0 +1,95 @@
+{
+   "appActNewGame": {
+      "message": "Nieuw spel"
+   },
+   "appActRevealNumbers": {
+      "message": "Antwoord"
+   },
+   "appActShowHint": {
+      "message": "Hint tonen"
+   },
+   "appButtonDesc": {
+      "message": "Sudoku Spel"
+   },
+   "appDesc": {
+      "message": "Speel Sudoku op elk moment, het spel van het raadsel is altijd in je browser!"
+   },
+   "appDifficultBeginner": {
+      "message": "Beginner"
+   },
+   "appDifficultExpert": {
+      "message": "Expert"
+   },
+   "appDifficultHard": {
+      "message": "Harde"
+   },
+   "appDifficultModerate": {
+      "message": "Matig"
+   },
+   "appLabelConfirm": {
+      "message": "Klik op Ja om te voltooien van het huidige spel."
+   },
+   "appLabelCongrats": {
+      "message": "Van harte gefeliciteerd! Je deed het"
+   },
+   "appLabelControls": {
+      "message": "Klik op de cel en gebruik uw toetsenbord om te typen in de nummers."
+   },
+   "appLabelGoal": {
+      "message": "Het doel van het spel:"
+   },
+   "appLabelHTU1": {
+      "message": "Door op de knop te klikken, kunt u een getal in de cel zetten dat niet als resultaat wordt berekend, maar als notitie wordt gebruikt"
+   },
+   "appLabelHTU2": {
+      "message": "U kunt 4 getallen tegelijk in één cel plaatsen."
+   },
+   "appLabelHTU3": {
+      "message": "Een notitie verwijderen:"
+   },
+   "appLabelHTU4": {
+      "message": "- door het nummer in de normale modus te zetten"
+   },
+   "appLabelHTU5": {
+      "message": "- druk op Delete - verwijder alle cijfers"
+   },
+   "appLabelHTU6": {
+      "message": "- druk op Backspace - één voor één verwijderen"
+   },
+   "appLabelHTU7": {
+      "message": "- door nogmaals op het nummer te klikken"
+   },
+   "appLabelHint": {
+      "message": "Probeer\u003Cbr>\u003C / br>een"
+   },
+   "appLabelNo": {
+      "message": "Geen"
+   },
+   "appLabelRules": {
+      "message": "Zet de nummers 1 tot en met 9 zonder dubbele:\u003Cbr>- elke rij\u003Cbr>- elke kolom\u003Cbr>- elk 3×3-sectie."
+   },
+   "appLabelTheme": {
+      "message": "De stijl van spel:"
+   },
+   "appLabelThemeDark": {
+      "message": "Donker"
+   },
+   "appLabelThemeWhite": {
+      "message": "Wit"
+   },
+   "appLabelYes": {
+      "message": "Ja"
+   },
+   "appLabelmodeNote": {
+      "message": "Opmerkingen. Hoe te gebruiken"
+   },
+   "appName": {
+      "message": "Sudoku Spel"
+   },
+   "record": {
+      "message": "Record:"
+   },
+   "time": {
+      "message": "Tijd:"
+   }
+}

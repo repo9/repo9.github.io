@@ -1,0 +1,95 @@
+{
+   "appActNewGame": {
+      "message": "Нова гра"
+   },
+   "appActRevealNumbers": {
+      "message": "Відповідь"
+   },
+   "appActShowHint": {
+      "message": "Показати підказку"
+   },
+   "appButtonDesc": {
+      "message": "Гра Судоку"
+   },
+   "appDesc": {
+      "message": "Грати в судоку в будь-який час, гра-головоломка завжди у вашому браузері!"
+   },
+   "appDifficultBeginner": {
+      "message": "Новачок"
+   },
+   "appDifficultExpert": {
+      "message": "Експерт"
+   },
+   "appDifficultHard": {
+      "message": "Жорсткий"
+   },
+   "appDifficultModerate": {
+      "message": "Помірний"
+   },
+   "appLabelConfirm": {
+      "message": "Натисніть кнопку Так, щоб закінчити поточну гру."
+   },
+   "appLabelCongrats": {
+      "message": "Вітаємо! Ви це зробили"
+   },
+   "appLabelControls": {
+      "message": "Натисніть на клітину і використовуйте клавіатуру для введення чисел."
+   },
+   "appLabelGoal": {
+      "message": "Мета гри:"
+   },
+   "appLabelHTU1": {
+      "message": "Натиснувши кнопку, ви можете вставити число в клітинку, яке не буде обчислюватися як результат, а використовувати його як примітку"
+   },
+   "appLabelHTU2": {
+      "message": "Ви можете помістити 4 числа в одну комірку одночасно."
+   },
+   "appLabelHTU3": {
+      "message": "Як видалити нотатку:"
+   },
+   "appLabelHTU4": {
+      "message": "- перевівши номер у звичайний режим"
+   },
+   "appLabelHTU5": {
+      "message": "- натискання Delete – видалення всіх цифр"
+   },
+   "appLabelHTU6": {
+      "message": "- натискання клавіші Backspace – видалення по одному"
+   },
+   "appLabelHTU7": {
+      "message": "- повторно натиснувши номер"
+   },
+   "appLabelHint": {
+      "message": "Спробувати\u003Cbr>\u003Cbr>один"
+   },
+   "appLabelNo": {
+      "message": "Ні"
+   },
+   "appLabelRules": {
+      "message": "Поставити цифри від 1 до 9 без дублювання:\u003Cbr>- а кожного рядка\u003Cbr>- кожну колонку\u003Cbr>- в кожному 3×3 розділ."
+   },
+   "appLabelTheme": {
+      "message": "Стиль гри:"
+   },
+   "appLabelThemeDark": {
+      "message": "Темний"
+   },
+   "appLabelThemeWhite": {
+      "message": "Білий"
+   },
+   "appLabelYes": {
+      "message": "Так"
+   },
+   "appLabelmodeNote": {
+      "message": "Примітки. Як використовувати"
+   },
+   "appName": {
+      "message": "Гра Судоку"
+   },
+   "record": {
+      "message": "Запис:"
+   },
+   "time": {
+      "message": "Час:"
+   }
+}

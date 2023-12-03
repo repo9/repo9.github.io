@@ -1,0 +1,95 @@
+{
+   "appActNewGame": {
+      "message": "Nou joc"
+   },
+   "appActRevealNumbers": {
+      "message": "Resposta"
+   },
+   "appActShowHint": {
+      "message": "Mostra el suggeriment"
+   },
+   "appButtonDesc": {
+      "message": "Joc De Sudoku"
+   },
+   "appDesc": {
+      "message": "Joc de Sudoku en qualsevol moment, el joc de trencaclosques és sempre en el seu navegador!"
+   },
+   "appDifficultBeginner": {
+      "message": "Principiant"
+   },
+   "appDifficultExpert": {
+      "message": "Expert"
+   },
+   "appDifficultHard": {
+      "message": "Dur"
+   },
+   "appDifficultModerate": {
+      "message": "Moderat"
+   },
+   "appLabelConfirm": {
+      "message": "Feu clic a Sí per acabar la partida actual."
+   },
+   "appLabelCongrats": {
+      "message": "Felicitats! Ho va fer"
+   },
+   "appLabelControls": {
+      "message": "Feu clic a la cel·la i utilitzar el seu teclat per escriure els números."
+   },
+   "appLabelGoal": {
+      "message": "L'objectiu del joc:"
+   },
+   "appLabelHTU1": {
+      "message": "Fent clic al botó, podeu posar un número a la cel·la que no es calcularà com a resultat, però utilitzar-lo com a nota"
+   },
+   "appLabelHTU2": {
+      "message": "Podeu posar 4 números en una cel·la alhora."
+   },
+   "appLabelHTU3": {
+      "message": "Com eliminar una nota:"
+   },
+   "appLabelHTU4": {
+      "message": "- posant el número en el mode normal"
+   },
+   "appLabelHTU5": {
+      "message": "- prement Delete - esborra tots els dígits"
+   },
+   "appLabelHTU6": {
+      "message": "- prement Backspace - esborra un per un"
+   },
+   "appLabelHTU7": {
+      "message": "- fent clic de nou al número"
+   },
+   "appLabelHint": {
+      "message": "Proveu\u003Cbr>\u003Cbr>"
+   },
+   "appLabelNo": {
+      "message": "No"
+   },
+   "appLabelRules": {
+      "message": "Posar els números del 1 al 9 sense duplicats:\u003Cbr>- cada fila\u003Cbr>- cada columna\u003Cbr>- cada 3×3 de la secció."
+   },
+   "appLabelTheme": {
+      "message": "Estil de joc:"
+   },
+   "appLabelThemeDark": {
+      "message": "Fosc"
+   },
+   "appLabelThemeWhite": {
+      "message": "Blanca"
+   },
+   "appLabelYes": {
+      "message": "Sí"
+   },
+   "appLabelmodeNote": {
+      "message": "Notes. Com utilitzar-les"
+   },
+   "appName": {
+      "message": "Joc De Sudoku"
+   },
+   "record": {
+      "message": "Registre:"
+   },
+   "time": {
+      "message": "Temps:"
+   }
+}

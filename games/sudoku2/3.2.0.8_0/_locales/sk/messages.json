@@ -1,0 +1,95 @@
+{
+   "appActNewGame": {
+      "message": "Nová hra"
+   },
+   "appActRevealNumbers": {
+      "message": "Odpovedať"
+   },
+   "appActShowHint": {
+      "message": "Zobraziť tip"
+   },
+   "appButtonDesc": {
+      "message": "Sudoku Hry"
+   },
+   "appDesc": {
+      "message": "Hrať Sudoku, puzzle hry, vždy je vo vašom prehliadači!"
+   },
+   "appDifficultBeginner": {
+      "message": "Začiatočník"
+   },
+   "appDifficultExpert": {
+      "message": "Expert"
+   },
+   "appDifficultHard": {
+      "message": "Pevný"
+   },
+   "appDifficultModerate": {
+      "message": "Stredne"
+   },
+   "appLabelConfirm": {
+      "message": "Kliknite na položku Áno, ak chcete dokončiť aktuálnej hry."
+   },
+   "appLabelCongrats": {
+      "message": "Blahoželáme! Si to urobil"
+   },
+   "appLabelControls": {
+      "message": "Kliknite na bunky a pomocou vašej klávesnice zadajte čísla."
+   },
+   "appLabelGoal": {
+      "message": "Cieľ hry:"
+   },
+   "appLabelHTU1": {
+      "message": "Kliknutím na tlačidlo môžete do bunky vložiť číslo, ktoré sa ako výsledok nebude počítať, ale použiť ho ako poznámku"
+   },
+   "appLabelHTU2": {
+      "message": "Do jednej bunky môžete vložiť 4 čísla súčasne."
+   },
+   "appLabelHTU3": {
+      "message": "Ako odstrániť poznámku:"
+   },
+   "appLabelHTU4": {
+      "message": "- uvedením čísla do normálneho režimu"
+   },
+   "appLabelHTU5": {
+      "message": "- stlačením Delete - vymazanie všetkých číslic"
+   },
+   "appLabelHTU6": {
+      "message": "- stlačenie kláves Backspace - odstránenie po jednom"
+   },
+   "appLabelHTU7": {
+      "message": "- opätovným kliknutím na číslo"
+   },
+   "appLabelHint": {
+      "message": "Vyskúšajte\u003Cbr>\u003Cbr>jeden"
+   },
+   "appLabelNo": {
+      "message": "Žiadne"
+   },
+   "appLabelRules": {
+      "message": "Dať čísla od 1 do 9 bez duplicitné:\u003Cbr>- v každom riadku\u003Cbr>- každý stĺpec\u003Cbr>- každý 3×3 časti."
+   },
+   "appLabelTheme": {
+      "message": "Štýl hry:"
+   },
+   "appLabelThemeDark": {
+      "message": "Tmavé"
+   },
+   "appLabelThemeWhite": {
+      "message": "Biela"
+   },
+   "appLabelYes": {
+      "message": "Áno"
+   },
+   "appLabelmodeNote": {
+      "message": "Poznámky. Ako používať"
+   },
+   "appName": {
+      "message": "Sudoku Hry"
+   },
+   "record": {
+      "message": "Záznam:"
+   },
+   "time": {
+      "message": "Čas:"
+   }
+}

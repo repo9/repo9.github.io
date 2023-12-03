@@ -1,0 +1,95 @@
+{
+   "appActNewGame": {
+      "message": "Νέο παιχνίδι"
+   },
+   "appActRevealNumbers": {
+      "message": "Απάντηση"
+   },
+   "appActShowHint": {
+      "message": "Εμφάνιση υπόδειξη"
+   },
+   "appButtonDesc": {
+      "message": "Sudoku Παιχνίδι"
+   },
+   "appDesc": {
+      "message": "Παίξτε Sudoku ανά πάσα στιγμή, το παιχνίδι παζλ είναι πάντα στο πρόγραμμα περιήγησής σας!"
+   },
+   "appDifficultBeginner": {
+      "message": "Αρχάριος"
+   },
+   "appDifficultExpert": {
+      "message": "Εμπειρογνωμόνων"
+   },
+   "appDifficultHard": {
+      "message": "Δύσκολο"
+   },
+   "appDifficultModerate": {
+      "message": "Μέτρια"
+   },
+   "appLabelConfirm": {
+      "message": "Κάντε κλικ στο κουμπί Ναι για να τελειώσει το σημερινό παιχνίδι."
+   },
+   "appLabelCongrats": {
+      "message": "Συγχαρητήρια! Το έκανες"
+   },
+   "appLabelControls": {
+      "message": "Κάντε κλικ στο κελί και χρησιμοποιήστε το πληκτρολόγιο για να πληκτρολογήσετε τους αριθμούς."
+   },
+   "appLabelGoal": {
+      "message": "Ο στόχος του παιχνιδιού:"
+   },
+   "appLabelHTU1": {
+      "message": "Κάνοντας κλικ στο κουμπί, μπορείτε να βάλετε έναν αριθμό στο κελί που δεν θα υπολογιστεί ως αποτέλεσμα, αλλά να τον χρησιμοποιήσετε ως σημείωση"
+   },
+   "appLabelHTU2": {
+      "message": "Μπορείτε να βάλετε 4 αριθμούς σε ένα κελί ταυτόχρονα."
+   },
+   "appLabelHTU3": {
+      "message": "Πώς να αφαιρέσετε μια σημείωση:"
+   },
+   "appLabelHTU4": {
+      "message": "- βάζοντας τον αριθμό στην κανονική λειτουργία"
+   },
+   "appLabelHTU5": {
+      "message": "- πατώντας Delete - διαγραφή όλων των ψηφίων"
+   },
+   "appLabelHTU6": {
+      "message": "- πατώντας Backspace - διαγραφή ένα προς ένα"
+   },
+   "appLabelHTU7": {
+      "message": "- κάνοντας ξανά κλικ στον αριθμό"
+   },
+   "appLabelHint": {
+      "message": "Προσπαθήστε\u003Cbr>\u003Cbr>ένα"
+   },
+   "appLabelNo": {
+      "message": "Όχι"
+   },
+   "appLabelRules": {
+      "message": "Βάλτε τους αριθμούς από το 1 έως 9, χωρίς διπλούν:\u003Cbr>- κάθε σειρά\u003Cbr> - κάθε στήλη\u003Cbr>- κάθε 3×3 τμήμα."
+   },
+   "appLabelTheme": {
+      "message": "Στυλ παιχνιδιού:"
+   },
+   "appLabelThemeDark": {
+      "message": "Σκούρο"
+   },
+   "appLabelThemeWhite": {
+      "message": "Λευκό"
+   },
+   "appLabelYes": {
+      "message": "Ναι"
+   },
+   "appLabelmodeNote": {
+      "message": "Σημειώσεις. Τρόπος χρήσης"
+   },
+   "appName": {
+      "message": "Sudoku Παιχνίδι"
+   },
+   "record": {
+      "message": "Εγγραφή:"
+   },
+   "time": {
+      "message": "Ώρα:"
+   }
+}

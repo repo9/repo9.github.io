@@ -1,0 +1,95 @@
+{
+   "appActNewGame": {
+      "message": "Naujas žaidimas"
+   },
+   "appActRevealNumbers": {
+      "message": "Atsakyti"
+   },
+   "appActShowHint": {
+      "message": "Rodyti užuomina"
+   },
+   "appButtonDesc": {
+      "message": "Sudoku Žaidimas"
+   },
+   "appDesc": {
+      "message": "Žaisti Sudoku bet kuriuo metu, dėlionė yra visada jūsų naršyklėje!"
+   },
+   "appDifficultBeginner": {
+      "message": "Naujokas"
+   },
+   "appDifficultExpert": {
+      "message": "Ekspertas"
+   },
+   "appDifficultHard": {
+      "message": "Sunkiai"
+   },
+   "appDifficultModerate": {
+      "message": "Vidutinis"
+   },
+   "appLabelConfirm": {
+      "message": "Spustelėkite Taip, norėdami baigti dabartinį žaidimą."
+   },
+   "appLabelCongrats": {
+      "message": "Sveikiname! Tu"
+   },
+   "appLabelControls": {
+      "message": "Spustelėkite langelį ir naudoti savo klaviatūrą įveskite skaičius."
+   },
+   "appLabelGoal": {
+      "message": "Žaidimo tikslas:"
+   },
+   "appLabelHTU1": {
+      "message": "Paspaudę mygtuką į langelį galite įdėti skaičių, kuris nebus skaičiuojamas kaip rezultatas, o naudoti kaip pastabą"
+   },
+   "appLabelHTU2": {
+      "message": "Viename langelyje vienu metu galite įdėti 4 skaičius."
+   },
+   "appLabelHTU3": {
+      "message": "Kaip pašalinti pastabą:"
+   },
+   "appLabelHTU4": {
+      "message": "- įvedus numerį į įprastą režimą"
+   },
+   "appLabelHTU5": {
+      "message": "- paspaudus Delete - ištrinti visus skaitmenis"
+   },
+   "appLabelHTU6": {
+      "message": "- paspaudus Backspace - ištrinti po vieną"
+   },
+   "appLabelHTU7": {
+      "message": "- dar kartą spustelėjus numerį"
+   },
+   "appLabelHint": {
+      "message": "Pabandykite\u003Cbr>\u003Cbr>vienas"
+   },
+   "appLabelNo": {
+      "message": "Nr."
+   },
+   "appLabelRules": {
+      "message": "Pateikti skaičiai nuo 1 iki 9 be egzemplioriais:\u003Cbr>- kiekvieną eilutę\u003Cbr>- kiekvieno stulpelio\u003Cbr>- kas 3×3 skirsnis."
+   },
+   "appLabelTheme": {
+      "message": "Stiliaus žaidimas:"
+   },
+   "appLabelThemeDark": {
+      "message": "Tamsus"
+   },
+   "appLabelThemeWhite": {
+      "message": "Balta"
+   },
+   "appLabelYes": {
+      "message": "Taip"
+   },
+   "appLabelmodeNote": {
+      "message": "Pastabos. Kaip naudoti"
+   },
+   "appName": {
+      "message": "Sudoku Žaidimas"
+   },
+   "record": {
+      "message": "Rezultatai:"
+   },
+   "time": {
+      "message": "Laikas:"
+   }
+}

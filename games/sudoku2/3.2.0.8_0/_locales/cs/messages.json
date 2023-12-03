@@ -1,0 +1,95 @@
+{
+   "appActNewGame": {
+      "message": "Nová hra"
+   },
+   "appActRevealNumbers": {
+      "message": "Odpověď"
+   },
+   "appActShowHint": {
+      "message": "Ukázat nápovědu"
+   },
+   "appButtonDesc": {
+      "message": "Sudoku Hra"
+   },
+   "appDesc": {
+      "message": "Zahrajte si Sudoku kdykoliv, puzzle hra je vždy ve vašem prohlížeči!"
+   },
+   "appDifficultBeginner": {
+      "message": "Začátečník"
+   },
+   "appDifficultExpert": {
+      "message": "Expert"
+   },
+   "appDifficultHard": {
+      "message": "Těžké"
+   },
+   "appDifficultModerate": {
+      "message": "Mírné"
+   },
+   "appLabelConfirm": {
+      "message": "Klepněte na tlačítko Ano, aby dokončit aktuální hru."
+   },
+   "appLabelCongrats": {
+      "message": "Gratulujeme! Udělal jsi to"
+   },
+   "appLabelControls": {
+      "message": "Klikněte na buňku a pomocí klávesnice zadejte čísla."
+   },
+   "appLabelGoal": {
+      "message": "Cílem hry:"
+   },
+   "appLabelHTU1": {
+      "message": "Kliknutím na tlačítko můžete do buňky vložit číslo, které se jako výsledek nebude počítat, ale použít ho jako poznámku"
+   },
+   "appLabelHTU2": {
+      "message": "Do jedné buňky můžete vložit 4 čísla současně."
+   },
+   "appLabelHTU3": {
+      "message": "Jak odstranit poznámku:"
+   },
+   "appLabelHTU4": {
+      "message": "- uvedením čísla do normálního režimu"
+   },
+   "appLabelHTU5": {
+      "message": "- stisknutí Delete - smazání všech číslic"
+   },
+   "appLabelHTU6": {
+      "message": "- stiskněte Backspace - smažte jeden po druhém"
+   },
+   "appLabelHTU7": {
+      "message": "- opětovným kliknutím na číslo"
+   },
+   "appLabelHint": {
+      "message": "Zkuste\u003Cbr>\u003Cbr>jeden"
+   },
+   "appLabelNo": {
+      "message": "Ne"
+   },
+   "appLabelRules": {
+      "message": "Dát čísla od 1 do 9 bez duplicitní:\u003Cbr> každý řádek\u003Cbr>- každý sloupec,\u003Cbr>- každý 3×3 sekce."
+   },
+   "appLabelTheme": {
+      "message": "Styl hry:"
+   },
+   "appLabelThemeDark": {
+      "message": "Tma"
+   },
+   "appLabelThemeWhite": {
+      "message": "Bílá"
+   },
+   "appLabelYes": {
+      "message": "Ano"
+   },
+   "appLabelmodeNote": {
+      "message": "Poznámky. Jak používat"
+   },
+   "appName": {
+      "message": "Sudoku Hra"
+   },
+   "record": {
+      "message": "Záznam:"
+   },
+   "time": {
+      "message": "Čas:"
+   }
+}

@@ -1,0 +1,95 @@
+﻿{
+	"appName":{
+		"message":"סודוקו המשחק"
+	},
+	"appDesc":{
+		"message":"שחק סודוקו בכל עת, משחק הפאזל נמצא תמיד בדפדפן שלך!"
+	},
+	"appButtonDesc":{
+		"message":"סודוקו המשחק"
+	},
+	"appLabelmodeNote" : {
+		"message" : "Notes. How to use"
+	},
+	"appLabelHTU1" : {
+		"message" : "By clicking on the button, you can put a number in the cell that will not be calculated as a result, but use it as a note"
+	},
+	"appLabelHTU2" : {
+		"message" : "You can put 4 numbers in one cell at the same time."
+	},
+	"appLabelHTU3" : {
+		"message" : "How to remove a note:"
+	},
+	"appLabelHTU4" : {
+		"message" : "- by putting the number in the normal mode"
+	},
+	"appLabelHTU5" : {
+		"message" : "- pressing Delete - delete all digits"
+	},
+	"appLabelHTU6" : {
+		"message" : "- pressing Backspace - delete one by one"
+	},
+	"appLabelHTU7" : {
+		"message" : "- by clicking on the number again"
+	},
+	"appActNewGame" : {
+		"message" : "New game"
+	},
+	"appActRevealNumbers" : {
+		"message" : "Answer"
+	},
+	"appActShowHint" : {
+		"message" : "Show hint"
+	},
+	"appDifficultBeginner" : {
+		"message" : "Beginner"
+	},
+	"appDifficultModerate" : {
+		"message" : "Moderate"
+	},
+	"appDifficultHard" : {
+		"message" : "Hard"
+	},
+	"appDifficultExpert" : {
+		"message" : "Expert"
+	},
+	"appLabelGoal" : {
+		"message" : "The goal of the game:"
+	},
+	"appLabelRules" : {
+		"message" : "Put numbers from 1 to 9 without duplicate:<br>- each row<br>- each column<br>- each 3×3 section."
+	},
+	"appLabelControls" : {
+		"message" : "Click on the cell and use your keyboard to type in the numbers."
+	},
+	"appLabelTheme" : {
+		"message" : "Style game:"
+	},
+	"appLabelThemeWhite" : {
+		"message" : "White"
+	},
+	"appLabelThemeDark" : {
+		"message" : "Dark"
+	},
+	"appLabelCongrats": { 
+		"message" : "Congratulations! You did it"
+	},
+	"appLabelConfirm": { 
+		"message" : "Click Yes to finish the current game."
+	},
+	"appLabelYes": { 
+		"message" : "Yes"
+	},
+	"appLabelNo": { 
+		"message" : "No"
+	},
+	"appLabelHint" : {
+		"message" : "Try<br>this<br>one"
+	},
+	"time" : {
+		"message" : "Time:"
+	},
+	"record" : {
+		"message" : "Record:"
+	}
+}
