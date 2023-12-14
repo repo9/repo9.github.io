@@ -80,15 +80,30 @@ class MessageBox {
         //this.overlayDOM.removeChild(btnBoxEl);
 
         for (let btn of _buttons) {
-            var el = document.createElement('button');
-            el.className = "overlay-btn";
-            el.setAttribute("id", btn.id);
-            el.textContent = btn.name;
-            el.onclick =  (event) => { btn.action['click'](event); };
+            if(btn.id == "buttonNo"){
+                var el = document.createElement('button');
+                el.className = "overlay-btn-cancel";
+                el.setAttribute("id", btn.id);
+                el.textContent = btn.name;
+                el.onclick =  (event) => { btn.action['click'](event); };
 
-            //btnBoxEl.append(el);
+                //btnBoxEl.append(el);
 
-            this.overlayDOM.append(el);
+                this.overlayDOM.append(el);
+
+            }else{
+                var el = document.createElement('button');
+                el.className = "overlay-btn";
+                el.setAttribute("id", btn.id);
+                el.textContent = btn.name;
+                el.onclick =  (event) => { btn.action['click'](event); };
+
+                //btnBoxEl.append(el);
+
+                this.overlayDOM.append(el);
+
+            }
+
         }
 
         //this.overlayDOM.append(btnBoxEl);
@@ -165,7 +180,7 @@ class GameTimer {
         this.tick();
         this.interval_id = setInterval(function() {this.tick();}.bind(this), 1000);
         
-        this.recordDOM.textContent = Storage.getValue("record_in_" + difficulty) ? this.format(Storage.getValue("record_in_" + difficulty)) : '--:--';
+        this.recordDOM.textContent = Storage.getValue("record_in_" + difficulty) ? this.format(Storage.getValue("record_in_" + difficulty)) : '--:--:--';
     }
     stop() {
         clearInterval(this.interval_id);
@@ -182,7 +197,7 @@ class GameTimer {
     }
     disable() {
         clearInterval(this.interval_id);
-        this.timerDOM.textContent = '00:00';
+        this.timerDOM.textContent = '00:00:00';
     }
     tick() {
         let time = new Date().getTime() - this.start_time;
@@ -190,10 +205,15 @@ class GameTimer {
         this.timerDOM.textContent = this.format(time);
     }
     format(mss) {
+        //mss = 18000000
         mss = Math.round(mss / 1000);
         let mins = parseInt(mss / 60);
         let secs = mss % 60;
-        return (mins < 10 ? '0' + mins : mins) + ':' + (secs < 10 ? '0' + secs : secs);
+        let hour = parseInt(mins / 60);
+        if(mins >= 60){
+            mins = mins % 60;
+        }
+        return (hour < 10 ? '0' + hour : hour) + ':'+ (mins < 10 ? '0' + mins : mins) + ':' + (secs < 10 ? '0' + secs : secs);
     }
 }
 

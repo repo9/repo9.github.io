@@ -130,7 +130,7 @@ textarea {
   padding: 7px 15px;
   border-width: 1px;
   border-style: solid;
-  border-radius: 4px;
+  /*border-radius: 4px;*/
   font-weight: 700;
   font-size: 14px;
   vertical-align: top;
@@ -163,7 +163,7 @@ select:not([size]).input {
   min-height: 36px;
   padding: 5px 5px;
   border: 0;
-  border-radius: 4px;
+  /*border-radius: 4px;*/
   font-weight: 700;
   font-size: 14px;
   color: #fff;
@@ -172,7 +172,7 @@ select:not([size]).input {
   word-wrap: break-word;
   overflow-wrap: break-word;
   vertical-align: top;
-  box-shadow: inset 0 2px 0 0 rgba(255, 255, 255, 0.12), inset 0 -2px 0 rgba(0, 0, 0, 0.07);
+  /*box-shadow: inset 0 2px 0 0 rgba(255, 255, 255, 0.12), inset 0 -2px 0 rgba(0, 0, 0, 0.07);*/
   cursor: pointer;
   -webkit-transition: background-color 0.1s ease-in-out;
   transition: background-color 0.1s ease-in-out;
@@ -185,7 +185,7 @@ select:not([size]).input {
   margin: 1px 0px 1px 0px;
   padding: 10px 10px;
   border: 0;
-  border-radius: 4px;
+  /*border-radius: 4px;*/
   font-weight: 700;
   font-size: 23px;
   color: #fff;
@@ -194,7 +194,7 @@ select:not([size]).input {
   word-wrap: break-word;
   overflow-wrap: break-word;
   vertical-align: top;
-  box-shadow: inset 0 2px 0 0 rgba(255, 255, 255, 0.12), inset 0 -2px 0 rgba(0, 0, 0, 0.07);
+  /*box-shadow: inset 0 2px 0 0 rgba(255, 255, 255, 0.12), inset 0 -2px 0 rgba(0, 0, 0, 0.07);*/
   cursor: pointer;
   -webkit-transition: background-color 0.1s ease-in-out;
   transition: background-color 0.1s ease-in-out;
@@ -306,13 +306,13 @@ select:not([size]).input {
   font-size: 12px;
   line-height: 1.14;
   border: 1px solid #008ada; 
-  border-radius: 4px; 
+  /*border-radius: 4px;*/
   padding: 2px 1px 0px 4px; 
   height: 36px;
 }
 .aside-time .time-col {
   display: inline-block;
-  width: 50px;
+  width: 60px;
   font-weight: 500;
 }
 .aside-time .time-col#record {
@@ -492,8 +492,8 @@ select:not([size]).input {
   top: 1px;
   /*top: calc(100% - 1px);*/
   padding: 3px;
-  border-radius: 3px;
-  /*background-color: #76c47d;*/
+  /*border-radius: 3px;
+  background-color: #76c47d;*/
   opacity: 0.5;
   line-height: 1;
   font-weight: bold;
@@ -633,12 +633,12 @@ select:not([size]).input {
 }
 .overlay-btn {
   display: inline-block;
-  min-width: 100px;
+  min-width: 100%;
   min-height: 36px;
-  margin: 10px;
+  margin: 3px;
   padding: 6px 8px;
   border: 0;
-  border-radius: 4px;
+  /*border-radius: 4px;*/
   font-weight: 700;
   font-size: 14px;
   text-decoration: none;
@@ -650,13 +650,40 @@ select:not([size]).input {
   -webkit-transition: background-color 0.1s ease-in-out;
   transition: background-color 0.1s ease-in-out;
 }
-.overlay-btn:focus {
+
+.overlay-btn-cancel{
+  display: inline-block;
+  min-width: 100%;
+  min-height: 36px;
+  margin: 3px;
+  padding: 6px 8px;
+  border: 0;
+  /*border-radius: 4px;*/
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  vertical-align: top;
+  cursor: pointer;
+  -webkit-transition: background-color 0.1s ease-in-out;
+  transition: background-color 0.1s ease-in-out;
+  background-color: #c4646f;
+  color: #fff;
+}
+
+.overlay-btn:focus, 
+.overlay-btn-cancel:focus,{
   outline: none;
 }
 .overlay-btn:focus,
-.overlay-btn:hover {
+.overlay-btn:hover,
+.overlay-btn-cancel:focus,
+.overlay-btn-cancel:hover {
   text-decoration: none;
 }
+
 .show_overlay .sudoku {
   opacity: .3;
   -webkit-filter: blur(2px);
@@ -743,15 +770,12 @@ select:not([size]).input {
 
 }
 
-
-.theme-white .btn-number.btn-notes--active:hover,
 .theme-white .btn-number.btn-notes {
   background-image: url("img/note2.png");
   background-color: #fff;
   background-size: contain;
   background-repeat: no-repeat;
 }
-.theme-white .btn-number.btn-notes:hover,
 .theme-white .btn-number.btn-notes--active {
   background-image: url("img/note1.png");
   background-color: #fff;
