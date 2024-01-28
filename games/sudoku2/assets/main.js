@@ -520,7 +520,7 @@ function createNewGame() {
     win = false;
     Storage.setValue("win", win);
     selectedSquare = false;
-    Storage.setValue("inputNumbersSudoku", {});
+    Storage.setValue("inNuSudoku", {});
     hint && (hint.removeChild(hint.querySelector('.sudoku-hint')), hint = null);
     // generate data for sudoku numbers
     // generate const basic table 
@@ -625,7 +625,7 @@ function createNewGame() {
         d[q]++;
         fillVisibleSudokuSquare(p)
     }
-    Storage.setValue("visibleNumbersSudoku", c);
+    Storage.setValue("viNuSudoku", c);
     timer.start();
 }
 
@@ -638,7 +638,7 @@ function onKeyUpSudokuSquare(a) {
  */
 function onKeyDownSudokuSquare(a) {
     hint && (hint.removeChild(hint.querySelector('.sudoku-hint')), hint = null);
-    let c = Storage.getValue("inputNumbersSudoku");
+    let c = Storage.getValue("inNuSudoku");
     document.all && (a = event);
     if (selectedSquare && !win) {
         // check win condition
@@ -684,17 +684,17 @@ function onKeyDownSudokuSquare(a) {
                         }
                     }
                     (count > 0) ? c[d + "_" + b] = arre : delete c[d + "_" + b];
-                    Storage.setValue("inputNumbersSudoku", c);
+                    Storage.setValue("inNuSudoku", c);
                 } else {
                     for (let div of cell_notes) {
                         div.textContent = "";
                     }
                     delete c[d + "_" + b];
-                    Storage.setValue("inputNumbersSudoku", c);
+                    Storage.setValue("inNuSudoku", c);
                 }
             } else {
                 delete c[d + "_" + b];
-                Storage.setValue("inputNumbersSudoku", c);
+                Storage.setValue("inNuSudoku", c);
                 cell_change.textContent ="";
                 checkForWin(), 8 == code;
             }
@@ -729,7 +729,7 @@ function onKeyDownSudokuSquare(a) {
                 }
                 c[d + "_" + b] = arre;
 
-                Storage.setValue("inputNumbersSudoku", c)
+                Storage.setValue("inNuSudoku", c)
                 checkForWin()
                 return !1;
             } else {
@@ -738,7 +738,7 @@ function onKeyDownSudokuSquare(a) {
                 }
                 cell_change.textContent = e;
                 c[d + "_" + b] = e;
-                Storage.setValue("inputNumbersSudoku", c)
+                Storage.setValue("inNuSudoku", c)
             }
         }
         c = document.getElementById("sudoku").getElementsByTagName("DIV");
@@ -764,7 +764,7 @@ function onKeyDownSudokuSquare(a) {
 function btnNumber(val){
 
     hint && (hint.removeChild(hint.querySelector('.sudoku-hint')), hint = null);
-    let c = Storage.getValue("inputNumbersSudoku");
+    let c = Storage.getValue("inNuSudoku");
     document.all && (a = event);
     if (selectedSquare && !win) {
 
@@ -797,11 +797,11 @@ function btnNumber(val){
                         div.textContent = "";
                     }
                     delete c[d + "_" + b];
-                    Storage.setValue("inputNumbersSudoku", c);
+                    Storage.setValue("inNuSudoku", c);
                 
             } else {
                 delete c[d + "_" + b];
-                Storage.setValue("inputNumbersSudoku", c);
+                Storage.setValue("inNuSudoku", c);
                 cell_change.textContent ="";
                 checkForWin();
             }
@@ -835,7 +835,7 @@ function btnNumber(val){
                 }
                 c[d + "_" + b] = arre;
                 cell.focus();
-                Storage.setValue("inputNumbersSudoku", c);
+                Storage.setValue("inNuSudoku", c);
                 checkForWin();
                 selectedSquare && selectedSquare.focus();  //select box
                 return !1;
@@ -845,7 +845,7 @@ function btnNumber(val){
                 }
                 cell_change.textContent = e;
                 c[d + "_" + b] = e;
-                Storage.setValue("inputNumbersSudoku", c);
+                Storage.setValue("inNuSudoku", c);
             }
         }
         c = document.getElementById("sudoku").getElementsByTagName("DIV");
@@ -884,12 +884,12 @@ function loadExistingGame() {
     document.all ? document.body.onkeyup = onKeyUpSudokuSquare: document.documentElement.onkeyup = onKeyUpSudokuSquare;
     initEmptyBoard();
     difficulty <=0 && (difficulty = 1);
-    let visibleNS = Storage.getValue("visibleNumbersSudoku");
+    let visibleNS = Storage.getValue("viNuSudoku");
     for (let i = 0; i < visibleNS.length; i++) {
         let b = document.getElementById("square_" + visibleNS[i]);
         fillVisibleSudokuSquare(b);
     }
-    let inNS = Storage.getValue("inputNumbersSudoku");
+    let inNS = Storage.getValue("inNuSudoku");
     for (let i in inNS) { 
         b = document.getElementById("square_" + i);
         if (Array.isArray(inNS[i])) {
