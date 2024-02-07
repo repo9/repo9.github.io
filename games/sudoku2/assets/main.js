@@ -68,6 +68,12 @@ class MessageBox {
         main.className = "content show_overlay";
         !document.querySelector('.overlay') && main.append(this.overlayDOM);
 
+        let header = document.querySelector('.header');
+        header.className = "header show_overlay_hidden";
+
+        let box_number = document.querySelector('.box-number');
+        box_number.className = "box-number show_overlay_hidden";
+
 
         //var btnBoxEl = document.createElement('div');
         //btnBoxEl.className = "overlay-btn-box";
@@ -112,6 +118,12 @@ class MessageBox {
         let main = document.querySelector('.content');
         main.className = "content";
         main.removeChild(this.overlayDOM);
+
+        let header = document.querySelector('.header');
+        header.className = "header";
+
+        let box_number = document.querySelector('.box-number');
+        box_number.className = "box-number";
     }
 }
 
