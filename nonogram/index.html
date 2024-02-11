@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>nonogram</title>
+
+	<link rel="stylesheet" href="css/styles.css" type="text/css" />
+
+</head>
+
+<body>
+	
+	<div style="height: 50px;  width:100%; background-color:#fff; margin: 0 0 10px 0;">
+		<center>
+		</center>
+	</div>
+
+	<div class="puzzle-menual-popup">
+		<center>
+
+			<div id="title-bar" class="title-bar">
+				<p style="font-size: 25px; height:30px;">Nonogram</p>
+				<p style="font-size: 15px;">puzzle</p>
+			</div>
+			
+			<div class="puzzle-setting-popup-wall"></div>
+
+			<div style="margin: 50px 0 50px 0;">
+				<p>...</p>
+			</div>
+
+			<div class="puzzle-setting-popup-wall"></div>
+
+			<div id="close-btn" class="close-btn close-menual-popup-button">
+				<p style="font-size: 18px;">close</p>
+			</div>
+
+			<div class="puzzle-setting-popup-wall"></div>
+		</center>
+	</div>
+
+
+	<div class="puzzle-setting-popup">
+		<center>
+
+			<div id="title-bar" class="title-bar">
+				<p style="font-size: 25px; height:30px;">Nonogram</p>
+				<p style="font-size: 15px;">puzzle</p>
+			</div>
+			
+			<div class="puzzle-setting-popup-wall"></div>
+
+			<div id="beginner-btn" class="beginner-btn setting-popup-button">
+				<p style="font-size: 18px;">Beginner</p>
+				<p style="font-size: 11px;">5 x 5</p>
+			</div>
+
+			<div id="medium-btn" class="medium-btn setting-popup-button">
+				<p style="font-size: 18px;">Medium</p>
+				<p style="font-size: 11px;">10 x 10</p>
+			</div>
+
+			<div id="expert-btn" class="expert-btn setting-popup-button">
+				<p style="font-size: 18px;">Expert</p>
+				<p style="font-size: 11px;">15 x 15</p>
+			</div>
+
+			<div id="special-btn" class="special-btn setting-popup-button">
+				<p style="font-size: 18px;">Special</p>
+				<p style="font-size: 11px;">20 x 20</p>
+			</div>
+
+			<div class="puzzle-setting-popup-wall"></div>
+
+			<div id="close-btn" class="close-btn close-popup-button">
+				<p style="font-size: 18px;">close</p>
+			</div>
+
+			<div class="puzzle-setting-popup-wall"></div>
+		</center>
+	</div>
+
+<div id="page">
+
+	<main>
+		
+		<div class="wrapper scrollbar" style="position: relative; width:100%; overflow-x: auto;" >
+
+			<div class="puzzle-blind">
+			</div>
+
+			<div class="puzzle-deteil" id="puzzle-deteil">
+				<p class="puzzle-deteil-label">Lv.Medium</p>
+			</div>
+
+			<div class="puzzle-box">
+				<div class="puzzle">
+					<div data-nonogram-puzzle-grid></div>
+				</div>
+			</div>
+
+
+		</div>
+
+		<div class="puzzle-setting">
+				<center>
+					<div style="width:320px; padding:20px 0 0 0;">
+						<div class="solved-btn menu-btn" style="width:50px; height:50px; float: left;">
+							<img src="img/solved_icon.png" width="50"/>
+						</div>
+
+						<div class="setting-btn menu-btn" style="width:50px; height:50px; display:inline-block;">
+							<img src="img/setting_icon.png" width="50"/>
+						</div>
+
+						<div class="menual-btn menu-btn" style="width:50px; height:50px; float: right;">
+							<img src="img/menual.png" width="50"/>
+						</div>
+					</div>
+				</center>
+			</div>
+
+		<div class="puzzle-restart-blind" style="width:100%; display: none;">
+				<center>
+					<div class="solved-box" style="padding: 0px; align-content: center;">
+						<p>Congratulation Solved!</p>
+						<div id="restart-btn" class="restart-btn">
+							<p style="font-size: 18px; line-height: 45px;">restart?</p>
+						</div>
+					</div>
+				</center>
+		</div>
+
+	</main>
+
+</div>
+
+
+<script type="module">
+	import {Creator, Gui} from './src/index.js';
+
+	try {
+
+		//const prev_puzzle_cells = JSON.parse(window.localStorage.getItem('asvglhmi-GameCellSave'));
+		const cells = JSON.parse(window.localStorage.getItem('asvglhmi-GameCellSave'));
+		var width =  parseInt(window.localStorage.getItem('asvglhmi-GameWidthSave'));
+		var height = parseInt(window.localStorage.getItem('asvglhmi-GameheightSave'));
+		const totalCells = parseInt(window.localStorage.getItem('asvglhmi-GameTotalCellSave'));
+		const rowHints = JSON.parse(window.localStorage.getItem('asvglhmi-GameRowHintSave'));
+		const columnHints = JSON.parse(window.localStorage.getItem('asvglhmi-GameColumnHintSave'));
+		const grid = JSON.parse(window.localStorage.getItem('asvglhmi-GameGridSave'));
+
+		const creator = new Creator();
+		var puzzle =  creator.createRandom( 10, 10 );
+		var gui = new Gui();
+
+		if(!cells || !width || !height || !totalCells || !rowHints || !columnHints || !grid){
+			//puzzle  = creator.createRandom( 10, 10 );
+
+		}else{
+			puzzle  = creator.createRandom( width, height );
+			puzzle.creator = null;
+			puzzle.cells = cells;
+			puzzle.columnHints = columnHints;
+			puzzle.grid = grid;
+			//puzzle.creator = JSON.parse(window.localStorage.getItem('asvglhmi-GameCreatorSave'));
+			puzzle.height = height;
+			puzzle.width = width;
+			puzzle.totalCells = totalCells;
+			puzzle.rowHints = rowHints;
+
+		}
+
+		gui.draw(puzzle);
+		//gui.boardSize  = gui.boardSizes[0];
+
+		if(puzzle.width == 5){
+			gui.boardSize  = gui.boardSizes[2];
+		}else if(puzzle.width == 10){
+			gui.boardSize  = gui.boardSizes[0];
+		}else if(puzzle.width == 15){
+			gui.boardSize  = gui.boardSizes[0];
+		}else if(puzzle.width == 20){
+			gui.boardSize  = gui.boardSizes[0];
+		}else{
+			gui.boardSize  = gui.boardSizes[0];
+		}
+
+		console.log(puzzle);
+	
+
+	} catch (err) {
+		console.log(err);
+
+		var width =  10;
+		var height = 10;
+		const creator = new Creator();
+		var puzzle  = creator.createRandom( width, height );
+		const gui     = new Gui();
+
+		
+		gui.draw( puzzle );
+
+		if(puzzle.width == 5){
+			gui.boardSize  = gui.boardSizes[2];
+		}else if(puzzle.width == 10){
+			gui.boardSize  = gui.boardSizes[0];
+		}else if(puzzle.width == 15){
+			gui.boardSize  = gui.boardSizes[0];
+		}else if(puzzle.width == 20){
+			gui.boardSize  = gui.boardSizes[0];
+		}else{
+			gui.boardSize  = gui.boardSizes[0];
+		}
+		//gui.boardSize  = gui.boardSizes[0];
+
+
+		puzzle.creator = null;
+		
+		window.localStorage.setItem('asvglhmi-GameCellSave', JSON.stringify(puzzle.cells));
+		window.localStorage.setItem('asvglhmi-GameColumnHintSave', JSON.stringify(puzzle.columnHints));
+		window.localStorage.setItem('asvglhmi-GameGridSave', JSON.stringify(puzzle.grid));
+		//window.localStorage.setItem('asvglhmi-GameCreatorSave', JSON.stringify(puzzle.creator));
+		window.localStorage.setItem('asvglhmi-GameheightSave', puzzle.height);
+		window.localStorage.setItem('asvglhmi-GameWidthSave', puzzle.width);
+		window.localStorage.setItem('asvglhmi-GameRowHintSave', JSON.stringify(puzzle.rowHints));
+		window.localStorage.setItem('asvglhmi-GameTotalCellSave', puzzle.totalCells);
+		
+		console.log(puzzle);
+	}
+
+
+</script>
+
+<!--<script src="src/custom.js"></script>-->
+
+
+</body>
+</html>
