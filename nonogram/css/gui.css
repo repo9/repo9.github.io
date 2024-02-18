@@ -275,7 +275,8 @@ table.nonogram-puzzle-grid.large .fill {
 table.nonogram-puzzle-grid td.puzzle-cell .fill {}
 
 table.nonogram-puzzle-grid td.puzzle-cell.user-positive .fill {
-    background: #424242;
+    /*background: #424242;*/
+    background: #73ba6c;
 }
 
 table.nonogram-puzzle-grid td.puzzle-cell.user-negative .fill,
@@ -298,11 +299,17 @@ table.nonogram-puzzle-grid .hint {
 
 table.nonogram-puzzle-grid.tiny .hint {
     font-size: 10px;
+    background: #eee;
+}
+
+table.nonogram-puzzle-grid.medium .hint {
+    background: #eee;
 }
 
 table.nonogram-puzzle-grid.large .hint {
     font-size: 20px;
     line-height: 25px;
+    background: #eee;
 }
 
 table.nonogram-puzzle-grid .hint .fill {

@@ -1,5 +1,5 @@
 function GUILocalization(){
-    document.querySelector("#newGame").textContent = "Reset";
+    document.querySelector("#newGame").textContent = "New";
     document.querySelector("#reveal").textContent = "Solution";
     //document.querySelector("#hint").textContent = "hint".replace(/<br>/g, '\r\n');
     document.querySelector("option[value='beginner']").textContent = "Tall Lv";
@@ -9,6 +9,14 @@ function GUILocalization(){
 
     document.querySelector(".aside-time #current .title").textContent = "Time";
     document.querySelector(".aside-time #record .title").textContent = "Best";
+
+    document.querySelector("#share").onclick = (event) => {
+        document.querySelector(".share-popup").style.display = "block";
+    }
+
+    document.querySelector("#share-popup-close").onclick = (event) => {
+        document.querySelector(".share-popup").style.display = "none";
+    }
 }
 
 let Storage = {

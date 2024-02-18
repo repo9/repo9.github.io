@@ -1,3 +1,1 @@
 User-agent: *
-
-Sitemap: https://repo9.github.io/sitemap.xml

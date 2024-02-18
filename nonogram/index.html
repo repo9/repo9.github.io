@@ -20,13 +20,21 @@
 	    gtag('config', 'G-XP75WM9ELY');
 	  </script>
 
+	<script>        
+		function shareUrlClip(){
+		let inputTag = document.querySelector(".copy-value");
+		  navigator.clipboard.writeText(inputTag.value).then(res=>{
+		  	alert("주소가 복사되었습니다!");
+		  })
+		}
+	</script>
 </head>
 
 <body>
 	
 	<div style="height: 50px;  width:100%; background-color:#fff; margin: 0 0 10px 0;">
 		<center>
-			<!-- nonogam -->
+			<!-- nonogam  -->
 			<ins class="adsbygoogle"
 			     style="display:inline-block;width:320px;height:50px"
 			     data-ad-client="ca-pub-2170323107556217"
@@ -47,8 +55,18 @@
 			
 			<div class="puzzle-setting-popup-wall"></div>
 
-			<div style="margin: 50px 0 50px 0;">
-				<p>...</p>
+			<div style="margin: 20px 0 50px 0;">  <!--qr-->
+				<div>
+					<p>-URL로 공유-</p>
+					<div style="margin-top: 20px;">
+						<input type="text" class="copy-value" value="https://game.repo777.com/nonogram/" style="height:30px;  padding: 0 3px 0 3px;" readonly></input>
+	   					<button onclick="shareUrlClip()" style="height:34px; border: none;">주소 공유</button>
+	   				</div>
+				</div>
+				<div style="margin-top:30px;">
+					<p>-QR로 공유-</p>
+					<p><img src="img/gr.png" width="200"/></p>
+				</div>
 			</div>
 
 			<div class="puzzle-setting-popup-wall"></div>

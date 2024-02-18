@@ -22,9 +22,11 @@
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  min-width: 500px;
 }
 body {
   margin: 0;
+  min-width: 500px;
 }
 a {
   background-color: transparent;
@@ -825,10 +827,10 @@ select:not([size]).input {
 }
 */
 .theme-white .sudoku-square {
-  border-color: #f2f2f2;
+  border-color: #ddd;
 }
 .theme-white .sudoku-square--static {
-  background: #f2f2f2;
+  background: #eee;
 }
 .theme-white .sudoku-input:focus {
   border-color: #008ada;
