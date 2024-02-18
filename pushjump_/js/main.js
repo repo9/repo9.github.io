@@ -147,8 +147,6 @@ var mainState = function(game){
 
   var gameState = true;
 
-  var gamePreBestScore = 0;
-
   this.pArr = [17,15,12,10,15,13,8,17]; 
   this.init = function(){
 
@@ -166,8 +164,6 @@ var mainState = function(game){
     this.items = {txt:[null,null,null],val:[0,4,4]}; 
   };
   this.create = function(){
-
-    gamePreBestScore = Number(localStorage.getItem("scoreUTTEWFWBR"));
 
     gameState = true;
     var back = this.game.add.sprite(0,0,"back");
@@ -228,8 +224,6 @@ var mainState = function(game){
     this.game.add.sprite(75,10,"icon",1);
     this.items.txt[1] = this.game.add.text(35, 8, this.items.val[1], {fontSize:"20px", fill:"#777"});
     this.items.txt[2] = this.game.add.text(100, 8, this.items.val[2], {fontSize:"20px", fill:"#777"});
-    //best score
-    this.items.txt[3] = this.game.add.text(10, 35, "best score: "+ gamePreBestScore, {fontSize:"17px", fill:"#777"});
 
     this.game.input.onDown.add(function(){
       if(!moving && !holding){
@@ -440,8 +434,7 @@ var mainState = function(game){
       if(!plate.inWorld && plate!=player){plate.kill();}
     },this);
   };
-  this._overMenu = function(){  //gameover
-
+  this._overMenu = function(){
 
     var box = this.game.add.sprite(this.world.centerX, this.world.centerY, "button", 3);
     box.anchor.set(0.5);
@@ -470,11 +463,5 @@ var mainState = function(game){
 
     this.game.scoreBest = this.items.val[0]>this.game.scoreBest?this.items.val[0]:this.game.scoreBest;
     this.game.add.text(this.world.centerX, this.world.centerY+50, "Best : " + this.game.scoreBest, {fontSize:"20px", fill:"#777"}).anchor.set(0.5);
-
-    var gamePreBestScore = Number(localStorage.getItem("scoreUTTEWFWBR"));
-    if(gamePreBestScore < this.game.scoreBest){
-        localStorage.setItem("scoreUTTEWFWBR", this.game.scoreBest);  //score save
-    }
-
   };
 };
