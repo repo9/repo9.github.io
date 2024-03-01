@@ -5,8 +5,8 @@
 	<!--<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>-->
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
-  <!--<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0,minimum-scale=1.0,target-densitydpi=medium-dpi" />-->
-  <meta name="viewport" content="width=500">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0,minimum-scale=1.0,target-densitydpi=medium-dpi" />
+  <!--<meta name="viewport" content="width=500">-->
   <title>modern sudoku</title>
   <link href="./assets/main.css" rel="stylesheet" type="text/css">
   <style>
@@ -98,11 +98,12 @@
       <script>
            (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
+      
     </div>
 
     <div class="extension_wrapper theme-white">
       
-      <div class="share-popup" id="share-popup" style="display:none; position:absolute; width:422px; height:100%; background-color:rgba(255, 255, 255, 0.9); z-index: 99; padding: 20px 0 20px 0;">
+      <div class="share-popup" id="share-popup" style="display:none; position:absolute; width:100%; height:100%; background-color:rgba(255, 255, 255, 0.9); z-index: 99; padding: 20px 0 20px 0;">
           <center>
             <div>
               <p>-URL로 공유-</p>
@@ -139,14 +140,22 @@
           <button class="btn btn-hint" id="hint"></button>
           <button class="btn btn-notes" id="notes"></button>-->
           <div class="aside-time right-box">
-            <div id="record" class="time-col">
-              <div class="title">Best</div>
-              <div class="time">10:40</div>
-            </div>
-            <div id="current" class="time-col">
-              <div class="title">Time</div>
-              <div class="time">12:40</div>
-            </div>
+            <table style="border-collapse: collapse;">
+              <tr> 
+                <td>
+                  <div id="record" class="time-col">
+                    <div class="title">Best</div>
+                    <div class="time">10:40</div>
+                  </div>
+                </td>
+                <td>
+                  <div id="current" class="time-col">
+                    <div class="title">Time</div>
+                    <div class="time">12:40</div>
+                  </div>
+                </td>
+              </tr>
+            </table>
           </div>
         </div>
       </header>
@@ -2047,27 +2056,58 @@
                  </div>
                 </div>
               </div>
-            
               <div class="box-number">
-                <div class="wall"> 
-                </div>
-                  
-                  <div>
-                    <button class="btn-number" id="btn-number" onclick="btnNumber(1)">1</button>
-                    <button class="btn-number" id="btn-number" onclick="btnNumber(2)">2</button>
-                    <button class="btn-number" id="btn-number" onclick="btnNumber(3)">3</button>
-                    <button class="btn-number" id="btn-number" onclick="btnNumber(4)">4</button>
-                    <button class="btn-number" id="btn-number" onclick="btnNumber(5)">5</button>
-                    <button class="btn-number btn-hint" id="hint"></button>
-                  </div>
-                  <div>
-                    <button class="btn-number" id="btn-number" onclick="btnNumber(6)">6</button>
-                    <button class="btn-number" id="btn-number" onclick="btnNumber(7)">7</button>
-                    <button class="btn-number" id="btn-number" onclick="btnNumber(8)">8</button>
-                    <button class="btn-number" id="btn-number" onclick="btnNumber(9)">9</button>
-                    <button class="btn-number btn-number-delete" id="btn-number" onclick="btnNumber(0)">Del</button>
-                    <button class="btn-number btn-notes" id="notes"></button>
-                  </div>
+                <center>
+                  <table>
+                    <tr>
+                      <td colspan="6">
+                          <div class="wall">
+                          </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <button class="btn-number" id="btn-number" onclick="btnNumber(1)">1</button>
+                      </td>
+                      <td>
+                        <button class="btn-number" id="btn-number" onclick="btnNumber(2)">2</button>
+                      </td>
+                      <td>
+                        <button class="btn-number" id="btn-number" onclick="btnNumber(3)">3</button>
+                      </td>
+                      <td>
+                        <button class="btn-number" id="btn-number" onclick="btnNumber(4)">4</button>
+                      </td>
+                      <td>
+                        <button class="btn-number" id="btn-number" onclick="btnNumber(5)">5</button>
+                      </td>
+                      <td>
+                        <button class="btn-number btn-hint" id="hint"></button>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <button class="btn-number" id="btn-number" onclick="btnNumber(6)">6</button>
+                      </td>
+                      <td>
+                        <button class="btn-number" id="btn-number" onclick="btnNumber(7)">7</button>
+                      </td>
+                      <td>
+                        <button class="btn-number" id="btn-number" onclick="btnNumber(8)">8</button>
+                      </td>
+                      <td>
+                        <button class="btn-number" id="btn-number" onclick="btnNumber(9)">9</button>
+                      </td>
+                      <td>
+                       <button class="btn-number btn-number-delete" id="btn-number" onclick="btnNumber(0)">Del</button>
+                      </td>
+                      <td>
+                       <button class="btn-number btn-notes" id="notes"></button>
+                      </td>
+                    </tr>
+                  </table>
+                </center>
 
               </div>
 

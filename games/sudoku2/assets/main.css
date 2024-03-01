@@ -182,8 +182,8 @@ select:not([size]).input {
 
 .btn-number {
   display: inline-block;
-  min-width: 63px;
-  min-height: 63px;
+  min-width: 60px;
+  min-height: 60px;
   margin: 1px 0px 1px 0px;
   padding: 10px 10px;
   border: 0;
@@ -226,7 +226,7 @@ select:not([size]).input {
   position: relative;
   width: 480px;
   height: 640px;
-  padding: 29px;
+  padding: 20px 0 0 0;
   overflow: hidden;
 }
 .header {
@@ -238,7 +238,7 @@ select:not([size]).input {
   display: inline-block;
   width: 100%;
   height: 40px;
-  padding: 0px 10px 0px 10px;
+  padding: 0px 40px 0px 40px;
 }
 .header-input {
   width: 120px;
@@ -279,8 +279,14 @@ select:not([size]).input {
 }
 
 .box-number{
+  /*
   margin: 10px 3px 3px 3px;
   float: left;
+  */
+  padding:0px;
+}
+
+.box-number table{
 }
 
 .aside {
@@ -307,10 +313,11 @@ select:not([size]).input {
 .aside-time {
   font-size: 12px;
   line-height: 1.14;
-  border: 1px solid #008ada; 
-  /*border-radius: 4px;*/
+  /*border: 1px solid #008ada; */
+  border-radius: 4px;
   padding: 2px 1px 0px 4px; 
   height: 36px;
+  background-image: linear-gradient(0deg, #555, #000, #555);
 }
 .aside-time .time-col {
   display: inline-block;
@@ -321,9 +328,17 @@ select:not([size]).input {
   color: #008ada;
 }
 .aside-time .time {
-  font-size: 15px;
+  font-size: 12px;
   margin: 1px 0 0 0;
+  color: #fff;
 }
+
+.aside-time .title {
+  font-size: 13px;
+  margin: 1px 0 0 0;
+  color: #fff;
+}
+
 .time-box{
 
 }
