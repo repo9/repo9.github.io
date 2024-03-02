@@ -2883,9 +2883,9 @@ gf.prototype.v = function(a) {
     hf(this.Yb);
     hf(this.Zb);
     hf(this.Xb);
-    this.c.appendChild(this.Ta, this.Yb);
-    this.c.appendChild(this.Ta, this.Xb);
-    this.c.appendChild(this.Ta, this.Zb)
+    //this.c.appendChild(this.Ta, this.Yb);
+    //this.c.appendChild(this.Ta, this.Xb);
+    //this.c.appendChild(this.Ta, this.Zb)
 };
 var hf = function(a) {
     a.children[0].style.position = "relative"
