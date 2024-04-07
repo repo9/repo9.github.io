@@ -7,10 +7,7 @@
 <meta name="generator" content="Scirra Construct">
 <meta name="description" id="description" content="수박게임! -fruit merge!- -suika game!- 과일들을 뭉쳐서 큰 과일로 만드는 퍼즐 게임입니다 과일 상자가 가득 찰 때까지 게임이 계속되며 상자 밖까지 과일이 튀어나오면 게임이 끝납니다. 만들 수 있는 가장 큰 과일이 수박입니다. 테트리스처럼 일반적인 상황에서는 소멸되지 않지만 수박 2개를 합칠 때만 소멸 가능합니다.">
 
-<link rel="apple-touch-icon" sizes="128x128" href="icons/icon-128.png">
-<link rel="apple-touch-icon" sizes="256x256" href="icons/icon-256.png">
-<link rel="apple-touch-icon" sizes="512x512" href="icons/icon-512.png">
-<link rel="icon" type="image/png" href="icons/icon-512.png">
+<link rel="icon" type="image/png" href="icon64.png">
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2170323107556217"
      crossorigin="anonymous"></script>
@@ -25,6 +22,26 @@ gtag('js', new Date());
 gtag('config', 'G-XP75WM9ELY');
 </script>
 
+<script>
+	function shareUrlClip(){
+	let inputTag = document.querySelector(".copy-value");
+	  navigator.clipboard.writeText(inputTag.value).then(res=>{
+	  	alert("Copy Success!");
+	  })
+	}
+
+	/*popup*/
+	function showPopup(){
+		document.getElementById("puzzle-menual-popup").style.display ='block';		
+	}
+
+	function hidePopup(){
+		document.getElementById("puzzle-menual-popup").style.display ='none';		
+		
+	}
+	/*popup*/
+
+</script>
 <style>
 
 	body{
@@ -36,21 +53,90 @@ gtag('config', 'G-XP75WM9ELY');
 	}
 
 	.top{
-		top:0px; width:100%; height:60px; overflow-y: auto;
+		top:0px; width:100%; height:60px; overflow-y: auto; padding: 0px;
+	}
+
+	.bottom{
+		bottom:0px; width:100%; height:60px; overflow-y: auto; padding: 0px;
 	}
 
 	.main{
 		width:100%; 
-		height: calc(100vh - 70px);
+		height: calc(100vh - 130px);
 		border: none;
 		padding: 0px;
 		margin: 0px;
 	}
 
+  	/*popup*/
+
+	.puzzle-menual-popup{
+	    position: fixed;  
+	    width:100%; 
+	    height:100%; 
+	    margin:0px; 
+	    padding:0; 
+	    background-color:#fff; 
+	    z-index: 99; 
+	    display: none;
+	}
+
+	.puzzle-setting-popup-wall{
+	    width:90%; 
+	    height:2px; 
+	    background-color:#ddd;
+	}
+
+	.shareBtn{
+	    width:90%; 
+	    height:50px; 
+	    margin:5px; 
+	    padding:5px; 
+	    border:none;
+	    border-radius: 5px;
+	    font-size: 15px;
+	    background-image: linear-gradient(#ddd, #fff, #ddd);
+	}
+   	/*popup*/
 </style>
 
 </head>
 <body>
+	<!-- popup -->
+	<div class="puzzle-menual-popup" id="puzzle-menual-popup">
+		<center>
+
+			<div id="title-bar" class="title-bar">
+				<p style="font-size: 25px; height:30px;"></p>
+				<p style="font-size: 15px;"></p>
+			</div>
+			
+			<div class="puzzle-setting-popup-wall"></div>
+
+			<div style="margin: 20px 0 50px 0;">  <!--qr-->
+				<div>
+					<p>-URL share-</p>
+					<div style="margin-top: 20px;">
+						<input type="text" class="copy-value" value="https://game.repo777.com/fruitmerge/" style="height:30px;  padding: 0 3px 0 3px;" readonly></input>
+	   					<button onclick="shareUrlClip()" style="height:34px; border: none;">copy</button>
+	   				</div>
+				</div>
+				<div style="margin-top:30px;">
+					<p>-QR share-</p>
+					<p><img src="qrcode.png" width="200"/></p>
+				</div>
+			</div>
+
+			<div class="puzzle-setting-popup-wall"></div>
+
+			<div id="close-btn" class="close-popup-button" onclick="hidePopup()">
+				<p style="font-size: 20px;">close</p>
+			</div>
+
+			<div class="puzzle-setting-popup-wall"></div>
+		</center>
+	</div>
+	<!-- popup -->
 
 	<div class="top" style="top:0px; width:100%; height:60px; overflow-y: auto;">
 		<center>
@@ -62,11 +148,33 @@ gtag('config', 'G-XP75WM9ELY');
 			<script>
 			     (adsbygoogle = window.adsbygoogle || []).push({});
 			</script>
+			
 		</center>
 	</div>
 
 	<iframe class="main" src="main.html">
 	</iframe>
 
+	<div class="bottom" style="top:0px; width:100%; height:60px; overflow-y: auto;">
+		<div id="popup-menu">
+			<center>
+				<button class="shareBtn" onclick="showPopup();">Enjoy on mobile!</button>
+			</center>
+		</div>
+	</div>
+
 </body>
+<script>
+	/*popup*/
+	window.onload=function deviceCheck() {
+	    const user = navigator.userAgent;
+	    
+	    if ( user.indexOf("iPhone") > -1 || user.indexOf("Android") > -1 ) {
+	    	   document.getElementById("popup-menu").style.display ='none';	
+	    }else{
+	        document.getElementById("popup-menu").style.display ='block';	
+	    }
+	}
+	/*popup*/
+</script>
 </html>
