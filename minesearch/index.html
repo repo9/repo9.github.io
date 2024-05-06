@@ -1,137 +1,338 @@
-<!DOCTYPE html>
-
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-  <title> Minesweeper v.1 </title>
-  <meta charset="utf-8">
-  <!-- Meta tag for responsive websites -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- CSS -->
-  <script src="js/p5.js"></script>
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Oswald|Source+Sans+Pro" rel="stylesheet">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XP75WM9ELY"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+	<meta charset="UTF-8">
+	<title>Minesweeper</title>
+	<link rel="icon" href="img/mine_tile.png">
+	<link rel="stylesheet" href="style/main.css">
+	<style>
+		.container {
+		  /* 중앙 정렬 */
+		  align-items: center;
+		  display: flex;
+		  justify-content: center;
 
-    gtag('config', 'G-XP75WM9ELY');
-  </script>
+		  /* 높이 지정 */
+		  min-height: 32rem;
+		}
 
+		.draggable {
+		  /*
+		  cursor: move;
+		  */
+		  position: absolute;
+		  user-select: none;
 
-    <style>
+		  /* 중앙 정렬 */
+		  align-items: center;
+		  display: flex;
+		  justify-content: center;
 
-    .ad{
-      padding: 0px;
-      height: 50px;
-      width: 380px;
-      left: 0px;
-      border-style: outset;
-      background: #e1e1e1;
-      margin: 0 auto;
-    }
+		  /* 디자인
+		  border: 1px solid #cbd5e0;
+		  height: 8rem;
+		  width: 8rem;
+		   */
+		}
 
+		.dragMe{
+			cursor: move;
+		}
 
-  </style>
+	</style>
 </head>
+<body>
+<script src="js/Minesweeper.js"></script>
+<div class="modal" id="highscores-modal">
+	<div class="modal-content">
+	  <div class="modal-header">
+	    <span class="close">&times;</span>
+	    <h2>Highscores</h2>
+	  </div>
+	  <div class="modal-body" id="highscores-body"></div>
+		<div class="modal-footer">
+	    <div style="text-align: center">
+				<button id="clearScores">Reset Scores</button>
+			</div>
+	  </div>
+	</div>
+</div>
+<div class="modal" id="custom-modal">
+	<div class="modal-content">
+	  <div class="modal-header">
+	    <span class="close">&times;</span>
+	    <h2>Custom Level</h2>
+	  </div>
+	  <div class="modal-body">
+			<table style='width:100%' class="centered">
+				<tr>
+					<th>Tile Width: </th>
+					<td><input type="number" id="width" style="width:80px" /></td>
+				</tr>
+				<tr>
+					<th>Tile Height: </th>
+					<td><input type="number" id="height" style="width:80px" /></td>
+				</tr>
+				<tr>
+					<th><a href=" " class="hoverable" title="Refers to the percentage of tiles that have mines. This should be a number between 0.0 and 1.0.">Mine Ratio: </a></th>
+					<td><input type="number" id="ratio" style="width:80px" /></td>
+				</tr>
+			</table>
+	  </div>
+	  <div class="modal-footer">
+	    <div style="text-align: center">
+				<input type="submit" text="Play Now" id="customLevelSubmit" />
+			</div>
+	  </div>
+	</div>
+</div>
+<div class="modal" id="controls-modal">
+	<div class="modal-content">
+	  <div class="modal-header">
+	    <span class="close">&times;</span>
+	    <h3>Control Settings</h3>
+	  </div>
+	  <div class="modal-body">
+			<table>
+				<tr>
+					<td><input type="checkbox" id="opening-move"></td>
+					<td><a href=" " class="hoverable" title="Your opening move will expose at least 9 tiles">Opening Move</a></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" id="marks-?"></td>
+					<td><a href=" " class="hoverable" title='You can label tiles with a "?" to denote unsure'>Marks (?)</a></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" id="area-open"></td>
+					<td><a href=" " class="hoverable" title='Clicking next to a sufficiently satisfied exposed tile will expose its neighbors'>Area Open</a></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" id="open-remaining"></td>
+					<td><a href=" " class="hoverable" title="When you've placed all your flags, clear the rest of the tiles by clicking the flag count">Open Remaining</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="modal" id="display-modal">
+	<div class="modal-content">
+		<div class="modal-header">
+			<span class="close">&times;</span>
+			<p>Theme</p>
+		</div>
+		<div class="modal-body">
+			<div style="display:none">
+				<label>Size:</label>
+				<input type="range" id="size" class="slider" min="0.5" max="1.5" value="1.0" step="0.25">
+			</div>
 
-<body oncontextmenu="return false;">
+			<div>
+				<form id="color-theme">
+					<div>
+						<div style="display: inline-block; width: 50%;">
+							<p class="theme_lb">nomal</p>
+							<input type="radio" name="color" id="light-theme" value="light" checked>
+						</div>
+						<div style="display: inline-block; width: 50%;">
+							<p class="theme_lb">flower</p>
+							<input type="radio" name="color" id="dark-theme" value="dark">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 
-  <div class="content">
+<div style="display:none">
+	<img id="blue_0" src="img/blue_0.png">
+	<img id="blue_empty" src="img/blue_empty.png">
+	<img id="0" src="img/0.png">
+	<img id="1" src="img/1.png">
+	<img id="2" src="img/2.png">
+	<img id="3" src="img/3.png">
+	<img id="4" src="img/4.png">
+	<img id="5" src="img/5.png">
+	<img id="6" src="img/6.png">
+	<img id="7" src="img/7.png">
+	<img id="8" src="img/8.png">
+	<img id="9" src="img/9.png">
+	<img id="-" src="img/-.png">
+	<img id="empty" src="img/empty.png">
 
-    <div class="menuPopup" id="menuPopup">
-      <!--
-      <div class="logo" id="logo">
-        <img src="icon/logo.png">
-      </div>
-      -->
+	<img id="empty_tile" src="img/empty_tile.png">
+	<img id="1_tile" src="img/1_tile.png">
+	<img id="2_tile" src="img/2_tile.png">
+	<img id="3_tile" src="img/3_tile.png">
+	<img id="4_tile" src="img/4_tile.png">
+	<img id="5_tile" src="img/5_tile.png">
+	<img id="6_tile" src="img/6_tile.png">
+	<img id="7_tile" src="img/7_tile.png">
+	<img id="8_tile" src="img/8_tile.png">
+	<img id="mine_tile" src="img/mine_tile.png">
+	<img id="flag_tile" src="img/flag_tile.png">
+	<img id="cover_tile" src="img/cover_tile.png">
+	<img id="tripped_mine_tile" src="img/tripped_mine_tile.png">
+	<img id="incorrect_flag_tile" src="img/incorrect_flag_tile.png">
+	<img id="unknown_tile" src="img/unknown_tile.png">
+	<img id="hor_border" src="img/horizontal_border.png">
+	<img id="ver_border" src="img/vertical_border.png">
+	<img id="upper_left_corner" src="img/upper_left_corner.png">
+	<img id="upper_right_corner" src="img/upper_right_corner.png">
+	<img id="bottom_right_corner" src="img/bottom_right_corner.png">
+	<img id="bottom_left_corner" src="img/bottom_left_corner.png">
+	<img id="left_T_corner" src="img/left_T_corner.png">
+	<img id="right_T_corner" src="img/right_T_corner.png">
+	<img id="happy_face" src="img/happy_face.png">
+	<img id="pressed_happy_face" src="img/pressed_happy_face.png">
+	<img id="cool_face" src="img/cool_face.png">
+	<img id="pressed_cool_face" src="img/pressed_cool_face.png">
+	<img id="dead_face" src="img/dead_face.png">
+	<img id="pressed_dead_face" src="img/pressed_dead_face.png">
+	<img id="scared_face" src="img/scared_face.png">
 
-      <div class="setting-popup-box" >
-
-          <div class="logo" id="logo">
-            <img src="icon/logo.png">
-          </div>
-       
-          <div class="box">
-            <div class ="Subtitle" id="">theme</div>
-            
-            <div class ="themebtn" id="bomb" onclick="theme1Btn()"><img src="icon/bomb.png"><br>bomb</div>
-            <div class ="themebtn" id="flower" onclick="theme2Btn()"><img src="icon/flower.png"><br>flower</div>
-          
-          </div>
-
-          <div class="box">
-            <div class ="Subtitle" id="">difficulty</div>
-            <div class ="diffibtn" id="easy" onclick="easyBtn()">easy</div>
-            <div class ="diffibtn" id="medium" onclick="mediumBtn()">medium</div>
-            <div class ="diffibtn" id="hard" onclick="hardBtn()">hard</div>
-          </div>
-
-          <div class="box">
-            <div class="startGamebtn underbtn" id= "startGamebtn" onclick="firstStart()">start game</div>
-            <div class="newGamebtn underbtn" id= "newGamebtn" onclick="saveStart()">Save and restart game</div>
-            <div class="cancelbtn underbtn" id= "cancelbtn" onclick="closeMenu()">cancel</div>
-          </div>
-      </div>
-    </div>  
-
-    <div class="top">
-
-      <div class="leftTop">
-        <div class="menuBtn" onclick="menu()"></div>
-      </div>
-
-      <div class="middleTop">
-        <div class="startBtn" id="startBtn" onclick="gameReset()"></div>
-      </div>
-
-      <div class="rightTop">
-        <div class="flagBtn" id="flagBtn" onclick="flag()"></div>
-      </div>
-   
-      <!--
-      <button onclick="start(9,9,10)">Play1</button>
-      <button onclick="start(16,16,40)">Play2</button>
-      <button onclick="flag()">flag</button>
-      -->
-
-    </div>
-
-    <div class="middle">
-      <div id="canvas-holder">
-      <!-- Our canvas goes here -->
-      </div>
-    </div>
-
-    <div class="bottom">
-      <div class="clockLb">
-        <div class="timerIcon"></div>
-        <span class="clock" id="time">00:00:00</span>
-      </div>
-      <div class="flagLb">
-        <div class="flags" id="flagsLeft"></div>
-        <div class="flagIcon"></div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="ad">
-  </div>
-    <!-- JavaScript -->
-    <script type="text/javascript" src="js/clock.js"></script>
-    <script type="text/javascript" src="js/saveload.js"></script>
-    <script type="text/javascript" src="js/alert.js"></script>
-
-    <script type="text/javascript" src="js/interface.js"></script>
-    <script type="text/javascript" src="js/box.js"></script>
-    <script type="text/javascript" src="js/implementation.js"></script>
+	<img id="empty_tile_dark" src="img/empty_tile_dark.png">
+	<img id="1_tile_dark" src="img/1_tile_dark.png">
+	<img id="2_tile_dark" src="img/2_tile_dark.png">
+	<img id="3_tile_dark" src="img/3_tile_dark.png">
+	<img id="4_tile_dark" src="img/4_tile_dark.png">
+	<img id="5_tile_dark" src="img/5_tile_dark.png">
+	<img id="6_tile_dark" src="img/6_tile_dark.png">
+	<img id="7_tile_dark" src="img/7_tile_dark.png">
+	<img id="8_tile_dark" src="img/8_tile_dark.png">
+	<img id="mine_tile_dark" src="img/mine_tile_dark.png">
+	<img id="flag_tile_dark" src="img/flag_tile_dark.png">
+	<img id="cover_tile_dark" src="img/cover_tile_dark.png">
+	<img id="tripped_mine_tile_dark" src="img/tripped_mine_tile_dark.png">
+	<img id="incorrect_flag_tile_dark" src="img/incorrect_flag_tile_dark.png">
+	<img id="unknown_tile_dark" src="img/unknown_tile_dark.png">
+	<img id="hor_border_dark" src="img/horizontal_border_dark.png">
+	<img id="ver_border_dark" src="img/vertical_border_dark.png">
+	<img id="upper_left_corner_dark" src="img/upper_left_corner_dark.png">
+	<img id="upper_right_corner_dark" src="img/upper_right_corner_dark.png">
+	<img id="bottom_right_corner_dark" src="img/bottom_right_corner_dark.png">
+	<img id="bottom_left_corner_dark" src="img/bottom_left_corner_dark.png">
+	<img id="left_T_corner_dark" src="img/left_T_corner_dark.png">
+	<img id="right_T_corner_dark" src="img/right_T_corner_dark.png">
+	<img id="happy_face_dark" src="img/happy_face_dark.png">
+	<img id="pressed_happy_face_dark" src="img/pressed_happy_face_dark.png">
+	<img id="cool_face_dark" src="img/cool_face_dark.png">
+	<img id="pressed_cool_face_dark" src="img/pressed_cool_face_dark.png">
+	<img id="dead_face_dark" src="img/dead_face_dark.png">
+	<img id="pressed_dead_face_dark" src="img/pressed_dead_face_dark.png">
+	<img id="scared_face_dark" src="img/scared_face_dark.png">
+	<img id="empty_tile_dark" src="img/empty_tile_dark.png">
+</div>
 
 
+
+	<div class="container">
+	<div class="draggable" id="draggable">
+	<table id="divGameTable" class="divGameTable">
+		<tr>
+			<td class="title_box dragMe" id="dragMe">
+				<div>
+					<img src="img/mine_tile.png" class="title_img">
+					<span class="title">Minesweeper</span>
+				</div>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<div class="dropdown">
+					<button id="levelDropdownButton" class="dropbtn">Game</button>
+					<div id="levelDropdown" class="dropdown-content">
+						<!--<a id="new">New</a>-->
+						<a id="easy">Easy</a>
+						<a id="medium">Medium</a>
+						<a id="hard">Hard</a>
+						<!--<a id="expert">Expert</a>
+						<a id="custom">Custom</a>
+						<hr/>
+						<a id="highscores">Highscores</a>
+						-->
+					</div>
+				</div>
+				
+				<div class="dropdown">
+					<button id="settingsDropdownButton" class="dropbtn">Option</button>
+					<div id="settingsDropdown" class="dropdown-content">
+						<!--<a id="control">Control Settings</a>-->
+						<a id="display">theme</a>
+					</div>
+				</div>
+				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div id="divGameStage"></div>
+			</td>
+		</tr>
+		<!--
+		<tr>
+			<td>
+				<center>
+					<img src="img/red_flag_tile.png" class="flag_img">
+					<img src="img/click_flag_tile.png" class="flag_img">
+				</center>
+			</td>
+		</tr>
+		-->
+	</table>
+	</div>
+	</div>
+
+
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+		  let x = 0;
+		  let y = 0;
+		  const ele_box = document.getElementById('draggable');
+		  const ele = document.getElementById('dragMe');
+
+		  const mouseDownHandler = function (e) {
+		    x = e.clientX;
+		    y = e.clientY;
+
+		    // 마우스 이동 및 해제 이벤트를 등록
+		    document.addEventListener('mousemove', mouseMoveHandler);
+		    document.addEventListener('mouseup', mouseUpHandler);
+		  };
+
+		  const mouseMoveHandler = function (e) {
+		    // 마우스 이동시 초기 위치와의 거리차 계산
+		    const dx = e.clientX - x;
+		    const dy = e.clientY - y;
+
+		    t = ele_box.offsetTop + dy;
+		    l = ele_box.offsetLeft + dx;
+
+		    if(t<0){ t = 0;}
+		    if(l<0){ l = 0;}
+		    //console.log(t+"--"+l); 
+
+		    //ele_box.style.top = `${ele_box.offsetTop + dy}px`;
+		    //ele_box.style.left = `${ele_box.offsetLeft + dx}px`;
+
+		    ele_box.style.top = `${t}px`;
+		    ele_box.style.left = `${l}px`;
+
+		    // 기준 위치 값을 현재 마우스 위치로 update
+		    x = e.clientX;
+		    y = e.clientY;
+		  };
+
+		  const mouseUpHandler = function () {
+		    document.removeEventListener('mousemove', mouseMoveHandler);
+		    document.removeEventListener('mouseup', mouseUpHandler);
+		  };
+
+		  ele.addEventListener('mousedown', mouseDownHandler);
+		});
+
+	</script>
 </body>
-
 </html>
