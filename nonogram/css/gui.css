@@ -27,38 +27,53 @@
     background-color: #57606f;
 }
 
+.nonogram-switch-box{
+    height: 40px;
+}
+
+.nonogram-switch-label{
+    display: inline-block;
+    float: center;
+}
+
 .nonogram-switch {
     background: #ddd;
-    width: 100px;
-    height: 36px;
+    width: 80px;
+    height: 40px;
+    padding: 0px;
     position: relative;
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
+
+    border-radius: 20px;
 }
 
 .nonogram-switch .nonogram-switch-paddle {
-    display: flex;
+    /*display: flex;*/
     justify-content: space-between;
     align-items: center;
     flex-direction: row-reverse;
     height: 100%;
-    padding: 0 10px;
+    padding: 0px 0px 0px 0px;
     cursor: pointer;
 }
 
 .nonogram-switch .nonogram-switch-paddle:before {
     content: '';
-    width: 28px;
-    height: calc(100% - 8px);
+    width: 40px;
+    height: 32px;
     position: absolute;
     left: 4px;
+    margin: 4px 0 4px 0;
     background: #485160;
     transition: left 0.2s ease;
+
+    border-radius: 18px;
 }
 
 .nonogram-switch .nonogram-switch-paddle.on:before {
-    left: calc(100% - 32px);
+    left: calc(50% - 4px);
 }
 
 .nonogram-switch .nonogram-switch-paddle span {
@@ -285,6 +300,7 @@ table.nonogram-puzzle-grid td.puzzle-cell.solution-negative .fill {
     background-size: 100% auto;
     background-position: 50% 50%;
     background-repeat: no-repeat;
+    background-image: url("../img/cross.svg");
     /*background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='32px' height='32px' viewBox='0 0 32 32' enable-background='new 0 0 32 32' xml:space='preserve'%3E%3Cpolygon fill='%23ACACAC' points='26.104,9.521 22.479,5.897 16,12.376 9.522,5.897 5.896,9.522 12.375,16 5.898,22.478 9.522,26.103 16,19.625 22.479,26.103 26.103,22.478 19.625,16 '/%3E%3C/svg%3E%0A");*/
 }
 

@@ -102,7 +102,7 @@ const Gui = class
 
 			//this.drawGameControls();
 			//this.drawConsole();
-		} );
+
 
 		
 
@@ -151,6 +151,31 @@ const Gui = class
 			document.querySelector( '.puzzle-setting-popup' ).style.display = 'block'; //열기
 			//document.querySelector(".puzzle-deteil-label").value = "Lv.Beginner";
 		} );
+
+
+		//click mode
+		document.querySelector( '#nonogram-puzzle-fill-mode' ).addEventListener( 'change', () =>
+				{
+					const fillModeLabel = document.querySelector( '[for="nonogram-puzzle-fill-mode"]' ),
+						  prevActive    = fillModeLabel.querySelector( '.active' ),
+						  prevInactive  = fillModeLabel.querySelector( '.inactive' )
+					;
+
+					prevActive.classList.remove( 'active' );
+					prevActive.classList.add( 'inactive' );
+					prevInactive.classList.remove( 'inactive' );
+					prevInactive.classList.add( 'active' );
+					if (document.querySelector( '#nonogram-puzzle-fill-mode' ).checked) {
+						fillModeLabel.classList.add( 'on' );
+						//alert(0);
+						this.playerClickMode = 0;
+					} else {
+						fillModeLabel.classList.remove( 'on' );
+						//alert(1);
+						this.playerClickMode = 1;
+					}
+				} );
+			} );
 
 
 		document.querySelector( '.beginner-btn' ).addEventListener( 'click', () =>{
@@ -379,9 +404,12 @@ const Gui = class
 					td.setAttribute( 'data-row', cell.row );
 					td.classList.add( 'puzzle-cell', 'flippable' );
 
-					if(cell.userSolution){
+					//cell save file load
+					if(cell.userSolution == 1){
 						console.log("cellSolution setting!!!");
 						td.classList.add( 'puzzle-cell', 'user-solved','user-positive' );
+					}else if(cell.userSolution==0){
+						td.classList.add( 'puzzle-cell', 'user-solved','user-negative' );
 					}
 					
 					Object.keys( cellClasses ).forEach( ( cssClass ) =>
@@ -419,6 +447,7 @@ const Gui = class
 	{
 		Promise.all( this.templatesLoaded ).then( () =>
 		{
+
 			const template  = this._getTemplate( 'gameControls' ),
 				  container = document.querySelector( '[data-nonogram-game-controls]' ),
 				  node      = template.getNode()
@@ -879,11 +908,14 @@ const Gui = class
 				window.localStorage.setItem('asvglhmi-GameTotalCellSave', this.puzzle.totalCells);
 				//console.log(this.puzzle.cells);
 
+				
 				if (cell.userSolution === 1) {
 					cellElem.classList.add( 'user-solved', 'user-positive' );
 				} else if (cell.userSolution === 0) {
 					cellElem.classList.add( 'user-solved', 'user-negative' );
+					//cellElem.classList.add( 'user-solved', 'solution-negative' );
 				}
+				
 
 				cellElem.classList.toggle( 'flipped' );
 
