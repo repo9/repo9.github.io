@@ -48,7 +48,7 @@ var resultInCompleteText = 'BETTER LUCK NEXT TIME!'; //puzzle incomplete text di
 
 //Social share, [SCORE] will replace with game score
 var shareEnable = true; //toggle share
-var shareText = 'Share your score'; //social share guide
+var shareText = ''; //'Share your score'; //social share guide
 var shareTitle = 'Highscore on CalcuDoku Game is [SCORE]';//social share score title
 var shareMessage = '[SCORE] is mine new highscore on CalcuDoku Game! Try it now!'; //social share score message
 
@@ -166,6 +166,7 @@ function buildGameButton(){
 		goPage('main');
     });
 	
+    /*
 	$('#buttonFacebook').click(function() {
         share('facebook');
     });
@@ -177,7 +178,8 @@ function buildGameButton(){
 	$('#buttonWhatsapp').click(function() {
         share('whatsapp');
     });
-	
+	*/
+    
 	$('#buttonOption').click(function() {
 		playSound('soundClick');
         toggleGameOption();

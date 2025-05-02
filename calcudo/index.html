@@ -62,7 +62,7 @@
                 border-radius: 5px;
                 font-size: 13px;
                 color:#fff;
-                background:linear-gradient(#222, #333, #222);
+                background:linear-gradient(#555, #333, #555);
                 margin: 5px 0  5px 0;
             }
 
@@ -89,12 +89,24 @@
                 </iframe>
             </div>
             <div class="col-sm-4">
-                <div class="menu">
+                <div id="pc" class="menu" style="display: none;">
                     <center>
                         <p>QR를 찍어서 모바일에서도 즐기세요.</p>
                         <img width="140" src="qrcode.png">
                     </center>
                 </div>
+
+                <div id="mobile" class="menu" style="display: block;">
+                    <center>
+                        <p>게임 공유하기</p>
+                        <div style="margin-top: 10px;">
+                        <input type="text" class="copy-value" value="https://game.repo777.com/calcudo/" style="height:30px;  padding: 0 3px 0 3px; border-radius: 5px; " readonly></input>
+                        <br>
+                        <button onclick="shareUrlClip()" style="height:30px; border: none;">주소 공유</button>
+                        </div>
+                    </center>
+                </div>
+
                 <center>
                    <!-- calcuDoku -->
                     <ins class="adsbygoogle"
@@ -114,6 +126,29 @@
         </div>
                 
     </body>
+    <script>
+        window.onload=function deviceCheck() {
+    
+            const user = navigator.userAgent;
+            
+            if ( user.indexOf("iPhone") > -1 || user.indexOf("Android") > -1 ) {
+                console.log("mobile"); 
+                document.getElementById("pc").style.display ='none';   
+                document.getElementById("mobile").style.display ='block';    
+            }else{
+                console.log("pc");
+                document.getElementById("pc").style.display ='block';   
+                document.getElementById("mobile").style.display ='none';  
+            }
+        }
+
+        function shareUrlClip(){
+        let inputTag = document.querySelector(".copy-value");
+          navigator.clipboard.writeText(inputTag.value).then(res=>{
+            alert("주소가 복사되었습니다!");
+          })
+        }
+    </script>
 
 
 
